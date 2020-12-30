@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
     root: {
         textAlign: "center",
         background: "#FFFFFF 0% 0% no-repeat padding-box",
-        borderRradius: 15,
+        borderRadius: 15,
     },
     media: {
         height: 0,

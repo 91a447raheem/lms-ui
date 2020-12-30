@@ -31,8 +31,8 @@ const StyledBadge = withStyles((theme) => ({
         boxShadow: `0 0 0 2px ${theme.palette.background.paper}`,
         '&::after': {
             position: 'absolute',
-            top: 0,
-            left: 0,
+            top: -1,
+            left: -1,
             width: '100%',
             height: '100%',
             borderRadius: '50%',
@@ -59,27 +59,30 @@ const useStyles = makeStyles((theme) => ({
         width: '100%',
         // maxWidth: 360,
         backgroundColor: theme.palette.background.paper,
-        border: "1px solid #E8E8E8",
-        borderRadius: 10
+        borderBottom: "1px solid #E8E8E8",
     },
     cardTtitle: {
         textAlign: "left",
-        font: "normal normal 600 20px/30px Poppins",
+        fontFamily: 'Poppins',
         color: "#000000",
         opacity: 1,
+        fontSize:20,
+        fontWeight:500,
     },
     cardSubText: {
         textAlign: "left",
-        font: "normal normal normal 14px/30px Poppins",
+        fontFamily: 'Poppins',
         color: "#7D7D7D",
-        opacity: 1
+        opacity: 1,
+        fontSize:16
     },
     lastUpdate: {
         textAlign: "left",
-        font: "normal normal normal 16px / 30px Poppins",
+        fontFamily: 'Poppins',
         color: "#7B7C7E",
         opacity: 1,
-        paddingTop: 10
+        paddingTop: 10,
+        fontSize:16
     }
 }));
 
