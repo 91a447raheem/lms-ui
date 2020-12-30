@@ -90,7 +90,7 @@ export default function ChatList() {
             </Grid>
             {[0, 1, 2, 3, 4, 5, 6, 7, 8].map((value) => {
                 return (
-                    <Grid item sm={12} key={value}>
+                    <Grid item sm={12} key={value} style={{padding:0}} >
                         <ChatCard />
                     </Grid>
                 );

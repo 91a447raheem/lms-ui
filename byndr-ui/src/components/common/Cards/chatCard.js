@@ -56,11 +56,16 @@ const StyledBadge = withStyles((theme) => ({
 
 const useStyles = makeStyles((theme) => ({
     root: {
-        width: '100%',
+        width: '95%',
         // maxWidth: 360,
         backgroundColor: theme.palette.background.paper,
         borderBottom: "1px solid #E8E8E8",
+        padding:20,
+        '&:hover': {
+            backgroundColor:"#F7F7F7",
+        },
     },
+    
     cardTtitle: {
         textAlign: "left",
         fontFamily: 'Poppins',
@@ -160,6 +165,10 @@ export default function ChatCard() {
                         transformOrigin={{
                             vertical: 'top',
                             horizontal: 'center',
+                        }}
+                        style={{
+                            left: -60,
+                            top:-20
                         }}
                     >
                         <List component="nav"  >
