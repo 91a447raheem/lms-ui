@@ -12,16 +12,13 @@ import IconButton from '@material-ui/core/IconButton';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import Avatar from '@material-ui/core/Avatar';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
-import BlockIcon from '@material-ui/icons/Block';
-import ReportOutlinedIcon from '@material-ui/icons/ReportOutlined';
-import PersonAddDisabledOutlinedIcon from '@material-ui/icons/PersonAddDisabledOutlined';
+import PinDropIcon from '@material-ui/icons/PinDrop';
 import AccountCircleOutlinedIcon from '@material-ui/icons/AccountCircleOutlined';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import PersonAddDisabledIcon from '@material-ui/icons/PersonAddDisabled';
 import PersonAddIcon from '@material-ui/icons/PersonAdd';
 import VolumeMuteIcon from '@material-ui/icons/VolumeMute';
 import PhotoCameraIcon from '@material-ui/icons/PhotoCamera';
-import ShareOutlinedIcon from '@material-ui/icons/ShareOutlined';
 import Popover from '@material-ui/core/Popover';
 import PhoneOutlinedIcon from '@material-ui/icons/PhoneOutlined';
 import VideoCallOutlinedIcon from '@material-ui/icons/VideoCallOutlined';
@@ -145,19 +142,19 @@ export default function GrpHeadCard(props) {
                         }}
                     >
                         <List component="nav"  >
-                            <ListItem>
+                            <ListItem button>
                                 <ListItemIcon>
-                                    <ShareOutlinedIcon/>
+                                    <PinDropIcon/>
                                 </ListItemIcon>
                                 <ListItemText primary="Pin to Top" />
                             </ListItem>
-                            <ListItem>
+                            <ListItem button>
                                 <ListItemIcon>
                                     <AccountCircleOutlinedIcon/>
                                 </ListItemIcon>
                                 <ListItemText primary="Rename" />
                             </ListItem>
-                            <ListItem>
+                            <ListItem button>
                                 <ListItemIcon>
                                     <ExitToAppIcon />
                                 </ListItemIcon>

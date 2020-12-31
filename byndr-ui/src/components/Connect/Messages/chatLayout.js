@@ -8,7 +8,7 @@ import FileCopyOutlinedIcon from '@material-ui/icons/FileCopyOutlined';
 import ShareOutlinedIcon from '@material-ui/icons/ShareOutlined';
 import ReplyOutlinedIcon from '@material-ui/icons/ReplyOutlined';
 import InvertColorsIcon from '@material-ui/icons/InvertColors'
-import { CallReceived } from "@material-ui/icons";
+import { CallReceived, NoEncryption } from "@material-ui/icons";
 
 
 const useStyles = makeStyles(theme => ({
@@ -50,7 +50,6 @@ const useStyles = makeStyles(theme => ({
     messageTiemcls: {
         right: 0,
         width: "50%",
-        marginLeft: "50%"
     },
     messageContentLeft: {
         color: "#000000",
@@ -77,8 +76,10 @@ const useStyles = makeStyles(theme => ({
         opacity: "0.5",
         fontFamily: 'Poppins',
         fontsize:12,
+    },
+    displaynone:{
+        display:"none",
     }
-
 
 }));
 
@@ -128,12 +129,12 @@ const ChatLayout = () => {
                 </Grid>
                 }
                 <Grid container justify="flex-start" spacing={2} style={{width:"calc(100% - 50px)",float:"right"}}>
-                <Grid item xs={4}>
+                <Grid item xs={4} className={obj.direction === 'right' ? classes.displaynone : classes.displayblock}>
                         <Typography variant="body2" className={classes.cardTtitle} component="span">
                             {obj.username}
                         </Typography>
                     </Grid>
-                    <Grid item xs={5} style={{textAlign:"right"}}>
+                    <Grid item xs={5} style={{textAlign:obj.direction === 'right'? "left" :"right"}}>
                         <Typography variant="body2" className={classes.messageTiemcls} component="span">
                             {obj.messageTiem}
                         </Typography>
