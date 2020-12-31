@@ -16,6 +16,7 @@ import NewGroupCards from '../../common/Cards/newGroupCards'
 const useStyles = makeStyles((theme) => ({
     root: {
         flexGrow: 1,
+        width: "99%",
     },
 
     b_rt: {

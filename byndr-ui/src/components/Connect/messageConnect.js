@@ -52,7 +52,7 @@ const useStyles = makeStyles((theme) => ({
     float: 'right',
   },
   contentRendererinr:{
-    padding:10,
+    paddingTop:10,
     background:"#fff",
   }
 }));
