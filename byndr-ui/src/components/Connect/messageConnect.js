@@ -45,7 +45,6 @@ const useStyles = makeStyles((theme) => ({
     marginBottom:100
   },
   chatListblockinr:{
-  padding:'0 10px',
   marginTop:10
   },
   contentRenderer:{
@@ -53,7 +52,8 @@ const useStyles = makeStyles((theme) => ({
     float: 'right',
   },
   contentRendererinr:{
-    padding:10
+    paddingTop:10,
+    background:"#fff",
   }
 }));
 

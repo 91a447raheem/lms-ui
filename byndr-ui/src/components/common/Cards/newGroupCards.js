@@ -15,21 +15,25 @@ const useStyles = makeStyles((theme) => ({
     root: {
         textAlign: "center",
         background: "#FFFFFF 0% 0% no-repeat padding-box",
-        borderRradius: 15,
+        borderRadius: 15,
+        border: "1px solid #E8E8E8",
     },
     card_title: {
         padding: 20,
-        fontSize: 20,
+        fontSize: 24,
         textAlign: "center",
-        font: "normal normal medium 20px/27px Poppins",
-        color: "#1956E3"
+        fontFamily: 'Poppins',
+        color: "#041E5C",
+        fontWeight: '500',
     },
     card_desc: {
         padding: 20,
-        fontSize: 20,
+        paddingTop:0,
+        fontSize: 18,
         textAlign: "center",
-        font: "normal normal medium 20px/27px Poppins",
-        color: "#7B7C7E",
+        fontFamily: 'Poppins',
+        color: "#000000",
+        opacity:0.5,
         letterSpacing: 0.24
     },
 
@@ -50,14 +54,22 @@ export default function NewGroupCards(props) {
                 </Typography>
             </CardContent>
             <CardActions style={{
-                paddingLeft: "35%"
+                paddingLeft: "25%",
+                paddingBottom:40
             }}>
                 <Button
                     component={Link} to="/connect/messages/grpChat"
                     style={{
                         textAlign: "center",
-                        font: "normal normal medium 16px/30px Poppins",
+                        fontFamily: 'Poppins',
                         borderRadius: 5,
+                        background: '#F4F7FF 0% 0% no-repeat padding-box',
+                        color: '#1956E3',
+                        fontWeight: '500',
+                        fontSize:18,
+                        textTransform: "capitalize",
+                        boxShadow:"none",
+                        width:"70%"
                     }}
                     variant="contained"
                     color="primary">{props.cardButton}</Button>

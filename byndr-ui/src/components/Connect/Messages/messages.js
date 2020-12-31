@@ -16,6 +16,7 @@ import NewGroupCards from '../../common/Cards/newGroupCards'
 const useStyles = makeStyles((theme) => ({
     root: {
         flexGrow: 1,
+        width: "99%",
     },
 
     b_rt: {
@@ -55,7 +56,8 @@ const useStyles = makeStyles((theme) => ({
     },
     alignBlockCenter:{
         margin:'0 auto',
-        marginTop:250
+        marginTop:'20%',
+        width:600
     }
 
 }));
@@ -68,7 +70,6 @@ export default function Messages() {
                 <Grid item
                     container
                     alignItems="center"
-                    sm={4}
                     className={classes.alignBlockCenter}
                 >
                     <NewGroupCards

@@ -8,6 +8,7 @@ import FileCopyOutlinedIcon from '@material-ui/icons/FileCopyOutlined';
 import ShareOutlinedIcon from '@material-ui/icons/ShareOutlined';
 import ReplyOutlinedIcon from '@material-ui/icons/ReplyOutlined';
 import InvertColorsIcon from '@material-ui/icons/InvertColors'
+import { CallReceived, NoEncryption } from "@material-ui/icons";
 
 
 const useStyles = makeStyles(theme => ({
@@ -23,35 +24,32 @@ const useStyles = makeStyles(theme => ({
     bubble: {
         //border: "0.5px solid black",
         //borderRadius: "10px",
+        float: "left",
+        marginBottom: 33,
         margin: "5px",
         padding: "10px",
-        display: "inline-block"
     },
     left: {
-        font: "normal normal normal 17px / 24px Poppins",
+        fontFamily: 'Poppins',
+        fontize:17,
         justifyContent: "flex-start !important",
         opacity: 1,
-        // background: "#FFFFFF",
-        border: "1px solid #F0F0F0",
-        borderRadius: "15px 15px 15px 0px",
         left: 0,
-        width: "50%",
+        width: "90%",
         marginRight: "50%"
     },
     right: {
-        font: "normal normal normal 17px / 24px Poppins",
-
+        fontFamily: 'Poppins',
+        fontsize:17,
         justifyContent: "flex-end !important",
         opacity: 1,
-
         right: 0,
-        width: "50%",
-        marginLeft: "50%"
+        width: "90%",
+        marginLeft: "10%"
     },
     messageTiemcls: {
         right: 0,
         width: "50%",
-        marginLeft: "50%"
     },
     messageContentLeft: {
         color: "#000000",
@@ -68,8 +66,20 @@ const useStyles = makeStyles(theme => ({
     },
     inputChat: {
         paddingTop:"15%",
+        width:"100%",
+        float:"left"
+    },
+    messageview:{
+        float:"right",
+        textAlign:"right",
+        color: "#000000",
+        opacity: "0.5",
+        fontFamily: 'Poppins',
+        fontsize:12,
+    },
+    displaynone:{
+        display:"none",
     }
-
 
 }));
 
@@ -96,51 +106,62 @@ const ChatLayout = () => {
         },
         {
             username: "",
-            messageTiem: "",
+            messageTiem: "11:52 AM",
             message: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr,Lorem ipsum dolor sit amet, consetetur sadipscing elitr,",
-            direction: "right"
+            direction: "right",
+            messageview:"seen"
         },
        
     ];
 
     const chatBubbles = dummyData.map((obj, i = 0) => (
-        <div className={` ${obj.direction} ${obj.direction === 'right' ? classes.right : classes.left}`} key={i}>
+        <div className={` ${obj.direction} ${obj.direction === 'right' ? classes.right : classes.left}`} key={i} >
             <div key={i++} className={classes.bubble}>
-                {obj.direction === 'left' && <Grid container justify="flex-start" spacing={2}>
-                    <Grid item xs={3}>
+                {obj.direction === 'left' && <Grid container justify="flex-start" spacing={2} style={{width:70,float:"left"}}>
+                    <Grid item xs={12}>
                         <Avatar
                             alt="Travis Howard"
                             src="/static/images/avatar/2.jpg"
                         />
 
                     </Grid>
-                    <Grid item xs={4}>
+                    
+                </Grid>
+                }
+                <Grid container justify="flex-start" spacing={2} style={{width:"calc(100% - 50px)",float:"right"}}>
+                <Grid item xs={4} className={obj.direction === 'right' ? classes.displaynone : classes.displayblock}>
                         <Typography variant="body2" className={classes.cardTtitle} component="span">
                             {obj.username}
                         </Typography>
                     </Grid>
-                    <Grid item xs={5}>
+                    <Grid item xs={5} style={{textAlign:obj.direction === 'right'? "left" :"right"}}>
                         <Typography variant="body2" className={classes.messageTiemcls} component="span">
                             {obj.messageTiem}
                         </Typography>
                     </Grid>
-                </Grid>
-                }
-                <Grid container justify="flex-start" spacing={2}>
-                    <Grid item xs={9}> <div className={obj.direction === 'right' ? classes.messageContentRight : classes.messageContentLeft}>{obj.message}</div></Grid>
-                    <Grid item xs={3}>{obj.direction === 'right' ? <Avatar
+                    <Grid item xs={obj.direction === 'right'? 11 :9}> <div className={obj.direction === 'right' ? classes.messageContentRight : classes.messageContentLeft}>{obj.message}</div>
+                    <Typography className={classes.messageview}>{obj.messageview}</Typography></Grid>
+                    <Grid item xs={obj.direction === 'right'? 1 :3}>{obj.direction === 'right' ? <Avatar
                         alt="Howard"
-                        src="/static/images/avatar/2.jpg"
-                    /> : <> <ReplyOutlinedIcon color="primary" fontSize="small" /><ShareOutlinedIcon color="primary" fontSize="small" /><FileCopyOutlinedIcon color="primary" fontSize="small" /></>}</Grid>
+                        src="/static/images/avatar/2.jpg" style={{backgroundColor:"#0B224F"}}
+                    /> : <> <ReplyOutlinedIcon color="primary" fontSize="small" /><ShareOutlinedIcon color="primary" fontSize="small" style={{marginLeft:5,marginRight:5}}/><FileCopyOutlinedIcon color="primary" fontSize="small" /></>}</Grid>
                 </Grid>
 
 
             </div>
         </div >
     ));
-    return <div className={classes.container}>{chatBubbles}
-        <div className={classes.inputChat}>
-            <MUIRichTextEditor
+    return <div className={classes.container}><div className={classes.container} style={{float: "left",marginBottom:"15%"}}>{chatBubbles}</div>
+        <div className={classes.inputChat} style={{loat: "left",
+            width: "calc(100% - 1px)",
+            paddingTop: 0,
+            border: "1px solid #dfdfdf",
+            background: "#fff",
+            bottom: 0,
+            position: "fixed",
+            minHeight:100,
+            paddingLeft:20}}>
+            <MUIRichTextEditor style={{position: "relative"}}
                 label="Try selecting some text to show the inline toolbar..."
                 inlineToolbar={true}
                 inlineToolbarControls={["bold", "italic", "my-style", "link"]}
