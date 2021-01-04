@@ -13,7 +13,6 @@ import ChatCallCard from '../../common/Cards/chatCallCard'
 import GrpChat from '../Messages/grpChat'
 import VideoCallIcon from '@material-ui/icons/VideoCall';
 import Typography from '@material-ui/core/Typography';
-import List from '@material-ui/core/List';
 
 import ChatLayout from './chatLayout'
 const useStyles = makeStyles((theme) => ({
