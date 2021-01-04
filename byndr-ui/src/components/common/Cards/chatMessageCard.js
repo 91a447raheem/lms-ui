@@ -17,11 +17,12 @@ const useStyles = makeStyles((theme) => ({
         // maxWidth: 360,
         backgroundColor: theme.palette.background.paper,
         border: "1px solid #E8E8E8",
-        borderRadius: 10
+        borderRadius: 10,
+        marginBottom:15
     },
     cardTtitle: {
         textAlign: "left",
-        font: "normal normal 600 20px/30px Poppins",
+        fontSize: 17,
         color: "#000000",
         opacity: 1,
     },

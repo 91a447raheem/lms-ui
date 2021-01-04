@@ -62,35 +62,43 @@ const useStyles = makeStyles((theme) => ({
         backgroundColor: "#fff"
     },
     cardTtitle: {
-        textAlign: "center",
-        font: "normal normal normal 20px/30px Poppins",
+        paddingLeft:10,
+        fontSize: 20,
         color: "#7F7F7F",
+        paddingTop:20
     },
     cardSub: {
         textAlign: "center",
-        font: "normal normal normal 20px/30px Poppins",
+        fontSize: 20,
         color: "#1956E3",
     },
     cardShowAll: {
         textAlign: "center",
-        font: "normal normal medium 16px / 30px Poppins",
+        fontSize: 16,
         color: "#1956E3",
-        opacity: 1
+        opacity: 1,
+        fontWeight:500,
+        padding:"20px 0px"
     },
     cardFile: {
         textAlign: "center",
-        font: "normal normal normal 20px/30px Poppins",
+        fontSize: 20,
         color: "#7F7F7F"
     },
     cardViewAll: {
         textAlign: "center",
         textDecoration: "underline",
-        font: "normal normal normal 16px / 30px Poppins",
+        fontSize: 16,
         color: "#7F7F7F",
         opacity: 1
     },
     chatContainer: {
         position: "relative"
+    },
+    lastChildCss:{
+        '&:lastChild': {
+            borderBottom: "none",
+        }
     }
 
 }));
@@ -99,16 +107,16 @@ export default function GrpChatInfo() {
     const classes = useStyles();
     return (
         <div className={classes.root}>
-            <Grid container spacing={2}>
-                <Grid item xs={12} sm={9} style={{ padding: 0 }}>
+            <Grid container>
+                <Grid item xs={12} sm={8} style={{ padding: 0 }}>
                     {/* <GrpHeadCard />
                     <Grid style={{ marginTop: 90, }}>
                         <ChatLayout />
                     </Grid> */}
                     <GrpChat />
                 </Grid>
-                <Grid item xs={12} sm={3} className={classes.sidebar}>
-                    <ChatRightInfoCard title={'Group Info'} />
+                <Grid item xs={12} sm={4} className={classes.sidebar}  style={{borderLeft:"1px solid #dfdfdf"}}>
+                    <ChatRightInfoCard title={'Group Info'}/>
                     <Grid>
                         <Typography variant="body2" className={classes.cardTtitle} component="p">
                             Participants <span className={classes.cardSub}>24</span>
@@ -117,7 +125,7 @@ export default function GrpChatInfo() {
                     <Grid>
                         {[0, 1, 2, 3].map((value) => {
                             return (
-                                <ChatSidebarCard key={value} />
+                                <ChatSidebarCard key={value} className={classes.lastChildCss}/>
                             );
                         })}
                     </Grid>
@@ -131,15 +139,14 @@ export default function GrpChatInfo() {
                         container
                         direction="row"
                         justify="flex-start"
-                        spacing={2}
-                    // style={{ paddingTop: 40 }}
+                    style={{ padding: 20 }}
                     >
-                        <Grid item xs={4}>
+                        <Grid item xs={5}>
                             <Typography variant="body2" className={classes.cardFile} component="p">
                                 Files Shared
                         </Typography>
                         </Grid>
-                        <Grid item xs={4}>
+                        <Grid item xs={3}>
                             <Typography variant="body2" className={classes.cardSub} component="p">
                                 202
                         </Typography>
@@ -158,8 +165,7 @@ export default function GrpChatInfo() {
                         container
                         direction="row"
                         justify="flex-start"
-                        spacing={2}
-                    // style={{ paddingTop: 40 }}
+                      style={{ paddingLeft: 20, paddingRight:20, paddingBottom:30, borderBottom:"1px solid #dfdfdf" }}
                     >
                         {[0, 1, 2].map((value) => {
                             return (
@@ -170,7 +176,7 @@ export default function GrpChatInfo() {
                                         src="/static/images/avatar/2.jpg"
                                         sizes='large'
                                         variant="square"
-                                        style={{ height: '100px', width: '100px' }}
+                                        style={{ height: '90px', width: '90px',borderRadius: 10 }}
                                     />
                                 </Grid>
                             );
@@ -181,15 +187,14 @@ export default function GrpChatInfo() {
                         container
                         direction="row"
                         justify="flex-start"
-                        spacing={2}
-                    // style={{ paddingTop: 40 }}
+                        style={{ paddingTop: 20 }}
                     >
-                        <Grid item xs={6}>
+                        <Grid item xs={7}>
                             <Typography variant="body2" className={classes.cardFile} component="p">
                                 Starred Messages
                         </Typography>
                         </Grid>
-                        <Grid item xs={2}>
+                        <Grid item>
                             <Typography variant="body2" className={classes.cardSub} component="p">
                                 22
                         </Typography>
@@ -203,10 +208,10 @@ export default function GrpChatInfo() {
 
                     </Grid>
 
-                    <Grid>
+                    <Grid style={{ padding: 20 }}>
                         {[0, 1].map((value) => {
                             return (
-                                <ChatMessageCard key={value} />
+                                <ChatMessageCard key={value} style={{marginBottom:20}}/>
                             );
                         })}
                     </Grid>

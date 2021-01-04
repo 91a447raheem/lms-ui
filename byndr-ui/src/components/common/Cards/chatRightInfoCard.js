@@ -16,8 +16,8 @@ const useStyles = makeStyles((theme) => ({
         width: '100%',
         // maxWidth: 360,
         backgroundColor: theme.palette.background.paper,
-        border: "1px solid #E8E8E8",
-        borderRadius: 10
+        borderBottom:"1px solid #dfdfdf",
+        paddingTop:0
     },
     cardTtitle: {
         textAlign: "left",
@@ -39,7 +39,7 @@ export default function ChatRightInfoCard(props) {
 
 
     return (
-        <List dense className={classes.root}>
+        <List dense className={classes.root} >
             <ListItem>
                 <ListItemText>
                     <Grid item xs={12}>
@@ -55,7 +55,7 @@ export default function ChatRightInfoCard(props) {
                 </ListItemText>
                 <ListItemSecondaryAction>
                     <Grid item xs={12}>
-                        <Grid container justify="center" spacing={2}>
+                        <Grid container spacing={2}>
                             <Typography variant="body2" component="span" className={classes.lastUpdate}>
                                 <CloseIcon color="inherit" fontSize="small" style={{ paddingTop: "10%" }} />
                             </Typography>

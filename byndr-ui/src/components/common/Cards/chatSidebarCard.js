@@ -17,20 +17,25 @@ const useStyles = makeStyles((theme) => ({
         width: '100%',
         // maxWidth: 360,
         backgroundColor: theme.palette.background.paper,
-        border: "1px solid #E8E8E8",
-        borderRadius: 10
+        borderBottom: "1px solid #E8E8E8",
+        padding:0,
+        '&:lastChild': {
+            borderBottom: "none",
+        }
     },
     cardTtitle: {
         textAlign: "left",
         font: "normal normal 600 20px/30px Poppins",
         color: "#000000",
         opacity: 1,
+        fontSize:18
     },
     cardSubText: {
         textAlign: "left",
         font: "normal normal normal 14px/30px Poppins",
-        color: "#7D7D7D",
-        opacity: 1
+        color: "#7B7C7E",
+        opacity: 1,
+        fontSize:12
     },
     lastUpdate: {
         textAlign: "left",
@@ -38,6 +43,15 @@ const useStyles = makeStyles((theme) => ({
         color: "#7B7C7E",
         opacity: 1,
         paddingTop: 10
+    },
+    primaryButton:{
+        background: "#F4F7FF 0% 0% no-repeat padding-box",
+        borderRadius: 5,
+    },
+        lastChildCss:{
+        '&:lastChild': {
+            borderBottom: "none",
+        }
     }
 }));
 
@@ -45,7 +59,7 @@ export default function ChatSidebarCard() {
     const classes = useStyles();
     return (
         <List dense className={classes.root}>
-            <ListItem>
+            <ListItem style={{padding:10}} className={classes.lastChildCss}> 
                 <ListItemAvatar>
                     <Avatar
                         alt="Travis Howard"
@@ -54,7 +68,7 @@ export default function ChatSidebarCard() {
                 </ListItemAvatar>
                 <ListItemText>
                     <Grid item xs={12}>
-                        <Grid container justify="flex-start" spacing={2}>
+                        <Grid container justify="flex-start">
                             <Grid item xs={12}>
                                 <Typography variant="body2" className={classes.cardTtitle} component="p">
                                     Vinay C
@@ -70,7 +84,7 @@ export default function ChatSidebarCard() {
                 <ListItemSecondaryAction>
                     <Grid item xs={12}>
                         <Grid container justify="center" spacing={2}>
-                            <Button variant="outlined" color="primary">
+                            <Button  color="primary" className={classes.primaryButton}>
                                 Admin
                             </Button>
 

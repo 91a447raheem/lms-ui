@@ -38,7 +38,7 @@ const useStyles = makeStyles((theme) => ({
   chatListblock: {
     width: '100%',
     float: 'left',
-    maxWidth: 440,
+    maxWidth:375,
     height: '100%',
     overflowY: 'auto',
     // position: 'fixed',
@@ -50,7 +50,7 @@ const useStyles = makeStyles((theme) => ({
   },
   contentRenderer: {
     float: 'right',
-    width: 'calc(100% - 452px)',
+    width: 'calc(100% - 385px)',
     height: '100vh',
     padding: '0 5px'
   },

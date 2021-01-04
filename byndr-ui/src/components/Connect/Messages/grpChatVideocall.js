@@ -14,7 +14,7 @@ import GrpChat from '../Messages/grpChat'
 import ChatLayout from './chatLayout'
 const useStyles = makeStyles((theme) => ({
     root: {
-        flexGrow: 1,
+        flexGrow: 1
     },
 
     b_rt: {
@@ -53,12 +53,13 @@ const useStyles = makeStyles((theme) => ({
         marginLeft: 25
     },
     sidebar: {
-        backgroundColor: "#fff"
+        backgroundColor: "#fff",
+        borderLeft:"1px solid #dfdfdf"
     },
     cardTtitle: {
         textAlign: "center",
         font: "normal normal normal 20px/30px Poppins",
-        color: "#7F7F7F",
+        color: "#7F7F7F"
     },
     cardSub: {
         textAlign: "center",
@@ -90,11 +91,11 @@ export default function GrpChatVideocall() {
     const classes = useStyles();
     return (
         <div className={classes.root}>
-            <Grid container spacing={2}>
-                <Grid item xs={12} sm={9}>
+            <Grid container>
+                <Grid item xs={12} sm={8}>
                     <GrpChat />
                 </Grid>
-                <Grid item xs={12} sm={3} className={classes.sidebar}>
+                <Grid item xs={12} sm={4} className={classes.sidebar}>
                     <ChatRightInfoCard title={'Video Calls'} />
                     <Grid item xs={12} sm={12}>
                         <Button

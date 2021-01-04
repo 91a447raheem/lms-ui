@@ -25,6 +25,12 @@ const useStyles = makeStyles((theme) => ({
         color: "#000000",
         opacity: 1,
     },
+    cardCallTime:{
+        textAlign: "right",
+        font: "normal normal 600 20px/30px Poppins",
+        color: "#000000",
+        opacity: 1,
+    },
     cardSubText: {
         textAlign: "left",
         font: "normal normal normal 14px/30px Poppins",
@@ -33,7 +39,7 @@ const useStyles = makeStyles((theme) => ({
     },
     cardSub: {
         textAlign: "left",
-        font: "normal normal normal 20px/30px Poppins",
+        font: "normal normal normal 16px/30px Poppins",
         color: "#1956E3",
     },
 }));
@@ -62,7 +68,7 @@ export default function ChatCallCard(props) {
                     <Grid item xs={12}>
                         <Grid container justify="flex-start" spacing={2}>
                             <Grid item xs={12}>
-                                <Typography variant="body2" className={classes.cardTtitle} component="p">
+                                <Typography variant="body2" className={classes.cardCallTime} component="p">
                                     {props.callTime}
                                 </Typography>
                                 <Typography variant="body2" className={classes.cardSubText} component="p">
