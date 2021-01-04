@@ -10,7 +10,7 @@ import ChatList from './chatList';
 import GrpHeadCard from '../../common/Cards/grpHeadCard'
 import ChatRightInfoCard from '../../common/Cards/chatRightInfoCard'
 import ChatCallCard from '../../common/Cards/chatCallCard'
-
+import GrpChat from '../Messages/grpChat'
 import ChatLayout from './chatLayout'
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -92,11 +92,7 @@ export default function GrpChatVideocall() {
         <div className={classes.root}>
             <Grid container spacing={2}>
                 <Grid item xs={12} sm={9}>
-                <GrpHeadCard title='Design Group' />
-                    <Grid>
-                        <ChatLayout />
-                    </Grid>
-
+                    <GrpChat />
                 </Grid>
                 <Grid item xs={12} sm={3} className={classes.sidebar}>
                     <ChatRightInfoCard title={'Video Calls'} />
@@ -113,12 +109,12 @@ export default function GrpChatVideocall() {
                     <Grid>
                         {[0, 1, 2, 3].map((value) => {
                             return (
-                                <Grid  key={value} style={{padding:10}}>
-                                    <ChatCallCard 
-                                      title={'DG Video call 101'}
-                                      userName={'Vinay C'}
-                                      callTime={'24:52'}
-                                      particepent={'10 Participants'}
+                                <Grid key={value} style={{ padding: 10 }}>
+                                    <ChatCallCard
+                                        title={'DG Video call 101'}
+                                        userName={'Vinay C'}
+                                        callTime={'24:52'}
+                                        particepent={'10 Participants'}
                                     />
                                 </Grid>
                             );

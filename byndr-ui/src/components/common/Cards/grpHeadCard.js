@@ -44,14 +44,14 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const useStyles = makeStyles((theme) => ({
     root: {
-        width: 'calc(100% - 515px)',
+        width: '100%',
         // maxWidth: 360,
         backgroundColor: theme.palette.background.paper,
         borderBottom: "1px solid #E8E8E8",
-        position: "fixed",
         marginTop: -8,
         zIndex: 1,
         paddingTop: 13,
+        float: "left"
     },
     cardTtitle: {
         textAlign: "left",
@@ -91,7 +91,7 @@ export default function GrpHeadCard(props) {
 
     return (
         <List dense className={classes.root}>
-            <ListItem style={{float: "left",width: "70%"}}>  
+            <ListItem style={{ float: "left", width: "70%" }}>
                 <ListItemAvatar>
                     <Avatar
                         alt="Travis Howard"
@@ -104,19 +104,19 @@ export default function GrpHeadCard(props) {
                             <Grid item xs={12}>
                                 <Typography variant="body2" className={classes.cardTtitle} component="p">
                                     {props.title}
-                                 </Typography>
+                                </Typography>
                             </Grid>
 
                         </Grid>
                     </Grid>
                 </ListItemText>
-                <ListItemSecondaryAction  style={{float: "right",position: "relative",marginTop: 17,width: "18%"}}> 
+                <ListItemSecondaryAction style={{ float: "right", position: "relative", marginTop: 17, width: "22%" }}>
                     <Grid item xs={12}>
-                        <Grid container  spacing={2}>
+                        <Grid container spacing={2}>
                             <Typography variant="body2" component="span" className={classes.lastUpdate}>
-                                <PhoneOutlinedIcon color="inherit" fontSize="small" style={{float:"left",fontSize:"1.6rem"}}/>
-                                <VideoCallOutlinedIcon color="inherit" fontSize="small" style={{fontSize:"2rem",float:"left",marginTop:-3, marginRight:10, marginBottom:0, marginLeft:10}}/>
-                                <InfoIcon color="inherit" fontSize="small" style={{fontSize:"1.6rem"}}/>
+                                <PhoneOutlinedIcon color="inherit" fontSize="small" style={{ float: "left", fontSize: "1.6rem" }} />
+                                <VideoCallOutlinedIcon color="inherit" fontSize="small" style={{ fontSize: "2rem", float: "left", marginTop: -3, marginRight: 10, marginBottom: 0, marginLeft: 10 }} />
+                                <InfoIcon color="inherit" fontSize="small" style={{ fontSize: "1.6rem" }} />
                             </Typography>
                             <IconButton aria-label="settings" onClick={handleClick}>
                                 <MoreVertIcon />
@@ -144,13 +144,13 @@ export default function GrpHeadCard(props) {
                         <List component="nav"  >
                             <ListItem button>
                                 <ListItemIcon>
-                                    <PinDropIcon/>
+                                    <PinDropIcon />
                                 </ListItemIcon>
                                 <ListItemText primary="Pin to Top" />
                             </ListItem>
                             <ListItem button>
                                 <ListItemIcon>
-                                    <AccountCircleOutlinedIcon/>
+                                    <AccountCircleOutlinedIcon />
                                 </ListItemIcon>
                                 <ListItemText primary="Rename" />
                             </ListItem>
@@ -168,7 +168,7 @@ export default function GrpHeadCard(props) {
                             </ListItem>
                             <ListItem button>
                                 <ListItemIcon>
-                                    <PersonAddDisabledIcon/>
+                                    <PersonAddDisabledIcon />
                                 </ListItemIcon>
                                 <ListItemText primary="Remove Participant" />
                             </ListItem>

@@ -12,12 +12,15 @@ import GrpHeadCard from '../../common/Cards/grpHeadCard'
 import ChatRightInfoCard from '../../common/Cards/chatRightInfoCard'
 import ChatSidebarCard from '../../common/Cards/chatSidebarCard'
 import ChatMessageCard from '../../common/Cards/chatMessageCard'
+import GrpChat from '../Messages/grpChat'
 
 import ChatLayout from './chatLayout'
+
 const useStyles = makeStyles((theme) => ({
     root: {
         flexGrow: 1,
-        padding:0,
+        padding: 0,
+        height: '100%'
     },
 
     b_rt: {
@@ -85,6 +88,9 @@ const useStyles = makeStyles((theme) => ({
         font: "normal normal normal 16px / 30px Poppins",
         color: "#7F7F7F",
         opacity: 1
+    },
+    chatContainer: {
+        position: "relative"
     }
 
 }));
@@ -94,15 +100,15 @@ export default function GrpChatInfo() {
     return (
         <div className={classes.root}>
             <Grid container spacing={2}>
-                <Grid item xs={12} sm={9}>
-                    <GrpHeadCard title='Design Group' />
-                    <Grid>
+                <Grid item xs={12} sm={9} style={{ padding: 0 }}>
+                    {/* <GrpHeadCard />
+                    <Grid style={{ marginTop: 90, }}>
                         <ChatLayout />
-                    </Grid>
-
+                    </Grid> */}
+                    <GrpChat />
                 </Grid>
                 <Grid item xs={12} sm={3} className={classes.sidebar}>
-                    <ChatRightInfoCard title={'Group Info'}/>
+                    <ChatRightInfoCard title={'Group Info'} />
                     <Grid>
                         <Typography variant="body2" className={classes.cardTtitle} component="p">
                             Participants <span className={classes.cardSub}>24</span>
@@ -126,7 +132,7 @@ export default function GrpChatInfo() {
                         direction="row"
                         justify="flex-start"
                         spacing={2}
-                        // style={{ paddingTop: 40 }}
+                    // style={{ paddingTop: 40 }}
                     >
                         <Grid item xs={4}>
                             <Typography variant="body2" className={classes.cardFile} component="p">
@@ -153,7 +159,7 @@ export default function GrpChatInfo() {
                         direction="row"
                         justify="flex-start"
                         spacing={2}
-                        // style={{ paddingTop: 40 }}
+                    // style={{ paddingTop: 40 }}
                     >
                         {[0, 1, 2].map((value) => {
                             return (
@@ -176,7 +182,7 @@ export default function GrpChatInfo() {
                         direction="row"
                         justify="flex-start"
                         spacing={2}
-                        // style={{ paddingTop: 40 }}
+                    // style={{ paddingTop: 40 }}
                     >
                         <Grid item xs={6}>
                             <Typography variant="body2" className={classes.cardFile} component="p">

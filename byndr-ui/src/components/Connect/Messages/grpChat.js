@@ -18,6 +18,8 @@ const useStyles = makeStyles((theme) => ({
     root: {
         flexGrow: 1,
         background: "#F7F7F7",
+        position: "relative",
+        height: '100%'
     },
 
     b_rt: {
@@ -56,6 +58,16 @@ const useStyles = makeStyles((theme) => ({
     },
     m_left_25: {
         marginLeft: 25
+    },
+    titleBlock: {
+        width: 'calc(100% - 10px)',
+        padding: '0 5px',
+        position: 'absolute',
+        background: '#fff',
+        zIndex: 1
+    },
+    gridChat: {
+        height: 'calc(100% - 72px)'
     }
 
 }));
@@ -64,13 +76,12 @@ export default function GrpChat() {
     const classes = useStyles();
     return (
         <div className={classes.root}>
-            <Grid container spacing={2} style={{marginLeft: -17,paddingLeft: 17}}> 
-                <Grid item xs={12} style={{padding:0}}>
-                    <GrpHeadCard />
-                    <Grid  style={{ marginTop:90,}}>
-                        <ChatLayout/>
+            <Grid container spacing={2} style={{ marginLeft: -17, paddingLeft: 17 }}>
+                <Grid item xs={12} style={{ padding: 0 }}>
+                    <div className={classes.titleBlock}><GrpHeadCard /></div>
+                    <Grid style={{ marginTop: 72, }} className={classes.gridChat}>
+                        <ChatLayout />
                     </Grid>
-
                 </Grid>
             </Grid>
         </div>

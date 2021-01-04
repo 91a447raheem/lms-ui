@@ -24,36 +24,40 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
     // padding: theme.spacing(3)
   },
-  headerBlock:{
+  headerBlock: {
     position: 'fixed',
     top: 0,
-    zIndex:999,
-    width:'calc(100% - 64px)'
+    zIndex: 999,
+    width: 'calc(100% - 64px)'
   },
-  midContainer:{
-    marginTop:70
+  midContainer: {
+    marginTop: 70,
+    width: '100%',
+    float: 'right'
   },
-  chatListblock:{
+  chatListblock: {
     width: '100%',
     float: 'left',
     maxWidth: 440,
     height: '100%',
-    overflowY:'auto',
-    position: 'fixed',
+    overflowY: 'auto',
+    // position: 'fixed',
     background: '#fff',
-    zIndex:999,
-    marginBottom:100
+    zIndex: 999
   },
-  chatListblockinr:{
-  marginTop:10
+  chatListblockinr: {
+    marginTop: 10
   },
-  contentRenderer:{
-    width: 'calc(100% - 440px)',
+  contentRenderer: {
     float: 'right',
+    width: 'calc(100% - 452px)',
+    height: '100vh',
+    padding: '0 5px'
   },
-  contentRendererinr:{
-    paddingTop:10,
-    background:"#fff",
+  contentRendererinr: {
+    paddingTop: 10,
+    background: "#fff",
+    height: '100%'
   }
 }));
 
@@ -81,19 +85,19 @@ export default function MessageConnect(props) {
             </div>
           </div>
           <div className={classes.contentRenderer}>
-          <div className={classes.contentRendererinr}>
-            <Router>
-              <Route exact path="/connect/messages" component={Messages} />
-              <Route exact path="/connect/messages/grpChat" component={GrpChat} />
-              <Route exact path="/connect/messages/grpChatInfo" component={GrpChatInfo} />
-              <Route exact path="/connect/messages/grpChatVoice" component={GrpChatVoice} />
-              <Route exact path="/connect/messages/grpChatVideo" component={GrpChatVideo} />
-              <Route exact path="/connect/messages/userChat" component={UserChatInfo} />
-            </Router>
-          </div>
+            <div className={classes.contentRendererinr}>
+              <Router>
+                <Route exact path="/connect/messages" component={Messages} />
+                <Route exact path="/connect/messages/grpChat" component={GrpChat} />
+                <Route exact path="/connect/messages/grpChatInfo" component={GrpChatInfo} />
+                <Route exact path="/connect/messages/grpChatVoice" component={GrpChatVoice} />
+                <Route exact path="/connect/messages/grpChatVideo" component={GrpChatVideo} />
+                <Route exact path="/connect/messages/userChat" component={UserChatInfo} />
+              </Router>
+            </div>
           </div>
         </div>
-        
+
       </main>
     </div>
   );

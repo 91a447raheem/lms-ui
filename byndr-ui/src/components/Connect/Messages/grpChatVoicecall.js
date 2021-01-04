@@ -10,6 +10,7 @@ import ChatList from './chatList';
 import GrpHeadCard from '../../common/Cards/grpHeadCard'
 import ChatRightInfoCard from '../../common/Cards/chatRightInfoCard'
 import ChatCallCard from '../../common/Cards/chatCallCard'
+import GrpChat from '../Messages/grpChat'
 
 import ChatLayout from './chatLayout'
 const useStyles = makeStyles((theme) => ({
@@ -92,10 +93,11 @@ export default function GrpChatVoicecall() {
         <div className={classes.root}>
             <Grid container spacing={2}>
                 <Grid item xs={12} sm={9}>
-                    <GrpHeadCard title='Design Group' />
+                    {/* <GrpHeadCard title='Design Group' />
                     <Grid>
                         <ChatLayout />
-                    </Grid>
+                    </Grid> */}
+                    <GrpChat />
 
                 </Grid>
                 <Grid item xs={12} sm={3} className={classes.sidebar}>
