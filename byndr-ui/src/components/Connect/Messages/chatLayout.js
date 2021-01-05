@@ -85,7 +85,8 @@ const useStyles = makeStyles(theme => ({
     },
     containerChat: {
         height: 'calc(100% - 94px)',
-        overflowY: 'auto'
+        overflowY: 'auto',
+        background: "#F7F7F7",
     },
     containerFlow: {
         position: "relative",

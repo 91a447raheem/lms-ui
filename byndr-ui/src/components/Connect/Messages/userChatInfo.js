@@ -54,7 +54,8 @@ const useStyles = makeStyles((theme) => ({
         marginLeft: 25
     },
     sidebar: {
-        backgroundColor: "#fff"
+        backgroundColor: "#fff",
+        borderLeft:"1px solid #dfdfdf"
     },
     cardTtitle: {
         textAlign: "center",
@@ -73,8 +74,8 @@ const useStyles = makeStyles((theme) => ({
         opacity: 1
     },
     cardFile: {
-        textAlign: "center",
-        font: "normal normal normal 20px/30px Poppins",
+        textAlign: "left",
+        fontSize: 20,
         color: "#7F7F7F"
     },
     cardViewAll: {
@@ -87,19 +88,20 @@ const useStyles = makeStyles((theme) => ({
     large: {
         width: theme.spacing(12),
         height: theme.spacing(12),
+        margin:"0px auto"
     },
     userTitle: {
-        textAlign: "left",
+        textAlign: "center",
         font: "normal normal medium 21px/31px Poppins",
         color: "#000000",
         opacity: 1
     },
     userSubTitle: {
-        textAlign: "left",
+        textAlign: "center",
         font: "normal normal normal 15px/23px Poppins",
         color: "#7B7C7E",
         opacity: 1,
-        paddingBottom: 40
+        paddingBottom: 20
     }
 
 }));
@@ -108,18 +110,16 @@ export default function UserChatInfo() {
     const classes = useStyles();
     return (
         <div className={classes.root}>
-            <Grid container spacing={2}>
-                <Grid item xs={12} sm={9}>
+            <Grid container>
+                <Grid item xs={12} sm={8}>
                     <GrpHeadCard title={'Vinay Chaganti'} />
                     <Grid>
                         <ChatLayout />
                     </Grid>
 
                 </Grid>
-                <Grid item xs={12} sm={3} className={classes.sidebar}>
-                    <Grid item
-                        style={{ paddingLeft: "50%" }}
-                    >
+                <Grid item xs={12} sm={4} className={classes.sidebar}>
+                    <Grid item>
                         <Grid item>
                             <Avatar
                                 className={`${classes.large}`}
@@ -144,16 +144,15 @@ export default function UserChatInfo() {
                         container
                         direction="row"
                         justify="center"
-                        spacing={2}
+                        style={{marginBottom:20}}
                     >
-                        <Grid item xs={3} />
                         <Grid item xs={5}>
-                            <Button variant="outlined" color="primary">
+                            <Button variant="outlined" color="primary" style={{textTransform:"capitalize",background: "#F4F7FF 0% 0% no-repeat padding-box", borderColor:"#F4F7FF"}}>
                                 View Profile
                             </Button>
                         </Grid>
                         <Grid item xs={4}>
-                            <Button variant="outlined" color="primary">
+                            <Button variant="outlined" color="primary" style={{textTransform:"capitalize"}}>
                                 Unfollow
                             </Button>
 
@@ -163,16 +162,14 @@ export default function UserChatInfo() {
                         container
                         direction="row"
                         justify="center"
-                        spacing={2}
                     >
-                        <Grid item xs={4} />
-                        <Grid item xs={4}>
-                            <Typography variant="body2" className={classes.cardFile} component="p">
+                        <Grid item xs={7}>
+                            <Typography variant="body2" className={classes.cardFile} style={{fontSize:15,color:"#000000",}} component="p">
                                 Connections
                         </Typography>
                         </Grid>
-                        <Grid item xs={4}>
-                            <Typography variant="body2" className={classes.cardSub} component="p">
+                        <Grid item xs={3}>
+                            <Typography variant="body2" className={classes.cardSub} style={{fontSize:16,color:"#1956E3",}} component="p">
                                 101
                         </Typography>
 
@@ -182,16 +179,14 @@ export default function UserChatInfo() {
                         container
                         direction="row"
                         justify="center"
-                        spacing={2}
                     >
-                        <Grid item xs={2} />
-                        <Grid item xs={6}>
-                            <Typography variant="body2" className={classes.cardFile} component="p">
+                        <Grid item xs={7}>
+                            <Typography variant="body2" className={classes.cardFile} style={{fontSize:15,color:"#000000",}} component="p">
                                 Published Spaces
                         </Typography>
                         </Grid>
-                        <Grid item xs={4}>
-                            <Typography variant="body2" className={classes.cardSub} component="p">
+                        <Grid item xs={3}>
+                            <Typography variant="body2" className={classes.cardSub} style={{fontSize:16,color:"#1956E3",}} component="p">
                                 246
                         </Typography>
 
@@ -201,16 +196,15 @@ export default function UserChatInfo() {
                         container
                         direction="row"
                         justify="center"
-                        spacing={2}
+                        style={{paddingBottom:20}}
                     >
-                        <Grid item xs={2} />
-                        <Grid item xs={6}>
-                            <Typography variant="body2" className={classes.cardFile} component="p">
+                        <Grid item xs={7}>
+                            <Typography variant="body2" className={classes.cardFile} style={{fontSize:15,color:"#000000",}} component="p">
                                 Published Paths
                         </Typography>
                         </Grid>
-                        <Grid item xs={4}>
-                            <Typography variant="body2" className={classes.cardSub} component="p">
+                        <Grid item xs={3}>
+                            <Typography variant="body2" className={classes.cardSub} style={{fontSize:16,color:"#1956E3",}} component="p">
                                 75
                         </Typography>
 
@@ -222,15 +216,14 @@ export default function UserChatInfo() {
                         container
                         direction="row"
                         justify="center"
-                        spacing={2}
-                    //style={{ paddingTop: 40 }}
-                    >
-                        <Grid item xs={4}>
+                        style={{ padding: 20}}
+                        >
+                        <Grid item xs={5}>
                             <Typography variant="body2" className={classes.cardFile} component="p">
                                 Files Shared
                         </Typography>
                         </Grid>
-                        <Grid item xs={4}>
+                        <Grid item xs={3}>
                             <Typography variant="body2" className={classes.cardSub} component="p">
                                 202
                         </Typography>
@@ -249,8 +242,7 @@ export default function UserChatInfo() {
                         container
                         direction="row"
                         justify="flex-start"
-                        spacing={2}
-                    // style={{ paddingTop: 40 }}
+                        style={{ paddingLeft: 20, paddingRight:20, paddingBottom:30, borderBottom:"1px solid #dfdfdf" }}
                     >
                         {[0, 1, 2].map((value) => {
                             return (
@@ -261,7 +253,7 @@ export default function UserChatInfo() {
                                         src="/static/images/avatar/2.jpg"
                                         sizes='large'
                                         variant="square"
-                                        style={{ height: '100px', width: '100px' }}
+                                        style={{ height: '90px', width: '90px',borderRadius: 10 }}
                                     />
                                 </Grid>
                             );
@@ -272,15 +264,14 @@ export default function UserChatInfo() {
                         container
                         direction="row"
                         justify="flex-start"
-                        spacing={2}
-                    // style={{ paddingTop: 40 }}
+                     style={{ paddingLeft: 10, paddingTop:20}}
                     >
-                        <Grid item xs={6}>
+                        <Grid item xs={7}>
                             <Typography variant="body2" className={classes.cardFile} component="p">
                                 Starred Messages
                         </Typography>
                         </Grid>
-                        <Grid item xs={2}>
+                        <Grid item >
                             <Typography variant="body2" className={classes.cardSub} component="p">
                                 22
                         </Typography>
@@ -294,7 +285,7 @@ export default function UserChatInfo() {
 
                     </Grid>
 
-                    <Grid>
+                    <Grid style={{ padding: 10 }}>
                         {[0, 1].map((value) => {
                             return (
                                 <ChatMessageCard key={value} />

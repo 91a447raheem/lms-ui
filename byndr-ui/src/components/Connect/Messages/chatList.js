@@ -69,7 +69,6 @@ export default function ChatList() {
             container
             direction="column"
             justify="flex-start"
-            spacing={2}
             // style={{ paddingTop: 40 }}
         >
             <Grid item className={classes.centerAlign}>

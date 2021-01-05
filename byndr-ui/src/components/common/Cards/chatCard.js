@@ -60,7 +60,7 @@ const useStyles = makeStyles((theme) => ({
         // maxWidth: 360,
         backgroundColor: theme.palette.background.paper,
         borderBottom: "1px solid #E8E8E8",
-        padding:20,
+        padding:"20px 9px",
         '&:hover': {
             backgroundColor:"#F7F7F7",
         },
