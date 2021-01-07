@@ -10,10 +10,14 @@ import Checkemail from './components/SSO/checkemail';
 import Passwordchangeconfirm from './components/SSO/passwordchangeconfirm';
 import HomeScreen from './components/Home/homescreen';
 import Shell from "./components/common/shell";
-
 import Myprofile from "./components/Myprofile/Myprofile";
 import Participants from "./components/Connect/participants";
-import MessageConnect from "./components/Connect/messageConnect"
+import MessageConnect from "./components/Connect/messageConnect";
+import Sharedfiles from "./components/Connect/sharedfiles";
+import Sharedcontent from "./components/Connect/sharedcontent";
+import Videoconfrence from './components/Connect/videoconfrence';
+import broadcastHome from "./components/Broadcast/broadcast-home";
+
 
 function App() {
   return (
@@ -29,11 +33,15 @@ function App() {
         <Route exact path="/confirmpasswordchange" component={Passwordchangeconfirm} />
         <Route exact path="/connect/allparticipants" component={Participants} />
         <Route exact path="/connect/messages" component={MessageConnect} />
+        <Route exact path="/connect/sharedfiles" component={Sharedfiles} />
+        <Route exact path="/connect/sharedcontent" component={Sharedcontent} />
         <Route exact path="/connect/messages/grpChat" component={MessageConnect} />
+        <Route exact path="/connect/videochat" component={Videoconfrence} />
         <Route exact path="/connect/messages/grpChatInfo" component={MessageConnect} />
         <Route exact path="/connect/messages/grpChatVoice" component={MessageConnect} />
         <Route exact path="/connect/messages/grpChatVideo" component={MessageConnect} />
         <Route exact path="/connect/messages/userChat" component={MessageConnect} />
+        <Route exact path="/broadcast/explorebroadcast" component={broadcastHome} />
         <Route exact path="/home" component={Shell} />
 
         <Route exact path="/profile/settings" component={Shell} />

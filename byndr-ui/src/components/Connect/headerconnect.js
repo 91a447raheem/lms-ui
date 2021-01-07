@@ -115,11 +115,50 @@ export default function Headerconnect() {
 
                 )
             }
-            // else if (otherCase) {
-            //   return (
-            //     <div>otherCase</div>
-            //   )
-            // }
+            else if (match.path === "/connect/sharedfiles") {
+              return (
+                <React.Fragment>
+
+                        <IconButton
+                            edge="start"
+                            className={classes.menuButton}
+                            color="inherit"
+                            aria-label="open drawer"
+                        >
+                            <KeyboardArrowLeftIcon />
+                        </IconButton>
+                        <Typography className={classes.title} variant="h6" noWrap>
+                            Shared Files
+                        </Typography>
+                        <Typography className={classes.title} variant="h6" noWrap>
+                            224
+                        </Typography>
+
+                    </React.Fragment>
+              )
+            }
+            else if (match.path === "/connect/sharedcontent") {
+                return (
+                  <React.Fragment>
+  
+                          <IconButton
+                              edge="start"
+                              className={classes.menuButton}
+                              color="inherit"
+                              aria-label="open drawer"
+                          >
+                              <KeyboardArrowLeftIcon />
+                          </IconButton>
+                          <Typography className={classes.title} variant="h6" noWrap>
+                              Shared Content
+                          </Typography>
+                          <Typography className={classes.title} variant="h6" noWrap>
+                              26
+                          </Typography>
+  
+                      </React.Fragment>
+                )
+              }
             else {
                 return (
                     <div>
