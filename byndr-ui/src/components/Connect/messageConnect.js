@@ -12,6 +12,7 @@ import GrpChatVideo from "../Connect/Messages/grpChatVideocall"
 import UserChatInfo from '../Connect/Messages/userChatInfo'
 import Header from '../common/header'
 import ChatList from '../Connect/Messages/chatList';
+import Participants from "./participants";
 
 const useStyles = makeStyles((theme) => ({
   marginSmall: {
@@ -38,7 +39,7 @@ const useStyles = makeStyles((theme) => ({
   chatListblock: {
     width: '100%',
     float: 'left',
-    maxWidth:375,
+    maxWidth: 375,
     height: '100%',
     overflowY: 'auto',
     // position: 'fixed',
@@ -87,6 +88,7 @@ export default function MessageConnect(props) {
           <div className={classes.contentRenderer}>
             <div className={classes.contentRendererinr}>
               <Router>
+                <Route exact path="/connect/allparticipants" component={Participants} />
                 <Route exact path="/connect/messages" component={Messages} />
                 <Route exact path="/connect/messages/grpChat" component={GrpChat} />
                 <Route exact path="/connect/messages/grpChatInfo" component={GrpChatInfo} />

@@ -3,6 +3,7 @@ import Headerconnect from './headerconnect';
 import Card from '@material-ui/core/Card';
 import Typography from '@material-ui/core/Typography';
 import { Avatar, Divider } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
 
 const dataDummy = [
     { 1: "1", role: "Admin" },
@@ -15,10 +16,19 @@ const dataDummy = [
     { 1: "8", role: "member" }
 ]
 
+const useStyles = makeStyles((theme) => ({
+    allparticipants: {
+        width: '100%',
+        padding: '0px 20px'
+    }
+}));
+
 export default function Participants() {
 
+    const classes = useStyles();
+
     return (
-        <div>
+        <div className={classes.allparticipants}>
             <Headerconnect />
             <div >
                 <Typography variant="h6" style={{ color: "grey", marginTop: "4vh", marginLeft: "4vw" }}>GROUP ADMIN</Typography>

@@ -31,7 +31,7 @@ function App() {
         <Route exact path="/checkemail" component={Checkemail} />
         <Route exact path="/homescreen" component={HomeScreen} />
         <Route exact path="/confirmpasswordchange" component={Passwordchangeconfirm} />
-        <Route exact path="/connect/allparticipants" component={Participants} />
+        <Route exact path="/connect/allparticipants" component={MessageConnect} />
         <Route exact path="/connect/messages" component={MessageConnect} />
         <Route exact path="/connect/sharedfiles" component={Sharedfiles} />
         <Route exact path="/connect/sharedcontent" component={Sharedcontent} />
