@@ -33,8 +33,9 @@ function App() {
         <Route exact path="/confirmpasswordchange" component={Passwordchangeconfirm} />
         <Route exact path="/connect/allparticipants" component={MessageConnect} />
         <Route exact path="/connect/messages" component={MessageConnect} />
-        <Route exact path="/connect/sharedfiles" component={Sharedfiles} />
-        <Route exact path="/connect/sharedcontent" component={Sharedcontent} />
+        <Route exact path="/connect/sharedfiles" component={MessageConnect} />
+        <Route exact path="/connect/sharedcontent" component={MessageConnect} />
+        <Route exact path="/connect/sharedcontentsingle" component={MessageConnect} />
         <Route exact path="/connect/messages/grpChat" component={MessageConnect} />
         <Route exact path="/connect/videochat" component={Videoconfrence} />
         <Route exact path="/connect/messages/grpChatInfo" component={MessageConnect} />

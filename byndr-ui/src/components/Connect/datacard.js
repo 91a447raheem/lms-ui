@@ -17,6 +17,7 @@ import StarIcon from '@material-ui/icons/Star';
 import IconButton from '@material-ui/core/IconButton';
 import { Divider } from '@material-ui/core';
 import CardActions from '@material-ui/core/CardActions';
+import FolderIcon from '@material-ui/icons/Folder';
 
 const useStyles = makeStyles((theme) => ({
 
@@ -43,7 +44,7 @@ const useStyles = makeStyles((theme) => ({
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        color: 'lightgrey',
+        color: '#7B7B7B',
         marginLeft: "2vw"
     },
 
@@ -55,7 +56,7 @@ const useStyles = makeStyles((theme) => ({
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        color: 'lightgrey',
+        color: '#7B7B7B',
         marginLeft: "39vw",
         [theme.breakpoints.down('md')]: {
             marginLeft: "23vw",
@@ -97,13 +98,13 @@ const useStyles = makeStyles((theme) => ({
         },
     },
     root: {
-        maxWidth: 235,
+        maxWidth: 250,
         margin: '1vw 1vw ',
         WebkitFlexFlow: 'column',
         [theme.breakpoints.down('xs')]: {
             marginTop: theme.spacing(3),
             marginLeft: theme.spacing(10),
-            width: 235,
+            width: 250,
         },
     },
 }));
@@ -155,7 +156,7 @@ const Datacard = props => {
 
     return (
         <Card className={classes.root} key={name}>
-            <Typography component="span">Card no: {name}</Typography>
+        
             <CardActionArea>
                 <CardMedia
                     component="img"
@@ -163,26 +164,25 @@ const Datacard = props => {
                     height="100"
                     image="/static/images/cards/contemplative-reptile.jpg"
                     title="Contemplative Reptile"
-                    style={{ margin: "0.5vw" }}
+                    style={{ margin: "0.5vw", background:"#C3FFE1",width:"93%"}}
                 />
                 <CardContent style={{ display: 'flex', padding: 0, margin: "0.75vw" }}>
 
-                    <Typography variant="body2" color="textSecondary" component="p" style={{ padding: 0, }}>
+                    <Typography variant="body2" color="#000" component="p" style={{ padding: 0, fontSize:"16px"}}>
                         Lizards are a widespread group of squamate reptiles, with over 6,000 species,
                     </Typography>
 
-                    <IconButton aria-label="settings" style={{ padding: 0, display: "flex", alignItems: "baseline" }} size="small">
+                    <IconButton aria-label="settings" style={{ padding: 0, display: "flex", alignItems: "baseline",height:"21px" }} size="small">
                         <MoreVertIcon fontSize="small" style={{ color: "lightgrey" }} />
                     </IconButton>
 
                 </CardContent>
 
                 <CardContent style={{ display: 'flex', padding: "5px 0px 1px 0px ", margin: "0px 0.5vw" }}>
-                    <Typography component="span" color="primary" style={{ fontSize: 'small', padding: 0 }}> By</Typography>
-                    <Typography component="span" color="primary" style={{ fontSize: 'small', padding: 0, marginLeft: "1.5em" }}> Time</Typography>
-                    <VisibilityOutlinedIcon fontSize="small" style={{ padding: 0, marginLeft: "1.5em" }} />
-                    <Typography component="span" color="primary" style={{ fontSize: 'small', padding: 0, marginLeft: "1.5em" }}> Views</Typography>
-                    <Typography component="span" color="primary" style={{ fontSize: 'small', padding: "0px 2px", marginLeft: "1.5em" }}> icon</Typography>
+                    <Typography component="span" color="primary" style={{ fontSize: '16px', padding: 0, color:"#1956E3",fontWeight:"500" }}> Megha P</Typography>
+                    <Typography component="span" color="primary" style={{ fontSize: '14px', padding: 0, marginLeft: "1.5em" ,color:"#7F7F7F", marginLeft:"10px" }}> 6 min</Typography>
+                    <Typography component="span" color="primary" style={{ fontSize: '14px', padding: 0, marginLeft: "1.5em",color:"#7F7F7F", display:"flex"  }}> <VisibilityOutlinedIcon fontSize="small" />2,098</Typography>
+                    <Typography component="span" color="primary" style={{ fontSize: '14px', padding: "0px 2px",  width:"20px", marginLeft:"10px", marginRight:"0px",marginTop:"-3px"}}>  <FolderIcon color="inherit" fontSize="small" style={{ float: "left", fontSize: "1.6rem"}} /> </Typography>
                 </CardContent>
 
                 <Divider style={{ margin: "3px 0px" }}></Divider>
@@ -190,7 +190,7 @@ const Datacard = props => {
 
 
             </CardActionArea>
-            <CardActions style={{ padding: 0, margin: "0px 0.25vw" }}>
+            <CardActions style={{ padding:"8px 0", margin: "0px 0.25vw" }}>
                 <IconButton aria-label="add to favorites" size="small" onClick={(() => {  handleLike('like'); })}>
                     {
                         (like ? <FavoriteIcon style={{ color: 'red' }} fontSize="small"
@@ -201,13 +201,13 @@ const Datacard = props => {
 
                 </IconButton>
 
-                <IconButton aria-label="start chat" size="small" onClick={() => {  handleLike('chat'); }} style={{ marginLeft: "1.0em" }}>
+                <IconButton aria-label="start chat" size="small" onClick={() => {  handleLike('chat'); }} style={{ marginLeft: "0.5em", color:"rgba(0, 0, 0, 0.54)", opacity:"0.5" }}>
                     {
-                        (chat ? <ChatBubbleSharpIcon style={{ color: 'blue' }} fontSize="small"
+                        (chat ? <ChatBubbleSharpIcon style={{ color: 'rgba(0, 0, 0, 0.54)' }} fontSize="small"
                         />
-                            : <ChatBubbleOutlineSharpIcon fontSize="small"
+                            : <ChatBubbleOutlineSharpIcon fontSize="small" style={{ color: 'rgba(0, 0, 0, 0.54)' }}
                             />)
-                    }
+                    }22
 
                 </IconButton>
 
@@ -219,14 +219,13 @@ const Datacard = props => {
                     />
                 </IconButton>
 
-                <IconButton aria-label="add to started" size="small" onClick={() => {  handleLike('star'); }}>
+                <IconButton aria-label="add to started" size="small" style={{ marginLeft: '0.2em', color:"rgba(0, 0, 0, 0.54)", opacity:"0.5" }} onClick={() => {  handleLike('star'); }}>
                     {
                         (star ? <StarIcon style={{ color: "gold" }} fontSize="small"
                         />
-                            : <StarBorderOutlinedIcon style={{ color: 'lightgrey' }} fontSize="small"
+                            : <StarBorderOutlinedIcon style={{ color: 'lightgrey' }} fontSize="25px"
                             />)
-                    }
-
+                    }50
                 </IconButton>
 
             </CardActions>

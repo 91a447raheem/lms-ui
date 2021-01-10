@@ -13,6 +13,9 @@ import UserChatInfo from '../Connect/Messages/userChatInfo'
 import Header from '../common/header'
 import ChatList from '../Connect/Messages/chatList';
 import Participants from "./participants";
+import Sharedfiles from "./sharedfiles";
+import Sharedcontent from "./sharedcontent";
+import Sharedcontentsingle from "./sharedcontentsingle";
 
 const useStyles = makeStyles((theme) => ({
   marginSmall: {
@@ -52,7 +55,7 @@ const useStyles = makeStyles((theme) => ({
   contentRenderer: {
     float: 'right',
     width: 'calc(100% - 385px)',
-    height: '100vh',
+    height: '100%',
     padding: '0 5px'
   },
   contentRendererinr: {
@@ -95,6 +98,9 @@ export default function MessageConnect(props) {
                 <Route exact path="/connect/messages/grpChatVoice" component={GrpChatVoice} />
                 <Route exact path="/connect/messages/grpChatVideo" component={GrpChatVideo} />
                 <Route exact path="/connect/messages/userChat" component={UserChatInfo} />
+                <Route exact path="/connect/sharedfiles" component={Sharedfiles} />
+                <Route exact path="/connect/sharedcontent" component={Sharedcontent} />
+                <Route exact path="/connect/sharedcontentsingle" component={Sharedcontentsingle} />
               </Router>
             </div>
           </div>

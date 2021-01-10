@@ -46,8 +46,7 @@ const useStyles = makeStyles((theme) => ({
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        color: 'lightgrey',
-        marginLeft: "2vw"
+        color: '#7B7B7B',
     },
 
     selectSortby: {
@@ -58,15 +57,16 @@ const useStyles = makeStyles((theme) => ({
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        color: 'lightgrey',
-        marginLeft: "39vw",
+        color: '#7B7B7B',
         [theme.breakpoints.down('md')]: {
-            marginLeft: "23vw",
+            marginLeft: "0",
         },
     },
 
-    Show: {
+    Participants: {
         marginLeft: "2vw",
+        float:"left",
+        marginRight:10,
         padding: theme.spacing(0, 0, 0, 0),
         // vertical padding + font size from searchIcon
         paddingLeft: `calc(1em + ${theme.spacing(7)}px)`,
@@ -77,26 +77,14 @@ const useStyles = makeStyles((theme) => ({
         },
     },
     Sortby: {
-        marginLeft: "38vw",
+        marginLeft: "0",
         padding: theme.spacing(0, 0, 0, 0),
         // vertical padding + font size from searchIcon
         paddingLeft: `calc(1em + ${theme.spacing(7)}px)`,
         transition: theme.transitions.create('width'),
         width: '20ch',
         [theme.breakpoints.down('md')]: {
-            width: '10ch',
-            marginLeft: "23vw",
-        },
-    },
-    Participants: {
-        // marginLeft: "0.1vw",
-        padding: theme.spacing(0, 0, 0, 0),
-        // vertical padding + font size from searchIcon
-        paddingLeft: `calc(1em + ${theme.spacing(7)}px)`,
-        transition: theme.transitions.create('width'),
-        width: '20ch',
-        [theme.breakpoints.down('md')]: {
-            width: '13ch',
+            width: '10ch'
         },
     },
     root: {
@@ -151,10 +139,17 @@ const customStyles = {
 
 };
 
+const showOptions = [
+    { value: 'fileType', label: 'File Type' }
+];
+
 const options = [
-    { value: 'chocolate', label: 'Chocolate' },
-    { value: 'strawberry', label: 'Strawberry' },
-    { value: 'vanilla', label: 'Vanilla' }
+    { value: 'allParticipants', label: 'All Participants' }
+];
+
+const sortOptions = [
+    { value: 'newestFirst', label: 'Newest First' },
+    { value: 'oldFirst', label: 'Old First' }
 ];
 
 const dataDummy = [
@@ -177,20 +172,18 @@ export default function Sharedcontent() {
 
 
     return (
-        <div style={{ backgroundColor: "white", height: "100%" }}>
+        <div style={{ backgroundColor: "#F7F7F7", height: "100%",marginTop:"-12px"}}>
             <Headerconnect />
-            <div style={{ display: "flex", marginTop: "2vh" }}>
-                <div className={classes.selectwrapper} >
-
-                    <div className={classes.selectShow}>
-                        Show
-                ``  </div>
-
-                    <div style={{ display: "flex" }}>
-                        <div className={classes.Show} >
+            <div style={{ display: "block",width:"100%", float:"left",background:"#fff", padding:"10px 0px",borderTop:"1px solid #dfdfdf"}}>
+                <div className={classes.selectwrapper} style={{width:"65%",float:"left"}}>
+                    <div style={{ display: "block"}}>
+                        <div className={classes.selectShow}>
+                            Show
+                      </div>
+                        <div className={classes.Participants} >
                             <Select
-                                defaultValue={options[0]}
-                                options={options}
+                                defaultValue={showOptions[0]}
+                                options={showOptions}
                                 styles={customStyles}
                                 autosize={true}
                                 theme={theme => ({
@@ -234,7 +227,7 @@ export default function Sharedcontent() {
                     </div>
                 </div>
 
-                <div className={classes.selectwrapper} >
+                <div className={classes.selectwrapper} style={{width:"30%",float:"left"}}>
 
                     <div className={classes.selectSortby}>
                         Sort
@@ -242,8 +235,8 @@ export default function Sharedcontent() {
 
                     <div className={classes.Sortby}>
                         <Select
-                            defaultValue={options[0]}
-                            options={options}
+                            defaultValue={sortOptions[0]}
+                            options={sortOptions}
                             styles={customStyles}
                             autosize={true}
                             theme={theme => ({
@@ -267,7 +260,7 @@ export default function Sharedcontent() {
             </div>
 
 
-            <div style={{ display: "flex", flexFlow: "wrap", width: "80%", margin: "2vw 6vw" }}>
+            <div style={{ display: "flex", flexFlow: "wrap", width: "88%", margin: "2vw auto" }}>
 
                 {
                     dataDummy.map((data) =>

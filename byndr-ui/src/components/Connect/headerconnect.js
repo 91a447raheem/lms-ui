@@ -130,7 +130,7 @@ export default function Headerconnect() {
                         <Typography className={classes.title} variant="h6" noWrap>
                             Shared Files
                         </Typography>
-                        <Typography className={classes.title} variant="h6" noWrap>
+                        <Typography className={classes.title} variant="h6" noWrap style={{marginLeft:"20px",color:"#1956E3"}}>
                             224
                         </Typography>
 
@@ -152,8 +152,30 @@ export default function Headerconnect() {
                           <Typography className={classes.title} variant="h6" noWrap>
                               Shared Content
                           </Typography>
-                          <Typography className={classes.title} variant="h6" noWrap>
+                          <Typography className={classes.title} variant="h6" noWrap style={{marginLeft:"20px",color:"#1956E3"}}>
                               26
+                          </Typography>
+  
+                      </React.Fragment>
+                )
+              }
+              else if (match.path === "/connect/sharedcontentsingle") {
+                return (
+                  <React.Fragment>
+  
+                          <IconButton
+                              edge="start"
+                              className={classes.menuButton}
+                              color="inherit"
+                              aria-label="open drawer"
+                          >
+                              <KeyboardArrowLeftIcon />
+                          </IconButton>
+                          <Typography className={classes.title} variant="h6" noWrap>
+                          Shared Content
+                          </Typography>
+                          <Typography className={classes.title} variant="h6" noWrap style={{marginLeft:"20px",color:"#1956E3"}}>
+                              46
                           </Typography>
   
                       </React.Fragment>

@@ -1,25 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Headerconnect from './headerconnect';
-import Card from '@material-ui/core/Card';
-import Typography from '@material-ui/core/Typography';
 import Select from "react-select";
 import { fade, makeStyles } from '@material-ui/core/styles';
-import CardActionArea from '@material-ui/core/CardActionArea';
-import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
-import FolderIcon from '@material-ui/icons/Folder';
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import SharedFilesChatLayout from './Messages/sharedFilesChatLayout'
 import {
-    faBookmark,
-    faFileArchive,
-    faCog,
-    faLayerGroup,
-    faNewspaper,
-    faPaperPlane,
-    faUserCircle,
-    faUsers,
-    faVideo,
-  } from "@fortawesome/free-solid-svg-icons";
+    Grid,
+} from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
 
@@ -108,15 +94,6 @@ const useStyles = makeStyles((theme) => ({
             width: 235,
         },
     },
-    flieFloder:{
-        height: "100px",
-        display: "table-cell",
-        verticalAlign: "middle",
-        textAlign: "center",
-        width: "150px",
-        fontSize: "29px",
-    }
-
 }));
 
 const customStyles = {
@@ -173,7 +150,7 @@ const sortOptions = [
 ];
 
 const dataDummy = [
-    { 1: "1", role: "Admin" },
+    { 1: "1", role: "member" },
     { 1: "2", role: "member" },
     { 1: "3", role: "member" },
     { 1: "4", role: "member" },
@@ -183,13 +160,16 @@ const dataDummy = [
     { 1: "8", role: "member" }
 ]
 
-export default function Sharedfiles() {
+export default function Sharedcontentsingle() {
 
 
+    const [likedCards, updatelikedCards] = React.useState([]);
+    // console.log(likedCards);
     const classes = useStyles();
 
+
     return (
-        <div style={{ backgroundColor: "white", height: "100%" , marginTop:"-12px"}}>
+        <div style={{ backgroundColor: "#F7F7F7", height: "auto",marginTop:"-12px"}}>
             <Headerconnect />
             <div style={{ display: "block",width:"100%", float:"left",background:"#fff", padding:"10px 0px",borderTop:"1px solid #dfdfdf"}}>
                 <div className={classes.selectwrapper} style={{width:"65%",float:"left"}}>
@@ -197,29 +177,7 @@ export default function Sharedfiles() {
                         <div className={classes.selectShow}>
                             Show
                       </div>
-                        <div className={classes.Show} >
-                            <Select
-                                defaultValue={showOptions[0]}
-                                options={showOptions}
-                                styles={customStyles}
-                                autosize={true}
-                                theme={theme => ({
-                                    ...theme,
-                                    borderRadius: 0,
-                                    colors: {
-                                        ...theme.colors,
-                                        primary: 'lightgrey',
-                                        primary25: '#F8F8F8',
-
-                                    },
-                                })}
-                                components={{
-                                    IndicatorSeparator: () => null
-                                }}
-
-                            />
-                        </div>
-                        <div className={classes.Participants}>
+                      <div className={classes.Show} >
                             <Select
                                 defaultValue={options[0]}
                                 options={options}
@@ -276,34 +234,12 @@ export default function Sharedfiles() {
 
             </div>
 
-            <div style={{ display: "block", flexFlow: "wrap", width:"100%", float:"left" }}>
 
-                {
-                    dataDummy.map((data => {
-                        if (data.role === "member") {
-                            return (
-                                
-                                <Card style={{ margin: " 20px", width: "150px", float:"left", borderRadius:"15px",border:"1px solid #E8E8E8"}}>
-                                    <CardActionArea>
-                                        <div className={classes.flieFloder}><FontAwesomeIcon icon={faFileArchive} size={"lg"} /></div>
-                                        <CardContent style={{ display: 'flex', padding:"0.5vw 0.75vw 0.75vw 0.75vw",borderTop:"1px solid #E8E8E8" }}>
-                                            <Typography variant="body2" color="textSecondary" component="p" style={{
-                                                padding: 2, whiteSpace: "nowrap",
-                                                overflow: "hidden",
-                                                textOverflow: "ellipsis"
-                                            }}>
-                                                <FolderIcon color="inherit" fontSize="small" style={{ float: "left", fontSize: "1.2rem", marginRight:5}} /> {data.role}
-                                            </Typography>
-                                        </CardContent>
-                                    </CardActionArea>
-                                    
-                                </Card>
-                                
-
-                            );
-                        }
-                    }))
-                }
+            <div style={{width: "100%", float:"left"}}>
+        
+                    <Grid style={{ marginTop: 72, }} className={classes.gridChat}>
+                       <SharedFilesChatLayout />
+                    </Grid> 
             </div>
 
         </div>
