@@ -21,7 +21,12 @@ import Popover from '@material-ui/core/Popover';
 import Badge from '@material-ui/core/Badge';
 import Chip from '@material-ui/core/Chip';
 import Icon from '@material-ui/core/Icon';
-
+import PinDropIcon from '@material-ui/icons/PinDrop';
+import VolumeMuteIcon from '@material-ui/icons/VolumeMute';
+import VisibilityIcon from '@material-ui/icons/Visibility';
+import VisibilityOffIcon from '@material-ui/icons/VisibilityOff';
+import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
+import ReportIcon from '@material-ui/icons/Report';
 
 
 const StyledBadge = withStyles((theme) => ({
@@ -174,25 +179,37 @@ export default function ChatCard() {
                         <List component="nav"  >
                             <ListItem button>
                                 <ListItemIcon>
-                                    <ShareOutlinedIcon />
+                                    <VisibilityIcon />
                                 </ListItemIcon>
-                                <ListItemText primary="Share Profile" />
+                                <ListItemText primary="Mark as read" />
                             </ListItem>
                             <ListItem button component={Link} to="/connect/messages/userChat">
                                 <ListItemIcon>
-                                    <AccountCircleOutlinedIcon />
+                                    <VisibilityOffIcon />
                                 </ListItemIcon>
-                                <ListItemText primary="View Profile" />
+                                <ListItemText primary="Mark as unread" />
                             </ListItem>
                             <ListItem button>
                                 <ListItemIcon>
-                                    <PersonAddDisabledOutlinedIcon />
+                                    <VolumeMuteIcon/>
                                 </ListItemIcon>
-                                <ListItemText primary="Disconnect" />
+                                <ListItemText primary="Mute" />
                             </ListItem>
                             <ListItem button>
                                 <ListItemIcon>
-                                    <ReportOutlinedIcon />
+                                    <PinDropIcon />
+                                </ListItemIcon>
+                                <ListItemText primary="Pin to Top" />
+                            </ListItem>
+                            <ListItem button>
+                                <ListItemIcon>
+                                    <DeleteForeverIcon />
+                                </ListItemIcon>
+                                <ListItemText primary="Delete Chat" />
+                            </ListItem>
+                            <ListItem button>
+                                <ListItemIcon>
+                                    <ReportIcon />
                                 </ListItemIcon>
                                 <ListItemText primary="Report" />
                             </ListItem>

@@ -24,7 +24,10 @@ import PhoneOutlinedIcon from '@material-ui/icons/PhoneOutlined';
 import VideoCallOutlinedIcon from '@material-ui/icons/VideoCallOutlined';
 import CloseIcon from '@material-ui/icons/Close';
 import InfoIcon from '@material-ui/icons/Info';
-
+import { useRouteMatch } from "react-router-dom";
+import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
+import ReportIcon from '@material-ui/icons/Report';
+import BlockIcon from '@material-ui/icons/Block';
 
 
 import {
@@ -76,6 +79,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function GrpHeadCard(props) {
     const classes = useStyles();
+    let match = useRouteMatch();
     const [anchorEl, setAnchorEl] = React.useState(null);
 
     const handleClick = (event) => {
@@ -88,7 +92,7 @@ export default function GrpHeadCard(props) {
 
     const open = Boolean(anchorEl);
     const id = open ? 'simple-popover' : undefined;
-
+    if (match.path === "/connect/messages/userChat") {
     return (
         <List dense className={classes.root}>
             <ListItem style={{ float: "left", width: "70%" }}>
@@ -141,6 +145,94 @@ export default function GrpHeadCard(props) {
                             horizontal: 'center',
                         }}
                     >
+
+                        <List component="nav"  >
+                            <ListItem button>
+                                <ListItemIcon>
+                                    <ReportIcon />
+                                </ListItemIcon>
+                                <ListItemText primary="Report" />
+                            </ListItem>
+                            <ListItem button>
+                                <ListItemIcon>
+                                    <BlockIcon />
+                                </ListItemIcon>
+                                <ListItemText primary="Block" />
+                            </ListItem>
+                            <ListItem button>
+                                <ListItemIcon>
+                                    <VolumeMuteIcon />
+                                </ListItemIcon>
+                                <ListItemText primary="Mute Group" />
+                            </ListItem>
+                            <ListItem button>
+                                <ListItemIcon>
+                                    <DeleteForeverIcon />
+                                </ListItemIcon>
+                                <ListItemText primary="Delete Chat" />
+                            </ListItem>
+                        </List>
+                    </Popover>
+
+                </ListItemSecondaryAction>
+            </ListItem>
+        </List>
+    );
+   }
+    else {
+    return (
+        <List dense className={classes.root}>
+            <ListItem style={{ float: "left", width: "70%" }}>
+                <ListItemAvatar>
+                    <Avatar
+                        alt="Travis Howard"
+                        src="/static/images/avatar/2.jpg"
+                    />
+                </ListItemAvatar>
+                <ListItemText>
+                    <Grid item xs={12}>
+                        <Grid container justify="flex-start" spacing={2}>
+                            <Grid item xs={12}>
+                                <Typography variant="body2" className={classes.cardTtitle} component="p">
+                                    {props.title}
+                                </Typography>
+                            </Grid>
+
+                        </Grid>
+                    </Grid>
+                </ListItemText>
+                <ListItemSecondaryAction style={{ float: "right", position: "relative", marginTop: 17, width: "25%" }}>
+                    <Grid item xs={12}>
+                        <Grid container spacing={2}>
+                            <Typography variant="body2" component="span" className={classes.lastUpdate}>
+                                <PhoneOutlinedIcon color="inherit" fontSize="small" style={{ float: "left", fontSize: "1.6rem" }} />
+                                <VideoCallOutlinedIcon color="inherit" fontSize="small" style={{ fontSize: "2rem", float: "left", marginTop: -3, marginRight: 10, marginBottom: 0, marginLeft: 10 }} />
+                                <InfoIcon color="inherit" fontSize="small" style={{ fontSize: "1.6rem" }} />
+                            </Typography>
+                            <IconButton aria-label="settings" onClick={handleClick}>
+                                <MoreVertIcon />
+                            </IconButton>
+                            <Typography variant="body2" component="span" className={classes.lastUpdate}>
+                                <CloseIcon color="inherit" fontSize="small" style={{ paddingTop: "10%" }} />
+                            </Typography>
+
+                        </Grid>
+                    </Grid>
+                    <Popover
+                        id={id}
+                        open={open}
+                        anchorEl={anchorEl}
+                        onClose={handleClose}
+                        anchorOrigin={{
+                            vertical: 'bottom',
+                            horizontal: 'left',
+                        }}
+                        transformOrigin={{
+                            vertical: 'top',
+                            horizontal: 'center',
+                        }}
+                    >
+
                         <List component="nav"  >
                             <ListItem button>
                                 <ListItemIcon>
@@ -191,4 +283,5 @@ export default function GrpHeadCard(props) {
             </ListItem>
         </List>
     );
+   }
 }
