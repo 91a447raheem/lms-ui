@@ -81,17 +81,28 @@ export default function GrpHeadCard(props) {
     const classes = useStyles();
     let match = useRouteMatch();
     const [anchorEl, setAnchorEl] = React.useState(null);
-
+    const [closeAnchorEl, setCloseAnchorEl] = React.useState(null);
+    
     const handleClick = (event) => {
         setAnchorEl(event.currentTarget);
     };
-
     const handleClose = () => {
         setAnchorEl(null);
     };
 
+    const handleColseClick = (event) => {
+        setCloseAnchorEl(event.currentTarget);
+    };
+
+    const handleClosePopup = () => {
+        setCloseAnchorEl(null);
+    };
+
     const open = Boolean(anchorEl);
     const id = open ? 'simple-popover' : undefined;
+    
+    const closeOpen = Boolean(closeAnchorEl);
+    const closeId = closeOpen ? 'simple-popover' : undefined;
     if (match.path === "/connect/messages/userChat") {
     return (
         <List dense className={classes.root}>
@@ -126,7 +137,7 @@ export default function GrpHeadCard(props) {
                                 <MoreVertIcon />
                             </IconButton>
                             <Typography variant="body2" component="span" className={classes.lastUpdate}>
-                                <CloseIcon color="inherit" fontSize="small" style={{ paddingTop: "10%" }} />
+                                <CloseIcon color="inherit" fontSize="small" style={{ paddingTop: "10%" }} onClick={handleColseClick}/>
                             </Typography>
 
                         </Grid>
@@ -173,6 +184,60 @@ export default function GrpHeadCard(props) {
                             </ListItem>
                         </List>
                     </Popover>
+                    <Popover
+                        id={closeId}
+                        open={closeOpen}
+                        anchorCloseEl={closeAnchorEl}
+                        onClose={handleClosePopup}
+                        anchorOrigin={{
+                            vertical: 'bottom',
+                            horizontal: 'left',
+                        }}
+                        transformOrigin={{
+                            vertical: 'top',
+                            horizontal: 'center',
+                        }}
+                    >
+
+                        <List component="nav"  >
+                            <ListItem button>
+                                <ListItemIcon>
+                                    <AccountCircleOutlinedIcon />
+                                </ListItemIcon>
+                                <ListItemText primary="Rename" />
+                            </ListItem>
+                            <ListItem button>
+                                <ListItemIcon>
+                                    <ExitToAppIcon />
+                                </ListItemIcon>
+                                <ListItemText primary="Leave" />
+                            </ListItem>
+                            <ListItem button>
+                                <ListItemIcon>
+                                    <PersonAddIcon />
+                                </ListItemIcon>
+                                <ListItemText primary="Add Participant" />
+                            </ListItem>
+                            <ListItem button>
+                                <ListItemIcon>
+                                    <PersonAddDisabledIcon />
+                                </ListItemIcon>
+                                <ListItemText primary="Remove Participant" />
+                            </ListItem>
+                            <ListItem button>
+                                <ListItemIcon>
+                                    <VolumeMuteIcon />
+                                </ListItemIcon>
+                                <ListItemText primary="Mute Group" />
+                            </ListItem>
+                            <ListItem button>
+                                <ListItemIcon>
+                                    <PhotoCameraIcon />
+                                </ListItemIcon>
+                                <ListItemText primary="Change Image" />
+                            </ListItem>
+                        </List>
+                    </Popover>
 
                 </ListItemSecondaryAction>
             </ListItem>
@@ -212,8 +277,9 @@ export default function GrpHeadCard(props) {
                             <IconButton aria-label="settings" onClick={handleClick}>
                                 <MoreVertIcon />
                             </IconButton>
+                            
                             <Typography variant="body2" component="span" className={classes.lastUpdate}>
-                                <CloseIcon color="inherit" fontSize="small" style={{ paddingTop: "10%" }} />
+                                <CloseIcon aria-label="settings" color="inherit" fontSize="small" style={{ paddingTop: "10%" }} onClick={handleColseClick}/>
                             </Typography>
 
                         </Grid>
@@ -240,6 +306,61 @@ export default function GrpHeadCard(props) {
                                 </ListItemIcon>
                                 <ListItemText primary="Pin to Top" />
                             </ListItem>
+                            <ListItem button>
+                                <ListItemIcon>
+                                    <AccountCircleOutlinedIcon />
+                                </ListItemIcon>
+                                <ListItemText primary="Rename" />
+                            </ListItem>
+                            <ListItem button>
+                                <ListItemIcon>
+                                    <ExitToAppIcon />
+                                </ListItemIcon>
+                                <ListItemText primary="Leave" />
+                            </ListItem>
+                            <ListItem button>
+                                <ListItemIcon>
+                                    <PersonAddIcon />
+                                </ListItemIcon>
+                                <ListItemText primary="Add Participant" />
+                            </ListItem>
+                            <ListItem button>
+                                <ListItemIcon>
+                                    <PersonAddDisabledIcon />
+                                </ListItemIcon>
+                                <ListItemText primary="Remove Participant" />
+                            </ListItem>
+                            <ListItem button>
+                                <ListItemIcon>
+                                    <VolumeMuteIcon />
+                                </ListItemIcon>
+                                <ListItemText primary="Mute Group" />
+                            </ListItem>
+                            <ListItem button>
+                                <ListItemIcon>
+                                    <PhotoCameraIcon />
+                                </ListItemIcon>
+                                <ListItemText primary="Change Image" />
+                            </ListItem>
+                        </List>
+                    </Popover>
+
+                    <Popover
+                        id={closeId}
+                        open={closeOpen}
+                        anchorCloseEl={closeAnchorEl}
+                        onClose={handleClosePopup}
+                        anchorOrigin={{
+                            vertical: 'top',
+                            horizontal: 'right',
+                        }}
+                        transformOrigin={{
+                            vertical: 'top',
+                            horizontal: 'center',
+                        }}
+                    >
+
+                        <List component="nav"  >
                             <ListItem button>
                                 <ListItemIcon>
                                     <AccountCircleOutlinedIcon />
