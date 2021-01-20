@@ -62,10 +62,10 @@ const useStyles = makeStyles((theme) => ({
         backgroundColor: "#fff"
     },
     cardTtitle: {
-        paddingLeft:10,
+        paddingLeft: 10,
         fontSize: 20,
         color: "#7F7F7F",
-        paddingTop:20
+        paddingTop: 20
     },
     cardSub: {
         textAlign: "center",
@@ -77,8 +77,8 @@ const useStyles = makeStyles((theme) => ({
         fontSize: 16,
         color: "#1956E3",
         opacity: 1,
-        fontWeight:500,
-        padding:"20px 0px"
+        fontWeight: 500,
+        padding: "20px 0px"
     },
     cardFile: {
         textAlign: "center",
@@ -95,7 +95,7 @@ const useStyles = makeStyles((theme) => ({
     chatContainer: {
         position: "relative"
     },
-    lastChildCss:{
+    lastChildCss: {
         '&:lastChild': {
             borderBottom: "none",
         }
@@ -115,8 +115,8 @@ export default function GrpChatInfo() {
                     </Grid> */}
                     <GrpChat />
                 </Grid>
-                <Grid item xs={12} sm={4} className={classes.sidebar}  style={{borderLeft:"1px solid #dfdfdf"}}>
-                    <ChatRightInfoCard title={'Group Info'}/>
+                <Grid item xs={12} sm={4} className={classes.sidebar} style={{ borderLeft: "1px solid #dfdfdf" }}>
+                    <ChatRightInfoCard title={'Group Info'} />
                     <Grid>
                         <Typography variant="body2" className={classes.cardTtitle} component="p">
                             Participants <span className={classes.cardSub}>24</span>
@@ -125,7 +125,7 @@ export default function GrpChatInfo() {
                     <Grid>
                         {[0, 1, 2, 3].map((value) => {
                             return (
-                                <ChatSidebarCard key={value} className={classes.lastChildCss}/>
+                                <ChatSidebarCard key={value} className={classes.lastChildCss} />
                             );
                         })}
                     </Grid>
@@ -139,7 +139,7 @@ export default function GrpChatInfo() {
                         container
                         direction="row"
                         justify="flex-start"
-                    style={{ padding: 20 }}
+                        style={{ padding: 20 }}
                     >
                         <Grid item xs={5}>
                             <Typography variant="body2" className={classes.cardFile} component="p">
@@ -165,7 +165,7 @@ export default function GrpChatInfo() {
                         container
                         direction="row"
                         justify="flex-start"
-                      style={{ paddingLeft: 20, paddingRight:20, paddingBottom:30, borderBottom:"1px solid #dfdfdf" }}
+                        style={{ paddingLeft: 20, paddingRight: 20, paddingBottom: 30, borderBottom: "1px solid #dfdfdf" }}
                     >
                         {[0, 1, 2].map((value) => {
                             return (
@@ -176,7 +176,7 @@ export default function GrpChatInfo() {
                                         src="/static/images/avatar/2.jpg"
                                         sizes='large'
                                         variant="square"
-                                        style={{ height: '90px', width: '90px',borderRadius: 10 }}
+                                        style={{ height: '90px', width: '90px', borderRadius: 10 }}
                                     />
                                 </Grid>
                             );
@@ -211,7 +211,7 @@ export default function GrpChatInfo() {
                     <Grid style={{ padding: 20 }}>
                         {[0, 1].map((value) => {
                             return (
-                                <ChatMessageCard key={value} style={{marginBottom:20}}/>
+                                <ChatMessageCard key={value} style={{ marginBottom: 20 }} />
                             );
                         })}
                     </Grid>
