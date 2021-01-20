@@ -78,7 +78,7 @@ export default function GrpChat() {
         <div className={classes.root}>
             <Grid container spacing={2} style={{ marginLeft: -17, paddingLeft: 17 }}>
                 <Grid item xs={12} style={{ padding: 0 }}>
-                    <div className={classes.titleBlock}><GrpHeadCard /></div>
+                    <div className={classes.titleBlock}><GrpHeadCard title={'Design Group'}/></div>
                     <Grid style={{ marginTop: 72, }} className={classes.gridChat}>
                         <ChatLayout />
                     </Grid>
