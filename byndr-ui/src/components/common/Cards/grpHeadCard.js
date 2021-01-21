@@ -107,7 +107,7 @@ export default function GrpHeadCard(props) {
                         </Grid>
                     </Grid>
                 </ListItemText>
-                <ListItemSecondaryAction style={{ float: "right", position: "relative", marginTop: 17, width: "25%" }}>
+                <ListItemSecondaryAction style={{ float: "right", position: "relative", marginTop: 17, width: "185px" }}>
                     <Grid item xs={12}>
                         <Grid container spacing={2}>
                             <Typography variant="body2" component="span" className={classes.lastUpdate}>
