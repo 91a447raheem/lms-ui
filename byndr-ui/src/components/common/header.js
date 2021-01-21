@@ -205,7 +205,10 @@ export default function Header() {
                 )
             }
             else if (match.path === "/connect/messages/grpChat" || match.path === "/connect/messages/grpChatInfo"
-                || match.path === "/connect/messages/grpChatVoice" || match.path === "/connect/messages/grpChatVideo" || match.path === "/connect/messages/userChat" ) {
+                || match.path === "/connect/messages/grpChatVoice" || match.path === "/connect/messages/grpChatVideo" 
+                || match.path === "/connect/messages/userChat" || match.path === "/connect/allparticipants"
+                || match.path === "/connect/sharedfiles" || match.path === "/connect/sharedcontentsingle" 
+                || match.path === "/connect/sharedcontent" ) {
                 return (
                     <div style={{ display: "flex" }}>
                         <Typography className={classes.title} variant="body1" noWrap>Messages</Typography>

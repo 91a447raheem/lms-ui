@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 
 
 import MyprofileDetails from '../../common/ProfileDetails/MyprofileDetails';
-import DataCard from '../../common/Cards/dataCard'
+import Datacard from '../../common/Cards/datacard'
 import DataDetailCard from '../../common/Cards/dataDetailCard'
 import cardBGImg from "../../../img/cardbg.png";
 import cardBGblue from "../../../img/cardBGblue.png";
@@ -91,7 +91,7 @@ export default function Spaces() {
                             {[0, 1].map((value) => {
                                 return (
                                     <Grid item sm={6} key={value} >
-                                        <DataCard
+                                        <Datacard
                                             CardMediaImg={cardBGblue}
                                             CardVarient="BannerText"
                                             CardHeadText="SPA"
@@ -106,7 +106,7 @@ export default function Spaces() {
                             {[0, 1].map((value) => {
                                 return (
                                     <Grid item sm={6} key={value} >
-                                        <DataCard
+                                        <Datacard
                                             CardMediaImg={cardBGImg}
                                             CardVarient=""
                                             CardHeadText=""
