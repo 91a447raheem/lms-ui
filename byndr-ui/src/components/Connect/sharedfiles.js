@@ -6,20 +6,11 @@ import Select from "react-select";
 import { fade, makeStyles } from '@material-ui/core/styles';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
 import FolderIcon from '@material-ui/icons/Folder';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-    faBookmark,
     faFileArchive,
-    faCog,
-    faLayerGroup,
-    faNewspaper,
-    faPaperPlane,
-    faUserCircle,
-    faUsers,
-    faVideo,
-  } from "@fortawesome/free-solid-svg-icons";
+} from "@fortawesome/free-solid-svg-icons";
 
 const useStyles = makeStyles((theme) => ({
 
@@ -65,8 +56,8 @@ const useStyles = makeStyles((theme) => ({
 
     Show: {
         marginLeft: "2vw",
-        float:"left",
-        marginRight:10,
+        float: "left",
+        marginRight: 10,
         padding: theme.spacing(0, 0, 0, 0),
         // vertical padding + font size from searchIcon
         paddingLeft: `calc(1em + ${theme.spacing(7)}px)`,
@@ -91,8 +82,8 @@ const useStyles = makeStyles((theme) => ({
         // marginLeft: "0.1vw",
         padding: theme.spacing(0, 0, 0, 0),
         // vertical padding + font size from searchIcon
-        width:"200px",
-        float:"left",
+        width: "200px",
+        float: "left",
         transition: theme.transitions.create('width'),
         [theme.breakpoints.down('md')]: {
             width: '100px',
@@ -108,7 +99,7 @@ const useStyles = makeStyles((theme) => ({
             width: 235,
         },
     },
-    flieFloder:{
+    flieFloder: {
         height: "100px",
         display: "table-cell",
         verticalAlign: "middle",
@@ -189,11 +180,11 @@ export default function Sharedfiles() {
     const classes = useStyles();
 
     return (
-        <div style={{ backgroundColor: "white", height: "100%" , marginTop:"-12px"}}>
+        <div style={{ backgroundColor: "white", height: "100%", marginTop: "-12px" }}>
             <Headerconnect />
-            <div style={{ display: "block",width:"100%", float:"left",background:"#fff", padding:"10px 0px",borderTop:"1px solid #dfdfdf"}}>
-                <div className={classes.selectwrapper} style={{width:"65%",float:"left"}}>
-                    <div style={{ display: "block"}}>
+            <div style={{ display: "block", width: "100%", float: "left", background: "#fff", padding: "10px 0px", borderTop: "1px solid #dfdfdf" }}>
+                <div className={classes.selectwrapper} style={{ width: "65%", float: "left" }}>
+                    <div style={{ display: "block" }}>
                         <div className={classes.selectShow}>
                             Show
                       </div>
@@ -244,7 +235,7 @@ export default function Sharedfiles() {
                     </div>
                 </div>
 
-                <div className={classes.selectwrapper} style={{width:"30%",float:"left"}}>
+                <div className={classes.selectwrapper} style={{ width: "30%", float: "left" }}>
 
                     <div className={classes.selectSortby}>
                         Sort
@@ -276,31 +267,33 @@ export default function Sharedfiles() {
 
             </div>
 
-            <div style={{ display: "block", flexFlow: "wrap", width:"100%", float:"left" }}>
+            <div style={{ display: "block", flexFlow: "wrap", width: "100%", float: "left" }}>
 
                 {
                     dataDummy.map((data => {
                         if (data.role === "member") {
                             return (
-                                
-                                <Card style={{ margin: " 20px", width: "150px", float:"left", borderRadius:"15px",border:"1px solid #E8E8E8"}}>
+
+                                <Card style={{ margin: " 20px", width: "150px", float: "left", borderRadius: "15px", border: "1px solid #E8E8E8" }}>
                                     <CardActionArea>
                                         <div className={classes.flieFloder}><FontAwesomeIcon icon={faFileArchive} size={"lg"} /></div>
-                                        <CardContent style={{ display: 'flex', padding:"0.5vw 0.75vw 0.75vw 0.75vw",borderTop:"1px solid #E8E8E8" }}>
+                                        <CardContent style={{ display: 'flex', padding: "0.5vw 0.75vw 0.75vw 0.75vw", borderTop: "1px solid #E8E8E8" }}>
                                             <Typography variant="body2" color="textSecondary" component="p" style={{
                                                 padding: 2, whiteSpace: "nowrap",
                                                 overflow: "hidden",
                                                 textOverflow: "ellipsis"
                                             }}>
-                                                <FolderIcon color="inherit" fontSize="small" style={{ float: "left", fontSize: "1.2rem", marginRight:5}} /> {data.role}
+                                                <FolderIcon color="inherit" fontSize="small" style={{ float: "left", fontSize: "1.2rem", marginRight: 5 }} /> {data.role}
                                             </Typography>
                                         </CardContent>
                                     </CardActionArea>
-                                    
+
                                 </Card>
-                                
+
 
                             );
+                        } else {
+                            return null
                         }
                     }))
                 }

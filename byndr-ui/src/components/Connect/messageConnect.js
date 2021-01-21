@@ -1,7 +1,6 @@
 import React from "react";
-import { Route, BrowserRouter as Router, Link } from "react-router-dom";
+import { Route, BrowserRouter as Router } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
-import MyProfileTitleBar from "../common/TitleBar/myprofileTitleBar";
 import SideBar from "../common/sidebar";
 
 import Messages from "../Connect/Messages/messages"
@@ -17,7 +16,7 @@ import Sharedfiles from "./sharedfiles";
 import Sharedcontent from "./sharedcontent";
 import Sharedcontentsingle from "./sharedcontentsingle";
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
   marginSmall: {
     marginRight: 12,
   },
@@ -65,7 +64,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-export default function MessageConnect(props) {
+export default function MessageConnect() {
   const [openDrawer, setOpenDrawer] = React.useState(false);
   const handleDrawer = (value) => {
     setOpenDrawer(value);

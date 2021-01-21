@@ -1,17 +1,10 @@
 import {
-    Button,
-    FormControl,
     Grid,
-    makeStyles,
-    MenuItem,
-    Select,
-    Typography,
-    Toolbar
+    makeStyles
 } from "@material-ui/core";
 
 import React from "react";
 
-import ChatList from '../../Connect/Messages/chatList';
 import NewGroupCards from '../../common/Cards/newGroupCards'
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -54,10 +47,10 @@ const useStyles = makeStyles((theme) => ({
     m_left_25: {
         marginLeft: 25
     },
-    alignBlockCenter:{
-        margin:'0 auto',
-        marginTop:'20%',
-        width:600
+    alignBlockCenter: {
+        margin: '0 auto',
+        marginTop: '20%',
+        width: 600
     }
 
 }));

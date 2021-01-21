@@ -7,14 +7,11 @@ import React from "react";
 import Typography from '@material-ui/core/Typography';
 import Avatar from '@material-ui/core/Avatar';
 import Divider from "@material-ui/core/Divider";
-import ChatList from './chatList';
-import GrpHeadCard from '../../common/Cards/grpHeadCard'
 import ChatRightInfoCard from '../../common/Cards/chatRightInfoCard'
 import ChatSidebarCard from '../../common/Cards/chatSidebarCard'
 import ChatMessageCard from '../../common/Cards/chatMessageCard'
 import GrpChat from '../Messages/grpChat'
 
-import ChatLayout from './chatLayout'
 
 const useStyles = makeStyles((theme) => ({
     root: {

@@ -84,9 +84,9 @@ export default function MyProfileTitleBar() {
         setAnchorEl(event.currentTarget);
     };
 
-  
 
-  
+
+
 
 
     const menuId = 'primary-search-account-menu';

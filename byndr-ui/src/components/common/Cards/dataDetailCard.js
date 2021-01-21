@@ -8,10 +8,8 @@ import Avatar from '@material-ui/core/Avatar';
 import Divider from '@material-ui/core/Divider';
 import Typography from '@material-ui/core/Typography';
 import { red } from '@material-ui/core/colors';
-import { Grid, Button } from '@material-ui/core';
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Grid } from '@material-ui/core';
 
-import { faPaperPlane } from "@fortawesome/free-solid-svg-icons";
 
 import RemoveRedEyeOutlinedIcon from '@material-ui/icons/RemoveRedEyeOutlined';
 import FavoriteBorderOutlinedIcon from '@material-ui/icons/FavoriteBorderOutlined';
@@ -23,7 +21,7 @@ import StarBorderOutlinedIcon from '@material-ui/icons/StarBorderOutlined';
 
 
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
     root: {
         maxWidth: "auto",
     },

@@ -15,12 +15,11 @@ import { Link } from "react-router-dom";
 
 import MyprofileDetails from '../../common/ProfileDetails/MyprofileDetails';
 import NewCards from '../../common/Cards/newCards'
-import UserCard from '../../common/Cards/userCards'
 const useStyles = makeStyles((theme) => ({
     root: {
         flexGrow: 1,
     },
-    
+
     b_rt: {
         borderRight: "1px solid lightgray",
     },
@@ -68,7 +67,7 @@ export default function Path() {
                     <MyprofileDetails />
                 </Grid>
                 <Grid item xs={12} sm={9}>
-                    <Button variant="contained"  className={`${classes.m_p_left_25}`} component={Link} to="/myProfile/editProfile">
+                    <Button variant="contained" className={`${classes.m_p_left_25}`} component={Link} to="/myProfile/editProfile">
                         Spaces 0
                 </Button>
                     <Button variant="contained" color="primary" className={`${classes.m_p_left_25}`}>Paths 0</Button>
@@ -102,10 +101,10 @@ export default function Path() {
                             spacing={2}
                             style={{ paddingTop: 20 }}>
                             <Grid item sm={4}>
-                                <NewCards 
-                                cardTitle="New Space. New Possibilities." 
-                                cardInputPlaceHolder="Enter Space Name"
-                                cardButton="+ Create New Space"
+                                <NewCards
+                                    cardTitle="New Space. New Possibilities."
+                                    cardInputPlaceHolder="Enter Space Name"
+                                    cardButton="+ Create New Space"
                                 />
                             </Grid>
 

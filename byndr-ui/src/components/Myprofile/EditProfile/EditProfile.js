@@ -1,12 +1,7 @@
 import {
     Button,
-    FormControl,
     Grid,
-    makeStyles,
-    MenuItem,
-    Select,
-    Typography,
-    Toolbar
+    makeStyles
 } from "@material-ui/core";
 
 import React from "react";
@@ -103,11 +98,11 @@ export default function EditProfile() {
                             spacing={2}
                             style={{ paddingTop: 20 }}>
                             <Grid item sm={4}  >
-                                <NewCards 
-                                 cardTitle="New Space. New Possibilities." 
-                                 cardInputPlaceHolder="Enter Space Name"
-                                 cardButton="+ Create New Space"
-                                
+                                <NewCards
+                                    cardTitle="New Space. New Possibilities."
+                                    cardInputPlaceHolder="Enter Space Name"
+                                    cardButton="+ Create New Space"
+
                                 />
                             </Grid>
 

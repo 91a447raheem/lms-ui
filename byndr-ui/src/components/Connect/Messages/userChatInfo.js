@@ -8,7 +8,6 @@ import React from "react";
 import Typography from '@material-ui/core/Typography';
 import Avatar from '@material-ui/core/Avatar';
 import Divider from "@material-ui/core/Divider";
-import ChatList from './chatList';
 import GrpHeadCard from '../../common/Cards/grpHeadCard'
 import ChatMessageCard from '../../common/Cards/chatMessageCard'
 

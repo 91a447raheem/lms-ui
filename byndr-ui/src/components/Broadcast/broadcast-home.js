@@ -1,12 +1,8 @@
 import React from 'react';
 import Header from '../common/header';
-import Card from '@material-ui/core/Card';
 import Typography from '@material-ui/core/Typography';
 import Select from "react-select";
 import { fade, makeStyles } from '@material-ui/core/styles';
-import CardActionArea from '@material-ui/core/CardActionArea';
-import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -150,8 +146,7 @@ const options = [
     { value: 'vanilla', label: 'Vanilla' }
 ];
 
-
-export default function(){
+const BroadcastHome = () => {
 
     const classes = useStyles();
 
@@ -161,59 +156,62 @@ export default function(){
             <Header />
             <div className={classes.selectwrapper} >
 
-                    <div className={classes.NumOfItems}> 244 Items</div>
+                <div className={classes.NumOfItems}> 244 Items</div>
 
-                    <div className={classes.selectShow}>
-                        Show
+                <div className={classes.selectShow}>
+                    Show
                     </div>
 
-                    <div style={{ display: "flex" }}>
-                        <div className={classes.Show} >
-                            <Select
-                                defaultValue={options[0]}
-                                options={options}
-                                styles={customStyles}
-                                autosize={true}
-                                theme={theme => ({
-                                    ...theme,
-                                    borderRadius: 0,
-                                    colors: {
-                                        ...theme.colors,
-                                        primary: 'lightgrey',
-                                        primary25: '#F8F8F8',
+                <div style={{ display: "flex" }}>
+                    <div className={classes.Show} >
+                        <Select
+                            defaultValue={options[0]}
+                            options={options}
+                            styles={customStyles}
+                            autosize={true}
+                            theme={theme => ({
+                                ...theme,
+                                borderRadius: 0,
+                                colors: {
+                                    ...theme.colors,
+                                    primary: 'lightgrey',
+                                    primary25: '#F8F8F8',
 
-                                    },
-                                })}
-                                components={{
-                                    IndicatorSeparator: () => null
-                                }}
+                                },
+                            })}
+                            components={{
+                                IndicatorSeparator: () => null
+                            }}
 
-                            />
-                        </div>
-                        
+                        />
                     </div>
+
                 </div>
+            </div>
 
-                <div> 
-                    <div style={{marginLeft: "6vw", marginTop: '1vh', width: '89%', backgroundColor: "gold", padding: "1em", borderRadius: '15px'}}>
-                        <Typography variant="h5">
-                            Hey Name,
+            <div>
+                <div style={{ marginLeft: "6vw", marginTop: '1vh', width: '89%', backgroundColor: "gold", padding: "1em", borderRadius: '15px' }}>
+                    <Typography variant="h5">
+                        Hey Name,
                         </Typography>
-                        <Typography variant="h5">
-                            Let's Start a Broadcast!
+                    <Typography variant="h5">
+                        Let's Start a Broadcast!
                         </Typography>
-                        <div style={{display: "flex", flexFlow: "wrap"}}>
-                        <div style={{border: '1px solid black', borderRadius: '4px', padding: '0.25em', backgroundColor: 'white'}}>
+                    <div style={{ display: "flex", flexFlow: "wrap" }}>
+                        <div style={{ border: '1px solid black', borderRadius: '4px', padding: '0.25em', backgroundColor: 'white' }}>
                             New Broadcast
                         </div>
-                        <div style={{border: '1px solid black', borderRadius: '4px', padding: '0.25em', marginLeft: '0.5vw'}}>
+                        <div style={{ border: '1px solid black', borderRadius: '4px', padding: '0.25em', marginLeft: '0.5vw' }}>
                             Upload Video</div>
-                        </div>
                     </div>
                 </div>
-
-
             </div>
+
+
+        </div>
 
     );
 }
+
+
+export default BroadcastHome

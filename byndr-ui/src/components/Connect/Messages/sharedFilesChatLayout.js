@@ -1,5 +1,4 @@
 import React from "react";
-import MUIRichTextEditor from 'mui-rte'
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import Avatar from '@material-ui/core/Avatar';
 import Typography from '@material-ui/core/Typography';
@@ -9,7 +8,7 @@ import ShareOutlinedIcon from '@material-ui/icons/ShareOutlined';
 import ReplyOutlinedIcon from '@material-ui/icons/ReplyOutlined';
 import StarIcon from '@material-ui/icons/Star';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles(() => ({
     container: {
         bottom: 0
         // position: "fixed" // remove this so we can apply flex design
@@ -63,7 +62,7 @@ const useStyles = makeStyles(theme => ({
         padding: 10
     },
     inputChat: {
-        paddingTop: "15%",
+        // paddingTop: "15%",
         width: 'calc(100% - 22px)',
         float: "left",
         paddingTop: 0,
@@ -119,8 +118,8 @@ const SharedFilesChatLayout = () => {
 
     ];
 
-    return   dummyData.map((obj, i = 0) => (
-         <div className={` ${obj.direction} ${obj.direction === 'right' ? classes.right : classes.left}`} key={i} >
+    return dummyData.map((obj, i = 0) => (
+        <div className={` ${obj.direction} ${obj.direction === 'right' ? classes.right : classes.left}`} key={i} >
             <div key={i++} className={classes.bubble}>
                 {obj.direction === 'left' && <Grid container justify="flex-start" spacing={2} style={{ width: 70, float: "left" }}>
                     <Grid item xs={12}>
@@ -149,7 +148,7 @@ const SharedFilesChatLayout = () => {
                     <Grid item xs={obj.direction === 'right' ? 1 : 3}>{obj.direction === 'right' ? <Avatar
                         alt="Howard"
                         src="/static/images/avatar/2.jpg" style={{ backgroundColor: "#0B224F" }}
-                    /> : <> <ReplyOutlinedIcon style={{color:"#bdbdbd"}} fontSize="small" /><ShareOutlinedIcon style={{color:"#bdbdbd",marginLeft: 5, marginRight: 5 }} fontSize="small" /><FileCopyOutlinedIcon style={{color:"#bdbdbd"}} fontSize="small" /></>}<StarIcon color="primary" fontSize="small" /></Grid>
+                    /> : <> <ReplyOutlinedIcon style={{ color: "#bdbdbd" }} fontSize="small" /><ShareOutlinedIcon style={{ color: "#bdbdbd", marginLeft: 5, marginRight: 5 }} fontSize="small" /><FileCopyOutlinedIcon style={{ color: "#bdbdbd" }} fontSize="small" /></>}<StarIcon color="primary" fontSize="small" /></Grid>
                 </Grid>
 
 

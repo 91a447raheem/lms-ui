@@ -29,10 +29,10 @@ export default function Participants() {
     const classes = useStyles();
 
     return (
-        <div className={classes.allparticipants} style={{marginTop:"-10px"}}>
+        <div className={classes.allparticipants} style={{ marginTop: "-10px" }}>
             <Headerconnect />
             <div >
-                <Typography variant="h6" style={{ color: "#000", opacity:"0.5",marginTop: "4vh", marginLeft: "3vw" }}>GROUP ADMIN</Typography>
+                <Typography variant="h6" style={{ color: "#000", opacity: "0.5", marginTop: "4vh", marginLeft: "3vw" }}>GROUP ADMIN</Typography>
 
                 {
 
@@ -56,7 +56,7 @@ export default function Participants() {
                                             <Typography style={{ marginLeft: "1.7em", fontSize: "0.95em", fontWeight: 'bold' }}>202K</Typography>
                                             <Typography style={{ marginLeft: "1.5em", fontSize: "12px", fontWeight: "100" }}>Followers</Typography>
                                         </div>
-                                        <div style={{marginLeft:15}}>
+                                        <div style={{ marginLeft: 15 }}>
                                             <button style={{ border: "none", backgroundColor: 'aliceblue', color: "blue", fontSize: "0.75em", padding: "12px", marginTop: "5px", borderRadius: "3px", cursor: "pointer" }}>Message</button>
                                         </div>
                                         <IconButton aria-label="settings">
@@ -66,6 +66,8 @@ export default function Participants() {
 
                                 </Card>
                             );
+                        } else {
+                            return null
                         }
                     })
                 }
@@ -95,17 +97,19 @@ export default function Participants() {
                                             <Typography style={{ marginLeft: "1.7em", fontSize: "0.95em", fontWeight: 'bold' }}>202K</Typography>
                                             <Typography style={{ marginLeft: "1.5em", fontSize: "12px", fontWeight: "100" }}>Followers</Typography>
                                         </div>
-                                        <div style={{marginLeft:15}}>
+                                        <div style={{ marginLeft: 15 }}>
                                             <button style={{ border: "none", backgroundColor: 'aliceblue', color: "blue", fontSize: "0.75em", padding: "12px", marginTop: "5px", borderRadius: "3px", cursor: "pointer" }}>Message</button>
                                         </div>
                                         <IconButton aria-label="settings">
                                             <MoreVertIcon />
                                         </IconButton>
                                     </div>
-                                    
+
                                 </Card>
 
                             );
+                        } else {
+                            return null
                         }
                     }))
                 }

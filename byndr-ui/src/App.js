@@ -11,10 +11,7 @@ import Passwordchangeconfirm from './components/SSO/passwordchangeconfirm';
 import HomeScreen from './components/Home/homescreen';
 import Shell from "./components/common/shell";
 import Myprofile from "./components/Myprofile/Myprofile";
-import Participants from "./components/Connect/participants";
 import MessageConnect from "./components/Connect/messageConnect";
-import Sharedfiles from "./components/Connect/sharedfiles";
-import Sharedcontent from "./components/Connect/sharedcontent";
 import Videoconfrence from './components/Connect/videoconfrence';
 import broadcastHome from "./components/Broadcast/broadcast-home";
 

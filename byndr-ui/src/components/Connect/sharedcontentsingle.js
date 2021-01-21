@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Headerconnect from './headerconnect';
 import Select from "react-select";
 import { fade, makeStyles } from '@material-ui/core/styles';
@@ -51,8 +51,8 @@ const useStyles = makeStyles((theme) => ({
 
     Show: {
         marginLeft: "2vw",
-        float:"left",
-        marginRight:10,
+        float: "left",
+        marginRight: 10,
         padding: theme.spacing(0, 0, 0, 0),
         // vertical padding + font size from searchIcon
         paddingLeft: `calc(1em + ${theme.spacing(7)}px)`,
@@ -77,8 +77,8 @@ const useStyles = makeStyles((theme) => ({
         // marginLeft: "0.1vw",
         padding: theme.spacing(0, 0, 0, 0),
         // vertical padding + font size from searchIcon
-        width:"200px",
-        float:"left",
+        width: "200px",
+        float: "left",
         transition: theme.transitions.create('width'),
         [theme.breakpoints.down('md')]: {
             width: '100px',
@@ -136,9 +136,6 @@ const customStyles = {
 
 };
 
-const showOptions = [
-    { value: 'fileType', label: 'File Type' }
-];
 
 const options = [
     { value: 'allParticipants', label: 'All Participants' }
@@ -149,35 +146,21 @@ const sortOptions = [
     { value: 'oldFirst', label: 'Old First' }
 ];
 
-const dataDummy = [
-    { 1: "1", role: "member" },
-    { 1: "2", role: "member" },
-    { 1: "3", role: "member" },
-    { 1: "4", role: "member" },
-    { 1: "5", role: "member" },
-    { 1: "6", role: "member" },
-    { 1: "7", role: "member" },
-    { 1: "8", role: "member" }
-]
 
 export default function Sharedcontentsingle() {
 
-
-    const [likedCards, updatelikedCards] = React.useState([]);
-    // console.log(likedCards);
     const classes = useStyles();
 
-
     return (
-        <div style={{ backgroundColor: "#F7F7F7", height: "auto",marginTop:"-12px"}}>
+        <div style={{ backgroundColor: "#F7F7F7", height: "auto", marginTop: "-12px" }}>
             <Headerconnect />
-            <div style={{ display: "block",width:"100%", float:"left",background:"#fff", padding:"10px 0px",borderTop:"1px solid #dfdfdf"}}>
-                <div className={classes.selectwrapper} style={{width:"65%",float:"left"}}>
-                    <div style={{ display: "block"}}>
+            <div style={{ display: "block", width: "100%", float: "left", background: "#fff", padding: "10px 0px", borderTop: "1px solid #dfdfdf" }}>
+                <div className={classes.selectwrapper} style={{ width: "65%", float: "left" }}>
+                    <div style={{ display: "block" }}>
                         <div className={classes.selectShow}>
                             Show
                       </div>
-                      <div className={classes.Show} >
+                        <div className={classes.Show} >
                             <Select
                                 defaultValue={options[0]}
                                 options={options}
@@ -202,7 +185,7 @@ export default function Sharedcontentsingle() {
                     </div>
                 </div>
 
-                <div className={classes.selectwrapper} style={{width:"30%",float:"left"}}>
+                <div className={classes.selectwrapper} style={{ width: "30%", float: "left" }}>
 
                     <div className={classes.selectSortby}>
                         Sort
@@ -235,11 +218,11 @@ export default function Sharedcontentsingle() {
             </div>
 
 
-            <div style={{width: "100%", float:"left"}}>
-        
-                    <Grid style={{ marginTop: 72, }} className={classes.gridChat}>
-                       <SharedFilesChatLayout />
-                    </Grid> 
+            <div style={{ width: "100%", float: "left" }}>
+
+                <Grid style={{ marginTop: 72, }} className={classes.gridChat}>
+                    <SharedFilesChatLayout />
+                </Grid>
             </div>
 
         </div>

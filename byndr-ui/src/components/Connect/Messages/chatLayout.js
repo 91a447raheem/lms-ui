@@ -63,7 +63,6 @@ const useStyles = makeStyles(theme => ({
         padding: 10
     },
     inputChat: {
-        paddingTop: "15%",
         width: 'calc(100% - 22px)',
         float: "left",
         paddingTop: 0,

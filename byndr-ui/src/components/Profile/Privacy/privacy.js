@@ -3,7 +3,6 @@ import {
   Button,
   FormControl,
   Grid,
-  Icon,
   makeStyles,
   MenuItem,
   Select,
@@ -11,7 +10,6 @@ import {
   Typography,
 } from "@material-ui/core";
 import React from "react";
-import Shell from "../../common/shell";
 import ExpandLessIcon from "@material-ui/icons/ExpandLess";
 
 const useStyles = makeStyles((theme) => ({
@@ -41,7 +39,7 @@ const useStyles = makeStyles((theme) => ({
     paddingLeft: 25,
   },
 }));
-export default function Privacy(props) {
+export default function Privacy() {
   const classes = useStyles();
   return (
     <div className={classes.root}>
@@ -53,7 +51,7 @@ export default function Privacy(props) {
             id="demo-simple-select-outlined"
             value={10}
             className={classes.accountTypeWidth}
-            onChange={() => {}}
+            onChange={() => { }}
           >
             <MenuItem value="">
               <em>None</em>
@@ -80,7 +78,7 @@ export default function Privacy(props) {
                 id="demo-simple-select-outlined"
                 value={10}
                 className={classes.accountTypeWidth}
-                onChange={() => {}}
+                onChange={() => { }}
                 variant="outlined"
               >
                 <MenuItem value="">
@@ -97,7 +95,7 @@ export default function Privacy(props) {
                 id="demo-simple-select-outlined"
                 value={10}
                 className={classes.accountTypeWidth}
-                onChange={() => {}}
+                onChange={() => { }}
                 variant="outlined"
               >
                 <MenuItem value="">
@@ -113,7 +111,7 @@ export default function Privacy(props) {
                 id="demo-simple-select-outlined"
                 value={10}
                 className={classes.accountTypeWidth}
-                onChange={() => {}}
+                onChange={() => { }}
                 variant="outlined"
               >
                 <MenuItem value="">
@@ -131,7 +129,7 @@ export default function Privacy(props) {
                 id="demo-simple-select-outlined"
                 value={10}
                 className={classes.accountTypeWidth}
-                onChange={() => {}}
+                onChange={() => { }}
                 variant="outlined"
               >
                 <MenuItem value="">
@@ -147,7 +145,7 @@ export default function Privacy(props) {
                 id="demo-simple-select-outlined"
                 value={10}
                 className={classes.accountTypeWidth}
-                onChange={() => {}}
+                onChange={() => { }}
                 variant="outlined"
               >
                 <MenuItem value="">
@@ -163,7 +161,7 @@ export default function Privacy(props) {
                 id="demo-simple-select-outlined"
                 value={10}
                 className={classes.accountTypeWidth}
-                onChange={() => {}}
+                onChange={() => { }}
                 variant="outlined"
               >
                 <MenuItem value="">

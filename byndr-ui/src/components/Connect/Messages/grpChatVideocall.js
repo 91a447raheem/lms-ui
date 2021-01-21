@@ -6,12 +6,9 @@ import {
 
 import React from "react";
 
-import ChatList from './chatList';
-import GrpHeadCard from '../../common/Cards/grpHeadCard'
 import ChatRightInfoCard from '../../common/Cards/chatRightInfoCard'
 import ChatCallCard from '../../common/Cards/chatCallCard'
 import GrpChat from '../Messages/grpChat'
-import ChatLayout from './chatLayout'
 import CallIcon from '@material-ui/icons/Call';
 import Typography from '@material-ui/core/Typography';
 const useStyles = makeStyles((theme) => ({
@@ -56,7 +53,7 @@ const useStyles = makeStyles((theme) => ({
     },
     sidebar: {
         backgroundColor: "#fff",
-        borderLeft:"1px solid #dfdfdf"
+        borderLeft: "1px solid #dfdfdf"
     },
     cardTtitle: {
         textAlign: "center",
@@ -86,7 +83,7 @@ const useStyles = makeStyles((theme) => ({
         color: "#7F7F7F",
         opacity: 1
     },
-    cardCallTime:{
+    cardCallTime: {
         textAlign: "left",
         font: "normal normal 400 16px/30px Poppins",
         color: "#7F7F7F",
@@ -113,28 +110,28 @@ export default function GrpChatVideocall() {
                     <ChatRightInfoCard title={'Video Calls'} />
                     <Grid item xs={12} sm={12}>
                         <Button
-                             style={{
+                            style={{
                                 textAlign: "center",
-                                fontSize:20,
+                                fontSize: 20,
                                 borderRadius: 5,
-                                margin:10,
-                                width:"95%",
-                                background:"#1956E3",
-                                textTransform:"capitalize",
-                                fontWeight:600
+                                margin: 10,
+                                width: "95%",
+                                background: "#1956E3",
+                                textTransform: "capitalize",
+                                fontWeight: 600
                             }}
                             variant="contained"
-                            color="primary"><CallIcon color="inherit" fontSize="small" style={{ float: "left", fontSize: "1.6rem",marginRight:20}} /> New Video Call</Button>
+                            color="primary"><CallIcon color="inherit" fontSize="small" style={{ float: "left", fontSize: "1.6rem", marginRight: 20 }} /> New Video Call</Button>
                     </Grid>
                     <Grid>
-                    <Grid item xs={12} style={{padding:10}}>
+                        <Grid item xs={12} style={{ padding: 10 }}>
                             <Grid container justify="flex-start">
                                 <Grid item xs={6}>
                                     <Typography variant="body2" className={classes.cardCallTime} component="p">
-                                    Yesterday
+                                        Yesterday
                                     </Typography>
-                                    </Grid>
-                                    <Grid item xs={6}>
+                                </Grid>
+                                <Grid item xs={6}>
                                     <Typography variant="body2" className={classes.cardSubText} component="p">
                                         4
                                     </Typography>
