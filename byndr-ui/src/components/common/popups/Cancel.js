@@ -4,17 +4,21 @@ import ListItemText from '@material-ui/core/ListItemText';
 import List from '@material-ui/core/List';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import VolumeMuteIcon from '@material-ui/icons/VolumeMute';
-import AccountCircleOutlinedIcon from '@material-ui/icons/AccountCircleOutlined';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import PersonAddDisabledIcon from '@material-ui/icons/PersonAddDisabled';
 import PersonAddIcon from '@material-ui/icons/PersonAdd';
 import PhotoCameraIcon from '@material-ui/icons/PhotoCamera';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+    faEdit,
+    faVolumeMute
+  } from "@fortawesome/free-solid-svg-icons";
 
 const CancelPopup = () => {
     return (<List component="nav"  >
         <ListItem button>
             <ListItemIcon>
-                <AccountCircleOutlinedIcon />
+            <FontAwesomeIcon icon={faEdit} size={"lg"} />
             </ListItemIcon>
             <ListItemText primary="Rename" />
         </ListItem>
@@ -38,7 +42,7 @@ const CancelPopup = () => {
         </ListItem>
         <ListItem button>
             <ListItemIcon>
-                <VolumeMuteIcon />
+            <FontAwesomeIcon icon={faVolumeMute} size={"lg"} />
             </ListItemIcon>
             <ListItemText primary="Mute Group" />
         </ListItem>

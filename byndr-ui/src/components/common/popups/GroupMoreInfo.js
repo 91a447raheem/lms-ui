@@ -10,6 +10,12 @@ import ExitToAppOutlinedIcon from '@material-ui/icons/ExitToAppOutlined';
 import PersonAddIcon from '@material-ui/icons/PersonAdd';
 import PersonAddDisabledIcon from '@material-ui/icons/PersonAddDisabled';
 import CameraAltIcon from '@material-ui/icons/CameraAlt';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+    faEdit,
+    faVolumeMute
+  } from "@fortawesome/free-solid-svg-icons";
+
 
 const GroupMoreInfoPopup = () => {
     return (<List component="nav"  >
@@ -21,7 +27,7 @@ const GroupMoreInfoPopup = () => {
         </ListItem>
         <ListItem button>
             <ListItemIcon>
-                <AccountCircleOutlinedIcon />
+            <FontAwesomeIcon icon={faEdit} size={"lg"} />
             </ListItemIcon>
             <ListItemText primary="Rename" />
         </ListItem>
@@ -45,7 +51,7 @@ const GroupMoreInfoPopup = () => {
         </ListItem>
         <ListItem button>
             <ListItemIcon>
-                <VolumeMuteIcon />
+            <FontAwesomeIcon icon={faVolumeMute} size={"lg"} />
             </ListItemIcon>
             <ListItemText primary="Mute Group" />
         </ListItem>
