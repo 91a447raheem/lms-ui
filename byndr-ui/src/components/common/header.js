@@ -29,6 +29,9 @@ const useStyles = makeStyles((theme) => ({
         [theme.breakpoints.up('sm')]: {
             display: 'block',
         },
+        [theme.breakpoints.up('768')]: {
+            marginLeft: `calc(2px + ${theme.spacing(4)}px)`
+         },
         color: 'blue',
         marginLeft: `calc(1.5em + ${theme.spacing(4)}px)`
     },

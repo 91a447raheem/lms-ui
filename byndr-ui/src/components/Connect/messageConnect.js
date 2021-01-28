@@ -16,7 +16,7 @@ import Sharedfiles from "./sharedfiles";
 import Sharedcontent from "./sharedcontent";
 import Sharedcontentsingle from "./sharedcontentsingle";
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme) => ({
   marginSmall: {
     marginRight: 12,
   },
@@ -46,7 +46,10 @@ const useStyles = makeStyles(() => ({
     overflowY: 'auto',
     // position: 'fixed',
     background: '#fff',
-    zIndex: 999
+    zIndex: 999,
+    [theme.breakpoints.between(700,1030)]: {
+      maxWidth: '32%'
+   }
   },
   chatListblockinr: {
     marginTop: 10
@@ -55,7 +58,10 @@ const useStyles = makeStyles(() => ({
     float: 'right',
     width: 'calc(100% - 385px)',
     height: '100%',
-    padding: '0 5px'
+    padding: '0 5px',
+    [theme.breakpoints.between(700,1030)]: {
+      width: 'calc(100% - 34%)'
+   }
   },
   contentRendererinr: {
     paddingTop: 10,

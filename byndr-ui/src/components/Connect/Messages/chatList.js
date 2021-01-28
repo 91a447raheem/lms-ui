@@ -47,6 +47,11 @@ const useStyles = makeStyles((theme) => ({
         paddingBottom: 0,
         height: 60,
 
+    },
+    titleButton:{
+        [theme.breakpoints.down(785)]: {
+            fontSize: '14px !important',
+         }
     }
 }));
 
@@ -60,7 +65,7 @@ export default function ChatList() {
         // style={{ paddingTop: 40 }}
         >
             <Grid item className={classes.centerAlign}>
-                <Button style={{
+                <Button className={classes.titleButton} style={{
                     textAlign: "center",
                     fontFamily: 'Poppins',
                     borderRadius: 5,
@@ -70,7 +75,7 @@ export default function ChatList() {
                     fontSize: 18,
                     textTransform: "capitalize",
                     boxShadow: "none",
-                    width: "90%"
+                    width: "90%",
                 }}>
                     <FontAwesomeIcon icon={faUsers} size={"lg"} style={{ marginRight: 10 }} />    Create Chat Group
                 </Button>

@@ -23,6 +23,10 @@ const useStyles = makeStyles((theme) => ({
             marginLeft: theme.spacing(1.5),
             width: 'auto',
         },
+        [theme.breakpoints.down('md')]: {
+            width: 'auto !important',
+            marginBottom:10
+        }
     },
     selectShow: {
         padding: theme.spacing(0, 2),

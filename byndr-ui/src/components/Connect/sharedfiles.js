@@ -28,6 +28,10 @@ const useStyles = makeStyles((theme) => ({
             marginLeft: theme.spacing(1.5),
             width: 'auto',
         },
+        [theme.breakpoints.down('md')]: {
+            width: 'auto !important',
+            marginBottom:10
+        }
     },
     selectShow: {
         padding: theme.spacing(0, 2),
@@ -88,6 +92,7 @@ const useStyles = makeStyles((theme) => ({
         [theme.breakpoints.down('md')]: {
             width: '100px',
         },
+        
     },
     root: {
         maxWidth: 235,
@@ -106,8 +111,13 @@ const useStyles = makeStyles((theme) => ({
         textAlign: "center",
         width: "150px",
         fontSize: "29px",
+    },
+    cardBox:{
+        boxShadow: "0px 2px 1px -1px rgba(0,0,0,0.2), 0px 1px 1px 0px rgba(0,0,0,0.14), 0px 1px 3px 0px rgba(0,0,0,0.12)",
+        [theme.breakpoints.down('sm')]: {
+            margin: '1rem 2rem !important'
+        }
     }
-
 }));
 
 const customStyles = {
@@ -274,7 +284,7 @@ export default function Sharedfiles() {
                         if (data.role === "member") {
                             return (
 
-                                <Card style={{ margin: " 20px", width: "150px", float: "left", borderRadius: "15px", border: "1px solid #E8E8E8" }}>
+                                <Card className={classes.cardBox} style={{ margin: " 20px", width: "150px", float: "left", borderRadius: "15px", border: "1px solid #E8E8E8" }}>
                                     <CardActionArea>
                                         <div className={classes.flieFloder}><FontAwesomeIcon icon={faFileArchive} size={"lg"} /></div>
                                         <CardContent style={{ display: 'flex', padding: "0.5vw 0.75vw 0.75vw 0.75vw", borderTop: "1px solid #E8E8E8" }}>

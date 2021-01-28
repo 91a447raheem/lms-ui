@@ -61,10 +61,16 @@ const useStyles = makeStyles((theme) => ({
         // maxWidth: 360,
         backgroundColor: theme.palette.background.paper,
         borderBottom: "1px solid #E8E8E8",
-        padding: "20px 9px",
+        padding: "20px 8px",
         '&:hover': {
             backgroundColor: "#F7F7F7",
         },
+        [theme.breakpoints.down(1030)]: {
+            padding: "20px 7px",
+         },
+         [theme.breakpoints.down(785)]: {
+            padding: "3px 5px",
+       }
     },
 
     cardTtitle: {
@@ -74,13 +80,19 @@ const useStyles = makeStyles((theme) => ({
         opacity: 1,
         fontSize: 20,
         fontWeight: 500,
+        [theme.breakpoints.down(1030)]: {
+            fontSize: 16,
+         }
     },
     cardSubText: {
         textAlign: "left",
         fontFamily: 'Poppins',
         color: "#7D7D7D",
         opacity: 1,
-        fontSize: 16
+        fontSize: 16,
+        [theme.breakpoints.down(1030)]: {
+            fontSize: 14,
+         }
     },
     lastUpdate: {
         textAlign: "left",
@@ -88,7 +100,20 @@ const useStyles = makeStyles((theme) => ({
         color: "#7B7C7E",
         opacity: 1,
         paddingTop: 10,
-        fontSize: 16
+        fontSize: 16,
+        [theme.breakpoints.down(1030)]: {
+            fontSize: 14,
+         },
+         [theme.breakpoints.down(785)]: {
+             display:"none"
+        }
+    },
+    updateTime:{
+        [theme.breakpoints.down(1030)]: {
+            float: "right",
+            marginTop: "4px",
+            marginBottom: "5px",
+         }
     }
 }));
 
@@ -147,7 +172,7 @@ export default function ChatCard() {
                                 Yesterday
                                 <br />
                                 <Icon className="fa fa-plus-circle" color="primary" />
-                                <Chip label="2m" color="primary" size="small" />
+                                <Chip label="2m" color="primary" size="small"  className={classes.updateTime}/>
                             </Typography>
                             <IconButton aria-label="settings" onClick={handleClick}>
                                 <MoreVertIcon />

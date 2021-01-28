@@ -18,8 +18,12 @@ const useStyles = makeStyles((theme) => ({
         width: 'auto',
         [theme.breakpoints.up('sm')]: {
             marginLeft: theme.spacing(1.5),
-            width: 'auto',
+            width: 'auto !important',
         },
+        [theme.breakpoints.down('md')]: {
+            width: 'auto !important',
+            marginBottom:10
+        }
     },
     selectShow: {
         padding: theme.spacing(0, 2),
@@ -56,7 +60,7 @@ const useStyles = makeStyles((theme) => ({
         transition: theme.transitions.create('width'),
         width: '20ch',
         [theme.breakpoints.down('md')]: {
-            width: '13ch',
+            width: '100px',
         },
     },
     Sortby: {

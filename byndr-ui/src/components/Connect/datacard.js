@@ -105,6 +105,9 @@ const useStyles = makeStyles((theme) => ({
             marginLeft: theme.spacing(10),
             width: 235,
         },
+        [theme.breakpoints.down('md')]: {
+            maxWidth: '100% !important',
+        }
     },
 }));
 

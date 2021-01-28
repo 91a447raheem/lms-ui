@@ -50,7 +50,10 @@ const useStyles = makeStyles((theme) => ({
     alignBlockCenter: {
         margin: '0 auto',
         marginTop: '20%',
-        width: 600
+        width: 600,
+        [theme.breakpoints.between(700,1030)]: {
+            width: '85%'
+         }
     }
 
 }));

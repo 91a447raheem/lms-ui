@@ -23,6 +23,7 @@ const useStyles = makeStyles((theme) => ({
         [theme.breakpoints.up('sm')]: {
             display: 'block',
         },
+        
     },
     search: {
         position: 'relative',
@@ -73,6 +74,7 @@ const useStyles = makeStyles((theme) => ({
             display: 'none',
         },
     },
+    
 }));
 
 export default function MyProfileTitleBar() {
