@@ -65,6 +65,12 @@ const useStyles = makeStyles((theme) => ({
         textAlign: "center",
         font: "normal normal normal 20px/30px Poppins",
         color: "#1956E3",
+        [theme.breakpoints.down('1030')]: {
+            fontSize: 18,
+        },
+        [theme.breakpoints.down('780')]: {
+            fontSize: 16,
+        },
     },
     cardShowAll: {
         textAlign: "center",
@@ -75,14 +81,24 @@ const useStyles = makeStyles((theme) => ({
     cardFile: {
         textAlign: "left",
         fontSize: 20,
-        color: "#7F7F7F"
+        color: "#7F7F7F",
+        [theme.breakpoints.down('1030')]: {
+            fontSize: 18,
+        },
+        [theme.breakpoints.down('780')]: {
+            fontSize: 16,
+        },
     },
     cardViewAll: {
         textAlign: "center",
         textDecoration: "underline",
         font: "normal normal normal 16px / 30px Poppins",
         color: "#7F7F7F",
-        opacity: 1
+        opacity: 1,
+        [theme.breakpoints.down('1030')]: {
+            fontSize: 14,
+            marginLeft:10
+        }
     },
     large: {
         width: theme.spacing(12),
@@ -91,9 +107,12 @@ const useStyles = makeStyles((theme) => ({
     },
     userTitle: {
         textAlign: "center",
-        font: "normal normal medium 21px/31px Poppins",
+        fontSize: "21px",
         color: "#000000",
-        opacity: 1
+        opacity: 1,
+        [theme.breakpoints.down('1030')]: {
+            fontSize: 18,
+        }
     },
     userSubTitle: {
         textAlign: "center",
@@ -101,6 +120,14 @@ const useStyles = makeStyles((theme) => ({
         color: "#7B7C7E",
         opacity: 1,
         paddingBottom: 20
+    },
+    viewProfileButton:{
+        [theme.breakpoints.down('1030')]: {
+            maxWidth: '100%',
+            flexBasis:'100%',
+            textAlign:'center',
+            marginBottom:'20px'
+        },
     }
 
 }));
@@ -145,12 +172,12 @@ export default function UserChatInfo() {
                         justify="center"
                         style={{ marginBottom: 20 }}
                     >
-                        <Grid item xs={5}>
+                        <Grid item xs={5} className={classes.viewProfileButton}>
                             <Button variant="outlined" color="primary" style={{ textTransform: "capitalize", background: "#F4F7FF 0% 0% no-repeat padding-box", borderColor: "#F4F7FF" }}>
                                 View Profile
                             </Button>
                         </Grid>
-                        <Grid item xs={4}>
+                        <Grid item xs={4} className={classes.viewProfileButton}>
                             <Button variant="outlined" color="primary" style={{ textTransform: "capitalize" }}>
                                 Unfollow
                             </Button>
@@ -215,21 +242,21 @@ export default function UserChatInfo() {
                         container
                         direction="row"
                         justify="center"
-                        style={{ padding: 20 }}
+                        style={{ padding: 20,textAlign:'center'}}
                     >
-                        <Grid item xs={5}>
-                            <Typography variant="body2" className={classes.cardFile} component="p">
+                        <Grid item lg= {5} md={12}>
+                            <Typography variant="body2" className={classes.cardFile} component="p" style={{textAlign:'center'}}>
                                 Files Shared
                         </Typography>
                         </Grid>
-                        <Grid item xs={3}>
-                            <Typography variant="body2" className={classes.cardSub} component="p">
+                        <Grid item lg= {3} md={6}>
+                            <Typography variant="body2" className={classes.cardSub} component="p" style={{textAlign:'center'}}>
                                 202
                         </Typography>
 
                         </Grid>
-                        <Grid item xs={4}>
-                            <Typography variant="body2" className={classes.cardViewAll} component="p">
+                        <Grid item lg= {4} md={6}>
+                            <Typography variant="body2" className={classes.cardViewAll} component="p" style={{textAlign:'center'}}>
                                 View All
                             </Typography>
                         </Grid>
@@ -246,13 +273,13 @@ export default function UserChatInfo() {
                         {[0, 1, 2].map((value) => {
                             return (
 
-                                <Grid item xs={4} key={value}>
+                                <Grid item xs={12} lg= {4} md={12} key={value}>
                                     <Avatar
                                         alt="Travis Howard"
                                         src="/static/images/avatar/2.jpg"
                                         sizes='large'
                                         variant="square"
-                                        style={{ height: '90px', width: '90px', borderRadius: 10 }}
+                                        style={{ height: '90px', width: '90px', borderRadius: 10, marginBottom:15, textAlign:'center', marginLeft:'auto', marginRight:'auto'}}
                                     />
                                 </Grid>
                             );
@@ -265,19 +292,19 @@ export default function UserChatInfo() {
                         justify="flex-start"
                         style={{ paddingLeft: 10, paddingTop: 20 }}
                     >
-                        <Grid item xs={7}>
-                            <Typography variant="body2" className={classes.cardFile} component="p">
+                        <Grid item lg={7} md={12}>
+                            <Typography variant="body2" className={classes.cardFile} component="p" style={{textAlign:'center'}}>
                                 Starred Messages
                         </Typography>
                         </Grid>
-                        <Grid item >
-                            <Typography variant="body2" className={classes.cardSub} component="p">
+                        <Grid item lg= {1} md={6}>
+                            <Typography variant="body2" className={classes.cardSub} component="p" style={{textAlign:'center'}}>
                                 22
                         </Typography>
 
                         </Grid>
-                        <Grid item xs={4}>
-                            <Typography variant="body2" className={classes.cardViewAll} component="p">
+                        <Grid item lg= {4} md={6}>
+                            <Typography variant="body2" className={classes.cardViewAll} component="p" style={{textAlign:'center'}}>
                                 View All
                             </Typography>
                         </Grid>

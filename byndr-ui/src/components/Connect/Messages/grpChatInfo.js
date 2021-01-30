@@ -75,12 +75,22 @@ const useStyles = makeStyles((theme) => ({
         color: "#1956E3",
         opacity: 1,
         fontWeight: 500,
-        padding: "20px 0px"
+        padding: "20px 0px",
+        [theme.breakpoints.down('1030')]: {
+            fontSize: 14,
+            marginLeft:10
+        }
     },
     cardFile: {
         textAlign: "center",
         fontSize: 20,
-        color: "#7F7F7F"
+        color: "#7F7F7F",
+        [theme.breakpoints.down('1030')]: {
+            fontSize: 18,
+        },
+        [theme.breakpoints.down('780')]: {
+            fontSize: 16,
+        },
     },
     cardViewAll: {
         textAlign: "center",
@@ -136,21 +146,21 @@ export default function GrpChatInfo() {
                         container
                         direction="row"
                         justify="flex-start"
-                        style={{ padding: 20 }}
+                        style={{ padding: 20,textAlign:'center' }}
                     >
-                        <Grid item xs={5}>
-                            <Typography variant="body2" className={classes.cardFile} component="p">
+                        <Grid item lg= {5} md={12}>
+                            <Typography variant="body2" className={classes.cardFile} component="p" style={{textAlign:'center'}}>
                                 Files Shared
                         </Typography>
                         </Grid>
-                        <Grid item xs={3}>
-                            <Typography variant="body2" className={classes.cardSub} component="p">
+                        <Grid item lg= {3} md={6}>
+                            <Typography variant="body2" className={classes.cardSub} component="p" style={{textAlign:'center'}}>
                                 202
                         </Typography>
 
                         </Grid>
-                        <Grid item xs={4}>
-                            <Typography variant="body2" className={classes.cardViewAll} component="p">
+                        <Grid item lg= {4} md={6}>
+                            <Typography variant="body2" className={classes.cardViewAll} component="p" style={{textAlign:'center'}}>
                                 View All
                             </Typography>
                         </Grid>
@@ -167,13 +177,13 @@ export default function GrpChatInfo() {
                         {[0, 1, 2].map((value) => {
                             return (
 
-                                <Grid item xs={4} key={value}>
+                                <Grid item xs={12} lg= {4} md={12} key={value}>
                                     <Avatar
                                         alt="Travis Howard"
                                         src="/static/images/avatar/2.jpg"
                                         sizes='large'
                                         variant="square"
-                                        style={{ height: '90px', width: '90px', borderRadius: 10 }}
+                                        style={{ height: '90px', width: '90px', borderRadius: 10, marginBottom:15, textAlign:'center', marginLeft:'auto', marginRight:'auto'}}
                                     />
                                 </Grid>
                             );
@@ -184,21 +194,21 @@ export default function GrpChatInfo() {
                         container
                         direction="row"
                         justify="flex-start"
-                        style={{ paddingTop: 20 }}
+                        style={{paddingLeft: 10, paddingTop: 20 }}
                     >
-                        <Grid item xs={7}>
-                            <Typography variant="body2" className={classes.cardFile} component="p">
+                        <Grid item lg={7} md={12}>
+                            <Typography variant="body2" className={classes.cardFile} component="p" style={{textAlign:'center'}}>
                                 Starred Messages
                         </Typography>
                         </Grid>
-                        <Grid item>
-                            <Typography variant="body2" className={classes.cardSub} component="p">
+                        <Grid item lg= {1} md={6}>
+                            <Typography variant="body2" className={classes.cardSub} component="p" style={{textAlign:'center'}}>
                                 22
                         </Typography>
 
                         </Grid>
-                        <Grid item xs={4}>
-                            <Typography variant="body2" className={classes.cardViewAll} component="p">
+                        <Grid item lg= {4} md={6}>
+                            <Typography variant="body2" className={classes.cardViewAll} component="p" style={{textAlign:'center'}}>
                                 View All
                             </Typography>
                         </Grid>

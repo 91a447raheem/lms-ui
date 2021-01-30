@@ -24,6 +24,9 @@ const useStyles = makeStyles((theme) => ({
         font: "normal normal 600 20px/30px Poppins",
         color: "#000000",
         opacity: 1,
+        [theme.breakpoints.down('1030')]: {
+            fontSize: 16,
+        }
     },
     lastUpdate: {
         textAlign: "left",

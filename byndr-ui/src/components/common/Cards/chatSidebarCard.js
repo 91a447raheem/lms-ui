@@ -28,14 +28,20 @@ const useStyles = makeStyles((theme) => ({
         font: "normal normal 600 20px/30px Poppins",
         color: "#000000",
         opacity: 1,
-        fontSize:18
+        fontSize:18,
+        [theme.breakpoints.down('780')]: {
+            fontSize:16
+        }
     },
     cardSubText: {
         textAlign: "left",
         font: "normal normal normal 14px/30px Poppins",
         color: "#7B7C7E",
         opacity: 1,
-        fontSize:12
+        fontSize:12,
+        [theme.breakpoints.down('780')]: {
+            font: "normal normal normal 12px/16px Poppins",
+        }
     },
     lastUpdate: {
         textAlign: "left",
@@ -51,6 +57,21 @@ const useStyles = makeStyles((theme) => ({
         lastChildCss:{
         '&:lastChild': {
             borderBottom: "none",
+        }
+    },
+    deskTopView:{
+        [theme.breakpoints.down('1030')]: {
+            display:'none'
+        }
+    },
+    mobileView:{
+        [theme.breakpoints.up('1030')]: {
+            display:'none'
+        },
+        [theme.breakpoints.down('1030')]: {
+            display:'block',
+            marginBottom:20,
+            padding:10
         }
     }
 }));
@@ -77,11 +98,11 @@ export default function ChatSidebarCard() {
                                     Custom Status
                                 </Typography>
                             </Grid>
-
+                            
                         </Grid>
                     </Grid>
                 </ListItemText>
-                <ListItemSecondaryAction>
+                <ListItemSecondaryAction className={classes.deskTopView}>
                     <Grid item xs={12}>
                         <Grid container justify="center" spacing={2}>
                             <Button  color="primary" className={classes.primaryButton}>
@@ -92,6 +113,13 @@ export default function ChatSidebarCard() {
                     </Grid>
                 </ListItemSecondaryAction>
             </ListItem>
+            <Grid item xs={12} className={classes.mobileView}>
+                        <Grid container justify="center" spacing={2}>
+                            <Button  color="primary" className={classes.primaryButton}>
+                                Admin
+                            </Button>
+                        </Grid>
+            </Grid>
         </List>
     );
 }

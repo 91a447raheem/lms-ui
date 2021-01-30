@@ -37,6 +37,9 @@ const useStyles = makeStyles((theme) => ({
         font: "normal normal 600 20px/30px Poppins",
         color: "#000000",
         opacity: 1,
+        [theme.breakpoints.down('1030')]: {
+            fontSize:"15px"
+        }
     },
     cardSubText: {
         textAlign: "left",
@@ -54,8 +57,8 @@ const useStyles = makeStyles((theme) => ({
     cardTitleBlock:{
         width: "70%",
         [theme.breakpoints.down('1030')]: {
-            width: '56%',
-            paddingRight:"23px"
+            width: '48%',
+            paddingRight:"12px"
         },
     },
     cardRightBlock:{

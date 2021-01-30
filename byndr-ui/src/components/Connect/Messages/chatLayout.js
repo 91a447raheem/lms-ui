@@ -45,10 +45,10 @@ const useStyles = makeStyles(theme => ({
         width: "90%",
         marginLeft: "10%",
         [theme.breakpoints.down('1030')]: {
-            marginLeft: '9%',
+            marginLeft: '4%',
         },
         [theme.breakpoints.down('780')]: {
-            marginLeft: '5%',
+            marginLeft: '3%',
         },
     },
     messageTiemcls: {

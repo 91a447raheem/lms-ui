@@ -95,6 +95,14 @@ const useStyles = makeStyles((theme) => ({
         color: "#1956E3",
         opacity: 1,
     },
+    videoCall:{
+        fontSize: 20,
+        width: "95%",
+        [theme.breakpoints.down('1030')]: {
+            fontSize: 14,
+            width: "90%",
+        }
+    }
 
 }));
 
@@ -109,13 +117,11 @@ export default function GrpChatVideocall() {
                 <Grid item xs={12} sm={4} className={classes.sidebar}>
                     <ChatRightInfoCard title={'Video Calls'} />
                     <Grid item xs={12} sm={12}>
-                        <Button
+                        <Button className={classes.videoCall} 
                             style={{
                                 textAlign: "center",
-                                fontSize: 20,
                                 borderRadius: 5,
                                 margin: 10,
-                                width: "95%",
                                 background: "#1956E3",
                                 textTransform: "capitalize",
                                 fontWeight: 600

@@ -24,12 +24,18 @@ const useStyles = makeStyles((theme) => ({
         font: "normal normal 600 20px/30px Poppins",
         color: "#000000",
         opacity: 1,
+        [theme.breakpoints.down('1030')]: {
+            fontSize:'16px',
+        }
     },
     cardCallTime:{
         textAlign: "right",
         font: "normal normal 600 20px/30px Poppins",
         color: "#000000",
         opacity: 1,
+        [theme.breakpoints.down('1030')]: {
+            fontSize:'14px',
+        }
     },
     cardSubText: {
         textAlign: "left",
@@ -42,6 +48,19 @@ const useStyles = makeStyles((theme) => ({
         font: "normal normal normal 16px/30px Poppins",
         color: "#1956E3",
     },
+    deskTopView:{
+        [theme.breakpoints.down('1030')]: {
+            display:'none'
+        }
+    },
+    mobileView:{
+        [theme.breakpoints.up('1030')]: {
+            display:'none'
+        },
+        [theme.breakpoints.down('1030')]: {
+            display:'block',
+        }
+    }
 }));
 
 export default function ChatCallCard(props) {
@@ -49,7 +68,7 @@ export default function ChatCallCard(props) {
     return (
         <List dense className={classes.root}>
             <ListItem>
-                <ListItemText>
+                <ListItemText className={classes.deskTopView}>
                     <Grid item xs={12}>
                         <Grid container justify="flex-start" spacing={2}>
                             <Grid item xs={12}>
@@ -64,7 +83,7 @@ export default function ChatCallCard(props) {
                         </Grid>
                     </Grid>
                 </ListItemText>
-                <ListItemSecondaryAction>
+                <ListItemSecondaryAction className={classes.deskTopView}>
                     <Grid item xs={12}>
                         <Grid container justify="flex-start" spacing={2}>
                             <Grid item xs={12}>
@@ -78,6 +97,25 @@ export default function ChatCallCard(props) {
                         </Grid>
                     </Grid>
                 </ListItemSecondaryAction>
+
+                <Grid className={classes.mobileView}>
+                    <Grid item xs={12}> 
+                        <Typography variant="body2" className={classes.cardTtitle} component="p">
+                            {props.title}
+                        </Typography>
+                        <Typography variant="body2" className={classes.cardSub} component="p">
+                            {props.userName}
+                        </Typography>
+                    </Grid>
+                    <Grid item xs={12}>
+                        <Typography variant="body2" className={classes.cardCallTime} component="p" style={{textAlign:"left"}}>
+                            {props.callTime}
+                        </Typography>
+                        <Typography variant="body2" className={classes.cardSubText} component="p">
+                            {props.particepent}
+                        </Typography>
+                    </Grid>
+                </Grid>
             </ListItem>
         </List>
     );

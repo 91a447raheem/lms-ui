@@ -38,6 +38,20 @@ const useStyles = makeStyles((theme) => ({
         color: "#7B7C7E",
         opacity: 1,
         paddingTop: 10
+    },
+    deskTopView:{
+        [theme.breakpoints.down('1030')]: {
+            display:'none'
+        }
+    },
+    mobileView:{
+        [theme.breakpoints.up('1030')]: {
+            display:'none'
+        },
+        [theme.breakpoints.down('1030')]: {
+            display:'block',
+            padding:10
+        }
     }
 }));
 
@@ -45,7 +59,7 @@ export default function ChatMessageCard() {
     const classes = useStyles();
     return (
         <List dense className={classes.root}>
-            <ListItem>
+            <ListItem  className={classes.deskTopView}>
                 <ListItemText>
                     <Grid item xs={12}>
                         <Grid container justify="flex-start" spacing={2}>
@@ -61,7 +75,7 @@ export default function ChatMessageCard() {
                         </Grid>
                     </Grid>
                 </ListItemText>
-                <ListItemSecondaryAction>
+                <ListItemSecondaryAction className={classes.deskTopView}>
                     <Grid item xs={12}>
                         <Grid container justify="center" spacing={2}>
                             <Typography variant="body2" className={classes.cardSubText} component="p">
@@ -71,6 +85,17 @@ export default function ChatMessageCard() {
                     </Grid>
                 </ListItemSecondaryAction>
             </ListItem>
+            <Grid item xs={12} className={classes.mobileView}>
+                <Typography variant="body2" className={classes.cardSubText} component="p">
+                    Vinay C
+                </Typography>
+                <Typography variant="body2" className={classes.cardTtitle} component="p">
+                    Hello I've Query?
+                </Typography>
+                <Typography variant="body2" className={classes.cardSubText} component="p">
+                                2D Ago
+                </Typography>
+            </Grid>
         </List>
     );
 }
