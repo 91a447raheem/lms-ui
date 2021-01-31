@@ -13,8 +13,18 @@ import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import clsx from "clsx";
 import {
+  Button,
+  DialogActions,
+  DialogContent,
+  DialogContentText,
+  DialogTitle,
+  Fade,
   Grid,
+  Paper,
+  Popover,
+  Popper,
   Toolbar,
+  Typography,
 } from "@material-ui/core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -155,7 +165,7 @@ export default function SideBar(props) {
   const [popoverOpen, setPopoverOpen] = React.useState(false);
   const classes = useStyles();
 
-  const [arrow] = React.useState(true);
+  const [arrow, setArrow] = React.useState(true);
 
   const handleDrawerClose = () => {
     props.setOpenDrawer(false);

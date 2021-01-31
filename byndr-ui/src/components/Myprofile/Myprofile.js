@@ -1,6 +1,7 @@
 import React from "react";
 import { Route, BrowserRouter as Router } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
+import MyProfileTitleBar from "../common/TitleBar/myprofileTitleBar";
 import SideBar from "../common/sidebar";
 
 import EditProfile from "./EditProfile/EditProfile"

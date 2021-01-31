@@ -9,6 +9,7 @@ import {
   Typography,
 } from "@material-ui/core";
 import React from "react";
+import Shell from "../common/shell";
 import grey from "@material-ui/core/colors/grey";
 
 const useClasses = makeStyles((theme) => ({

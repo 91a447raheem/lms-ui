@@ -7,6 +7,7 @@ import {
   Typography,
 } from "@material-ui/core";
 import React from "react";
+import Shell from "../../common/shell";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -53,7 +54,7 @@ export default function NotificationSettings(props) {
                 id="demo-simple-select-outlined"
                 value={10}
                 className={classes.accountTypeWidth}
-                onChange={() => { }}
+                onChange={() => {}}
                 variant="outlined"
               >
                 <MenuItem value="">
@@ -70,7 +71,7 @@ export default function NotificationSettings(props) {
                 id="demo-simple-select-outlined"
                 value={10}
                 className={classes.accountTypeWidth}
-                onChange={() => { }}
+                onChange={() => {}}
                 variant="outlined"
               >
                 <MenuItem value="">
@@ -86,7 +87,7 @@ export default function NotificationSettings(props) {
                 id="demo-simple-select-outlined"
                 value={10}
                 className={classes.accountTypeWidth}
-                onChange={() => { }}
+                onChange={() => {}}
                 variant="outlined"
               >
                 <MenuItem value="">
@@ -104,7 +105,7 @@ export default function NotificationSettings(props) {
                 id="demo-simple-select-outlined"
                 value={10}
                 className={classes.accountTypeWidth}
-                onChange={() => { }}
+                onChange={() => {}}
                 variant="outlined"
               >
                 <MenuItem value="">
@@ -122,7 +123,7 @@ export default function NotificationSettings(props) {
                 id="demo-simple-select-outlined"
                 value={10}
                 className={classes.accountTypeWidth}
-                onChange={() => { }}
+                onChange={() => {}}
                 variant="outlined"
               >
                 <MenuItem value="">
@@ -140,7 +141,7 @@ export default function NotificationSettings(props) {
                 id="demo-simple-select-outlined"
                 value={10}
                 className={classes.accountTypeWidth}
-                onChange={() => { }}
+                onChange={() => {}}
                 variant="outlined"
               >
                 <MenuItem value="">

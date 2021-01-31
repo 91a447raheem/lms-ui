@@ -1,10 +1,17 @@
 import {
+    Button,
+    FormControl,
     Grid,
-    makeStyles
+    makeStyles,
+    MenuItem,
+    Select,
+    Typography,
+    Toolbar
 } from "@material-ui/core";
 
 import React from "react";
 
+import ChatList from './chatList';
 import GrpHeadCard from '../../common/Cards/grpHeadCard'
 import ChatLayout from './chatLayout'
 const useStyles = makeStyles((theme) => ({
@@ -71,7 +78,7 @@ export default function GrpChat() {
         <div className={classes.root}>
             <Grid container spacing={2} style={{ marginLeft: -17, paddingLeft: 17 }}>
                 <Grid item xs={12} style={{ padding: 0 }}>
-                    <div className={classes.titleBlock}><GrpHeadCard title={'Design Group'} /></div>
+                    <div className={classes.titleBlock}><GrpHeadCard title={'Design Group'}/></div>
                     <Grid style={{ marginTop: 72, }} className={classes.gridChat}>
                         <ChatLayout />
                     </Grid>

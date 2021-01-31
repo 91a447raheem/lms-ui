@@ -4,26 +4,16 @@ import Sidebar from '../common/sidebar';
 import Navigationbar from '../common/navigationbar';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
-import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
-import IconButton from '@material-ui/core/IconButton';
-import MoreVertIcon from '@material-ui/icons/MoreVert';
 import { Avatar, Divider } from '@material-ui/core';
-import FavoriteIcon from '@material-ui/icons/Favorite';
-import ChatBubbleOutlineSharpIcon from '@material-ui/icons/ChatBubbleOutlineSharp';
-import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
-import ShareIcon from '@material-ui/icons/Share';
-import ChatBubbleSharpIcon from '@material-ui/icons/ChatBubbleSharp';
-import StarBorderOutlinedIcon from '@material-ui/icons/StarBorderOutlined';
-import StarIcon from '@material-ui/icons/Star';
-import VisibilityOutlinedIcon from '@material-ui/icons/VisibilityOutlined';
 import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext } from 'pure-react-carousel';
 import 'pure-react-carousel/dist/react-carousel.es.css';
 import KeyboardArrowLeftIcon from '@material-ui/icons/KeyboardArrowLeft';
 import KeyboardArrowRightIcon from '@material-ui/icons/KeyboardArrowRight';
+import Datacard from '../Connect/datacard';
 
 
 
@@ -122,8 +112,10 @@ let dataDummy = [
 
 export default function HomeScreen() {
 
-    
+
     const classes = useStyles();
+    const [likedCards, updatelikedCards] = React.useState([]);
+
 
     // const history = useHistory();
 
@@ -145,19 +137,20 @@ export default function HomeScreen() {
 
 
 
-    let [like, setLike] = React.useState(null);
-    let [chat, setChat] = React.useState(null);
-    let [star, setStar] = React.useState(null);
+    // let [like, setLike] = React.useState(null);
+    // let [chat, setChat] = React.useState(null);
+    // let [star, setStar] = React.useState(null);
+    // const [isLiked, updateLike] = useState(false);
 
 
-    const Toggle = (prop) => () => {
-        if (prop === "like")
-            (like ? setLike(null) : setLike(true));
-        else if (prop === "chat")
-            (chat ? setChat(null) : setChat(true));
-        else if (prop === 'star')
-            (star ? setStar(null) : setStar(true));
-    }
+    // const Toggle = (prop) => () => {
+    //     if (prop === "like")
+    //         (like ? setLike(null) : setLike(true));
+    //     else if (prop === "chat")
+    //         (chat ? setChat(null) : setChat(true));
+    //     else if (prop === 'star')
+    //         (star ? setStar(null) : setStar(true));
+    // }
 
 
     return (
@@ -176,87 +169,11 @@ export default function HomeScreen() {
                 <div className={classes.Cardlayer}>
                     {
                         dataDummy.map((data) =>
-                            <Card className={classes.root} >
-                                <Typography component="span">Card no: {data[1]}</Typography>
-                                <CardActionArea>
-                                    <CardMedia
-                                        component="img"
-                                        alt="Contemplative Reptile"
-                                        height="100"
-                                        image="/static/images/cards/contemplative-reptile.jpg"
-                                        title="Contemplative Reptile"
-                                        style={{ margin: "0.5vw" }}
-                                    />
-                                    <CardContent style={{ display: 'flex', padding: 0, margin: "0.75vw" }}>
-                                        {/* <Typography gutterBottom variant="h5" component="h5">
-                            Lizard
-          </Typography> */}
-                                        <Typography variant="body2" color="textSecondary" component="p" style={{ padding: 0, }}>
-                                            Lizards are a widespread group of squamate reptiles, with over 6,000 species,
-                            {/* ranging */}
-                                            {/* across all continents except Antarctica */}
-                                        </Typography>
-
-                                        <IconButton aria-label="settings" style={{ padding: 0, display: "flex", alignItems: "baseline" }} size="small">
-                                            <MoreVertIcon fontSize="small" style={{ color: "lightgrey" }} />
-                                        </IconButton>
-
-                                    </CardContent>
-
-                                    <CardContent style={{ display: 'flex', padding: "5px 0px 1px 0px ", margin: "0px 0.5vw" }}>
-                                        <Typography component="span" color="primary" style={{ fontSize: 'small', padding: 0 }}> By</Typography>
-                                        <Typography component="span" color="primary" style={{ fontSize: 'small', padding: 0, marginLeft: "1.5em" }}> Time</Typography>
-                                        <VisibilityOutlinedIcon fontSize="small" style={{ padding: 0, marginLeft: "1.5em" }} />
-                                        <Typography component="span" color="primary" style={{ fontSize: 'small', padding: 0, marginLeft: "1.5em" }}> Views</Typography>
-                                        <Typography component="span" color="primary" style={{ fontSize: 'small', padding: "0px 2px", marginLeft: "1.5em" }}> icon</Typography>
-                                    </CardContent>
-
-                                    <Divider style={{ margin: "3px 0px" }}></Divider>
-
-
-
-                                </CardActionArea>
-                                <CardActions style={{ padding: 0, margin: "0px 0.25vw" }}>
-                                    <IconButton aria-label="add to favorites" size="small" onClick={Toggle('like')}>
-                                        {
-                                            (like ? <FavoriteIcon style={{ color: 'red' }} fontSize="small"
-                                            />
-                                                : <FavoriteBorderIcon style={{ color: 'lightgrey' }} fontSize="small"
-                                                />)
-                                        }
-
-                                    </IconButton>
-
-                                    <IconButton aria-label="start chat" size="small" onClick={Toggle('chat')} style={{ marginLeft: "1.0em" }}>
-                                        {
-                                            (chat ? <ChatBubbleSharpIcon style={{ color: 'blue' }} fontSize="small"
-                                            />
-                                                : <ChatBubbleOutlineSharpIcon fontSize="small"
-                                                />)
-                                        }
-
-                                    </IconButton>
-
-                                    <IconButton aria-label="share" size="small" style={{ marginLeft: '4em' }}>
-                                        <ShareIcon fontSize="small"
-                                            style={{ color: 'lightgrey' }}
-                                            onMouseOver={(e) => e.target.style.color = 'blue'}
-                                            onMouseOut={(e) => e.target.style.color = 'lightgrey'}
-                                        />
-                                    </IconButton>
-
-                                    <IconButton aria-label="add to started" size="small" onClick={Toggle('star')}>
-                                        {
-                                            (star ? <StarIcon style={{ color: "gold" }} fontSize="small"
-                                            />
-                                                : <StarBorderOutlinedIcon style={{ color: 'lightgrey' }} fontSize="small"
-                                                />)
-                                        }
-
-                                    </IconButton>
-
-                                </CardActions>
-                            </Card>
+                            <Datacard
+                                data={data}
+                                updatelikedCards={updatelikedCards}
+                                likedCards={likedCards}>
+                            </Datacard>
 
                             /* <Dialog aria-labelledby="customized-dialog-title" open={open}>
                                     

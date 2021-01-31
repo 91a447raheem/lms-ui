@@ -15,6 +15,7 @@ import {
   Toolbar,
 } from "@material-ui/core";
 import React from "react";
+import Shell from "../../common/shell";
 import EditIcon from "@material-ui/icons/Edit";
 import LocationOnIcon from "@material-ui/icons/LocationOn";
 import AccountBalanceTwoToneIcon from "@material-ui/icons/AccountBalanceTwoTone";
@@ -65,7 +66,7 @@ export default function Settings() {
             justify="flex-start"
             alignItems="center"
             spacing={2}
-          // style={{ paddingTop: 40 }}
+            // style={{ paddingTop: 40 }}
           >
             <Grid item>
               <Badge
@@ -212,7 +213,7 @@ export default function Settings() {
                 id="demo-simple-select-outlined"
                 value={10}
                 className={classes.accountTypeWidth}
-                onChange={() => { }}
+                onChange={() => {}}
               >
                 <MenuItem value="">
                   <em>None</em>
@@ -233,7 +234,7 @@ export default function Settings() {
                 <TextField
                   id="standard--flexible"
                   variant="outlined"
-                  onChange={() => { }}
+                  onChange={() => {}}
                   size="small"
                   fullWidth
                   placeholder="Enter First Name"
@@ -248,7 +249,7 @@ export default function Settings() {
                 <TextField
                   id="standard--flexible"
                   variant="outlined"
-                  onChange={() => { }}
+                  onChange={() => {}}
                   size="small"
                   fullWidth
                   placeholder="Enter Last Name"
@@ -263,7 +264,7 @@ export default function Settings() {
                 <TextField
                   id="standard--flexible"
                   variant="outlined"
-                  onChange={() => { }}
+                  onChange={() => {}}
                   size="small"
                   fullWidth
                   placeholder="Type here"
@@ -278,7 +279,7 @@ export default function Settings() {
                 <OutlinedInput
                   id="standard--flexible"
                   variant="outlined"
-                  onChange={() => { }}
+                  onChange={() => {}}
                   size="small"
                   fullWidth
                   placeholder="City, Country"
@@ -298,7 +299,7 @@ export default function Settings() {
                 <TextField
                   id="standard--flexible"
                   variant="outlined"
-                  onChange={() => { }}
+                  onChange={() => {}}
                   size="small"
                   fullWidth
                   placeholder="Describe Yourself"
@@ -315,7 +316,7 @@ export default function Settings() {
                 <TextField
                   id="standard--flexible"
                   variant="outlined"
-                  onChange={() => { }}
+                  onChange={() => {}}
                   size="small"
                   fullWidth
                   placeholder="Enter date of birth"
@@ -330,7 +331,7 @@ export default function Settings() {
                 <TextField
                   id="standard--flexible"
                   variant="outlined"
-                  onChange={() => { }}
+                  onChange={() => {}}
                   size="small"
                   fullWidth
                   placeholder="Type here"
@@ -345,7 +346,7 @@ export default function Settings() {
                 <TextField
                   id="standard--flexible"
                   variant="outlined"
-                  onChange={() => { }}
+                  onChange={() => {}}
                   size="small"
                   fullWidth
                   placeholder="Type here"
@@ -366,7 +367,7 @@ export default function Settings() {
                 <TextField
                   id="standard--flexible"
                   variant="outlined"
-                  onChange={() => { }}
+                  onChange={() => {}}
                   size="small"
                   fullWidth
                   placeholder="+ Add Your Website"
@@ -398,7 +399,7 @@ export default function Settings() {
                 <TextField
                   id="standard--flexible"
                   variant="outlined"
-                  onChange={() => { }}
+                  onChange={() => {}}
                   size="small"
                   fullWidth
                   placeholder="Enter Url"

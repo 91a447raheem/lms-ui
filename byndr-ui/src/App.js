@@ -11,9 +11,19 @@ import Passwordchangeconfirm from './components/SSO/passwordchangeconfirm';
 import HomeScreen from './components/Home/homescreen';
 import Shell from "./components/common/shell";
 import Myprofile from "./components/Myprofile/Myprofile";
+import Participants from "./components/Connect/participants";
 import MessageConnect from "./components/Connect/messageConnect";
+import Sharedfiles from "./components/Connect/sharedfiles";
+import Sharedcontent from "./components/Connect/sharedcontent";
 import Videoconfrence from './components/Connect/videoconfrence';
 import broadcastHome from "./components/Broadcast/broadcast-home";
+import Mybroadcast from "./components/Broadcast/mybroadcast";
+import Playlist from "./components/Broadcast/playlist";
+import PlaylistByID from "./components/Broadcast/playlistByID";
+import Startbroadcast from "./components/Broadcast/startbroadcast";
+import Uplloadvideo from "./components/Broadcast/uploadvideo";
+import Videoplay from "./components/Broadcast/videoplay";
+
 
 
 function App() {
@@ -39,7 +49,6 @@ function App() {
         <Route exact path="/connect/messages/grpChatVoice" component={MessageConnect} />
         <Route exact path="/connect/messages/grpChatVideo" component={MessageConnect} />
         <Route exact path="/connect/messages/userChat" component={MessageConnect} />
-        <Route exact path="/broadcast/explorebroadcast" component={broadcastHome} />
         <Route exact path="/home" component={Shell} />
 
         <Route exact path="/profile/settings" component={Shell} />
@@ -55,7 +64,15 @@ function App() {
         <Route exact path="/myProfile/people" component={Myprofile} />
         <Route exact path="/myProfile/people/request" component={Myprofile} />
 
+        <Route exact path="/broadcast" component={broadcastHome} />
+        <Route exact path="/broadcast/explorebroadcast" component={broadcastHome} />
+        <Route exact path="/broadcast/mybroadcast"  component={Mybroadcast} />
+        <Route exact path="/broadcast/myplaylists" component={Playlist} />
+        <Route path="/broadcast/myplaylists/:id"  component={PlaylistByID}/>
+        <Route path="/broadcast/startbroadcast" component={Startbroadcast} />
+        <Route path="/broadcast/uploadvideo" component={Uplloadvideo} />
 
+        <Route path="/broadcast/videoplay" component={Videoplay} />
       </Router>
     </div>
 

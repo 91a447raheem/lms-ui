@@ -2,6 +2,7 @@ import {
   Button,
   FormControl,
   Grid,
+  Input,
   InputAdornment,
   makeStyles,
   MenuItem,
@@ -13,6 +14,7 @@ import {
 } from "@material-ui/core";
 import { Visibility } from "@material-ui/icons";
 import React from "react";
+import Shell from "../../common/shell";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -38,7 +40,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Security() {
+export default function Security(props) {
   const classes = useStyles();
   return (
     <div className={classes.root}>
@@ -50,7 +52,7 @@ export default function Security() {
             id="demo-simple-select-outlined"
             value={10}
             className={classes.accountTypeWidth}
-            onChange={() => { }}
+            onChange={() => {}}
           >
             <MenuItem value="">
               <em>None</em>
@@ -78,7 +80,7 @@ export default function Security() {
                 className={classes.txtFields}
                 id="standard--flexible"
                 variant="outlined"
-                onChange={() => { }}
+                onChange={() => {}}
                 size="small"
                 placeholder="Enter Email Address"
               />
@@ -102,7 +104,7 @@ export default function Security() {
                 className={classes.txtFields}
                 id="standard--flexible"
                 variant="outlined"
-                onChange={() => { }}
+                onChange={() => {}}
                 size="small"
                 placeholder="Enter Phone"
               />
@@ -119,7 +121,7 @@ export default function Security() {
               className={classes.txtFields}
               id="standard--flexible"
               variant="outlined"
-              onChange={() => { }}
+              onChange={() => {}}
               size="small"
               placeholder="Type Current Password"
               endAdornment={
@@ -140,7 +142,7 @@ export default function Security() {
                 className={classes.txtFields}
                 id="standard--flexible"
                 variant="outlined"
-                onChange={() => { }}
+                onChange={() => {}}
                 size="small"
                 placeholder="Type New Password"
                 endAdornment={
@@ -153,7 +155,7 @@ export default function Security() {
                 className={classes.txtFields}
                 id="standard--flexible"
                 variant="outlined"
-                onChange={() => { }}
+                onChange={() => {}}
                 size="small"
                 placeholder="Confirm New Password"
                 endAdornment={

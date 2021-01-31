@@ -20,12 +20,12 @@ import ShareOutlinedIcon from '@material-ui/icons/ShareOutlined';
 import StarBorderOutlinedIcon from '@material-ui/icons/StarBorderOutlined';
 
 
-
+import Header from "../../../img/cardbg.png";
 
 
 const useStyles = makeStyles((theme) => ({
     root: {
-        maxWidth: "auto",
+        maxWidth: 345,
     },
     media: {
         height: 0,
@@ -67,20 +67,20 @@ const useStyles = makeStyles((theme) => ({
     },
     cardContentText: {
         textAlign: "left",
-        font: "normal normal normal 24px/30px Poppins",
+        font: "normal normal normal 18px/24px Poppins",
         color: "#000000",
         opacity: 1
     },
     cardPeople: {
         textAlign: "center",
-        font: "normal normal 600 20px/30px Poppins",
+        font: "normal normal 600 18px/ 35px Poppins",
         color: "#1956E3",
         opacity: 1
     },
 
     cardCount: {
         textAlign: "center",
-        font: "normal normal normal 20px/30px Poppins",
+        font: "normal normal normal 16px/35px Poppins",
         color: "#7F7F7F",
         opacity: 1
     },
@@ -97,15 +97,12 @@ const useStyles = makeStyles((theme) => ({
     pad_L50: {
         paddingLeft: 50
     },
-    pad_L100: {
-        paddingLeft: 100
-    },
     colo: {
         color: "#7F7F7F",
     }
 }));
 
-export default function DataDetailCard(props) {
+export default function DataCard() {
     const classes = useStyles();
 
 
@@ -116,28 +113,24 @@ export default function DataDetailCard(props) {
                 <CardMedia
                     component="img"
                     alt="Contemplative Reptile"
-                    height="auto"
-                    image={props.CardMediaImg}
+                    height="200"
+                    image={Header}
                     title="Contemplative Reptile"
                 />
-                {props.CardVarient === 'BannerText' &&
-                    <>
-                        <Typography
-                            gutterBottom
-                            className={classes.CardHeadText}
-                        >
-                            {props.CardHeadText}
-                        </Typography>
-                        <Grid item className={classes.CardHeadImage}>
-                            <Avatar
-                                className={`${classes.large} ${classes.v_mar}`}
-                                alt="Travis Howard"
-                                src="/static/images/avatar/2.jpg"
-                                varient="square"
-                            />
-                        </Grid>
-                    </>
-                }
+                <Typography
+                    gutterBottom
+                    className={classes.CardHeadText}
+                >
+                    Spa
+                </Typography>
+                <Grid item className={classes.CardHeadImage}>
+                    <Avatar
+                        className={`${classes.large} ${classes.v_mar}`}
+                        alt="Travis Howard"
+                        src="/static/images/avatar/2.jpg"
+                        varient="square"
+                    />
+                </Grid>
             </Grid>
 
 
@@ -145,51 +138,42 @@ export default function DataDetailCard(props) {
 
             <CardContent>
                 <Typography variant="body2" className={classes.cardContentText} component="p">
-                    {props.cardContentText}
+                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
                 </Typography>
-                <Grid item xs={12} style={{ paddingTop: 20 }}>
+                <Grid item xs={12}>
                     <Grid container spacing={2}>
-                        <Grid item item xs={6} sm={6}>
-                            <Typography variant="body2" className={classes.cardPeople} component="span">
-                                {props.cardPeople}
-                            </Typography>
-
-                            <Typography variant="body2" className={classes.cardCount} style={{ paddingLeft: 10 }} component="span">
-                                {props.cardDur}
+                        <Grid item>
+                            <Typography variant="body2" className={classes.cardPeople} component="p">
+                                Satish N
                             </Typography>
                         </Grid>
-                        <Grid item xs={6} sm={6} className={`${classes.pad_L50}`}>
+                        <Grid item>
+                            <Typography variant="body2" className={classes.cardCount} component="p">
+                                6 min
+                            </Typography>
+                        </Grid>
+                        <Grid item className={classes.pad_L35}>
 
                             <Typography variant="body2" className={classes.cardCount} component="p">
                                 <RemoveRedEyeOutlinedIcon fontSize="small" className={classes.cardIcon} />
-                                {props.cardView}
+                                2,098
                             </Typography>
+                        </Grid>
+                        <Grid item className={classes.colo} justifySelf="end">
+                            <FontAwesomeIcon icon={faPaperPlane} size={"sm"} />
                         </Grid>
                     </Grid>
                 </Grid>
-                <Divider />
-                <Grid item xs={12} style={{ paddingTop: 20 }}>
-                    <Typography variant="body2" className={classes.cardPeople} component="span">
-                        Description
-                    </Typography>
-                </Grid>
-                <Grid item xs={12} style={{ paddingTop: 10 }}>
-                    <Typography variant="body2" className={classes.cardPeople} component="span">
-                        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
-                    </Typography>
-                </Grid>
             </CardContent>
-
             <Divider />
-
             <CardActions spacing={6} className={classes.colo}>
                 <Grid item xs={6} sm={6} >
                     <FavoriteBorderOutlinedIcon fontSize="small" />
-                    <ChatBubbleOutlineOutlinedIcon fontSize="small" className={classes.pad_L25} /> 22 Comments
+                    <ChatBubbleOutlineOutlinedIcon fontSize="small" className={classes.pad_L25}/> 23
                 </Grid>
-                <Grid item xs={6} sm={6} className={`${classes.pad_L100}`}>
+                <Grid item xs={6} sm={6} className={`${classes.pad_L50}`}>
                     <ShareOutlinedIcon fontSize="small" />
-                    <StarBorderOutlinedIcon fontSize="small" className={classes.pad_L25} />50
+                    <StarBorderOutlinedIcon fontSize="small"  className={classes.pad_L25}/>50
                 </Grid>
 
             </CardActions>
