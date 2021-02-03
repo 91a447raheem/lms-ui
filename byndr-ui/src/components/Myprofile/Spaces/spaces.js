@@ -9,11 +9,11 @@ import { Link } from "react-router-dom";
 
 
 import MyprofileDetails from '../../common/ProfileDetails/MyprofileDetails';
-import Datacard from '../../common/Cards/dataCard';
 import DataDetailCard from '../../common/Cards/dataDetailCard';
 import cardBGImg from "../../../img/cardbg.png";
 import cardBGblue from "../../../img/cardBGblue.png";
 import cardDetailBG from "../../../img/detailCardBG.png"
+import Datacard from '../../common/Cards/dataCard';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -120,7 +120,7 @@ export default function Spaces() {
 
                         </Grid>
                         <Grid item xs={6} sm={6} container
-                            style={{ paddingTop: 20,paddingLeft: 20 }}>
+                            style={{ paddingTop: 20, paddingLeft: 20 }}>
                             <Grid item sm={12} xs={12}  >
                                 <DataDetailCard
                                     CardMediaImg={cardDetailBG}

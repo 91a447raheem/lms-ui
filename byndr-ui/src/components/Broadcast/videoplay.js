@@ -19,6 +19,9 @@ import Videolist from './videolist';
 import QierPlayer from 'qier-player';
 import PlaylistAddOutlinedIcon from '@material-ui/icons/PlaylistAddOutlined';
 import ErrorOutlineTwoToneIcon from '@material-ui/icons/ErrorOutlineTwoTone';
+import {
+    useParams
+} from "react-router-dom";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -193,6 +196,9 @@ const Videoplay = (props) => {
     const classes = useStyles();
     let nextVideo = "More Broadcast By name";
 
+    let params = useParams();
+
+
     const handleLike = (prop) => {
         if (prop === 'like') {
             setLike(!like);
@@ -215,6 +221,8 @@ const Videoplay = (props) => {
     const videoOrigin = "http://www.w3schools.com/html/mov_bbb.mp4";
     const width = '100%';
     const height = '50vh';
+    const Slideheight = "23";
+
 
     return (
         <div>
@@ -322,7 +330,8 @@ const Videoplay = (props) => {
                     </div>
                     <Divider style={{ marginLeft: '0vw', width: '70vw', marginTop: '2vh' }} />
 
-                    <div style={{ marginLeft: '6vw', marginTop: '2vh', border: '1px solid blue', width: '90%', height: '10vh' }}>Description</div>
+                    <div style={{ marginLeft: '6vw', marginTop: '2vh', border: '1px solid blue', width: '90%', height: '10vh' }}>Description 
+                                <Typography component="p" style={{margin: '2px'}}>{params.vid}</Typography></div>
 
                 </div>
 
@@ -333,6 +342,8 @@ const Videoplay = (props) => {
                     data={dataDummy}
                     name={nextVideo}
                     size={3}
+                    carouselHeight={Slideheight}
+
                 >
                 </Videolist>
 

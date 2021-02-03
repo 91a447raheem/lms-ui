@@ -11,10 +11,7 @@ import Passwordchangeconfirm from './components/SSO/passwordchangeconfirm';
 import HomeScreen from './components/Home/homescreen';
 import Shell from "./components/common/shell";
 import Myprofile from "./components/Myprofile/Myprofile";
-import Participants from "./components/Connect/participants";
 import MessageConnect from "./components/Connect/messageConnect";
-import Sharedfiles from "./components/Connect/sharedfiles";
-import Sharedcontent from "./components/Connect/sharedcontent";
 import Videoconfrence from './components/Connect/videoconfrence';
 import broadcastHome from "./components/Broadcast/broadcast-home";
 import Mybroadcast from "./components/Broadcast/mybroadcast";
@@ -68,11 +65,21 @@ function App() {
         <Route exact path="/broadcast/explorebroadcast" component={broadcastHome} />
         <Route exact path="/broadcast/mybroadcast"  component={Mybroadcast} />
         <Route exact path="/broadcast/myplaylists" component={Playlist} />
-        <Route path="/broadcast/myplaylists/:id"  component={PlaylistByID}/>
-        <Route path="/broadcast/startbroadcast" component={Startbroadcast} />
-        <Route path="/broadcast/uploadvideo" component={Uplloadvideo} />
+        <Route exact path="/broadcast/myplaylists/:id"  component={PlaylistByID}/>
+        <Route exact path="/broadcast/startbroadcast" component={Startbroadcast} />
+        <Route exact path="/broadcast/uploadvideo" component={Uplloadvideo} />
 
-        <Route path="/broadcast/videoplay" component={Videoplay} />
+        <Route exact path="/broadcast/explorebroadcast/:vid"  component={Videoplay}/>
+        <Route exact path="/broadcast/mybroadcast/:vid"  component={Videoplay} />
+        <Route exact path="/broadcast/startbroadcast/:vid" component={Videoplay} />
+        <Route exact path="/broadcast/uploadvideo/:vid" component={Videoplay} />
+        <Route exact path="/broadcast/myplaylists/:id/:vid"  component={Videoplay}/>
+
+
+
+
+
+
       </Router>
     </div>
 

@@ -7,7 +7,6 @@ import { Typography, Divider } from '@material-ui/core';
 //drawer
 import clsx from 'clsx';
 import Drawer from '@material-ui/core/Drawer';
-import PlaylistAlbum from './playlistAlbum';
 import { useHistory } from "react-router-dom";
 import PublishIcon from '@material-ui/icons/Publish';
 import TextField from '@material-ui/core/TextField';
@@ -16,6 +15,7 @@ import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import { Button } from '@material-ui/core';
 import IconButton from '@material-ui/core/IconButton';
+import Datacard from './dataCard';
 
 
 
@@ -352,11 +352,11 @@ export default function Uplloadvideo() {
                     {
                         dataDummy.map((data) =>
 
-                            <PlaylistAlbum
+                            <Datacard
                                 data={data}
                                 updatelikedCards={updatelikedCards}
                                 likedCards={likedCards}>
-                            </PlaylistAlbum>
+                            </Datacard>
                         )}
                 </div>
             </main>

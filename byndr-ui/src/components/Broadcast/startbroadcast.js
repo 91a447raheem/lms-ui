@@ -7,7 +7,6 @@ import { Divider, Typography } from '@material-ui/core';
 //drawer
 import clsx from 'clsx';
 import Drawer from '@material-ui/core/Drawer';
-import PlaylistAlbum from './playlistAlbum';
 import { useHistory } from "react-router-dom";
 import VideocamIcon from '@material-ui/icons/Videocam';
 import TextField from '@material-ui/core/TextField';
@@ -25,6 +24,7 @@ import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import { Button } from '@material-ui/core';
 import IconButton from '@material-ui/core/IconButton';
 import AddIcon from '@material-ui/icons/Add';
+import Datacard from './dataCard';
 
 
 
@@ -380,11 +380,11 @@ export default function Startbroadcast() {
                     {
                         dataDummy.map((data) =>
 
-                            <PlaylistAlbum
+                            <Datacard
                                 data={data}
                                 updatelikedCards={updatelikedCards}
                                 likedCards={likedCards}>
-                            </PlaylistAlbum>
+                            </Datacard>
                         )}
                 </div>
             </main>

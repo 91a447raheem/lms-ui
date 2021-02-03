@@ -1,10 +1,10 @@
 import React from 'react';
 import Select from "react-select";
 import { fade, makeStyles } from '@material-ui/core/styles';
-import Datacard from '../Connect/datacard';
 import { Card, Divider, Typography } from '@material-ui/core';
 import Header from '../common/header';
 import { useHistory } from "react-router-dom";
+import Datacard from './dataCard';
 
 
 

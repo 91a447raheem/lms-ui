@@ -16,6 +16,8 @@ import NotificationsIcon from '@material-ui/icons/Notifications';
 import MoreIcon from '@material-ui/icons/MoreVert';
 import { Button } from '@material-ui/core';
 import { useRouteMatch } from "react-router-dom";
+import { useHistory } from "react-router-dom";
+
 
 const useStyles = makeStyles((theme) => ({
     grow: {
@@ -33,7 +35,11 @@ const useStyles = makeStyles((theme) => ({
             marginLeft: `calc(2px + ${theme.spacing(4)}px)`
          },
         color: 'blue',
-        marginLeft: `calc(1.5em + ${theme.spacing(4)}px)`
+        marginLeft: `calc(1.5em + ${theme.spacing(4)}px)`,
+        '&:hover': {
+            backgroundColor: fade(theme.palette.common.black, 0.15),
+        },
+        cursor: 'pointer'
     },
     search: {
         position: 'relative',
@@ -91,6 +97,7 @@ export default function Header() {
 
     let match = useRouteMatch();
 
+    const history = useHistory();
 
     const classes = useStyles();
     // const [anchorEl, setAnchorEl] = React.useState(null);
@@ -196,14 +203,15 @@ export default function Header() {
                     </div>
                 )
             }
-            else if (match.path === "/broadcast/explorebroadcast") {
+            else if (match.path === "/broadcast/explorebroadcast" || match.path === '/broadcast' || match.path === '/broadcast/mybroadcast' 
+            || match.path === '/broadcast/myplaylists' || match.path === '/broadcast/myplaylists/:id' || match.path === '/broadcast/startbroadcast' ||
+            match.path === '/broadcast/uploadvideo' || match.path === '/broadcast/explorebroadcast/:vid' || match.path === '/broadcast/mybroadcast/:vid' 
+            || match.path === '/broadcast/startbroadcast/:vid' || match.path === '/broadcast/uploadvideo/:vid' || match.path === '/broadcast/myplaylists/:id/:vid') {
                 return (
                     <div style={{ display: "flex" }}>
-                        <Typography className={classes.title} variant="body1" noWrap>Explore Broadcast</Typography>
-                        <Typography className={classes.title} variant="body1" noWrap>My Broadcast</Typography>
-                        <Typography className={classes.title} variant="body1" noWrap>Playlists</Typography>
-
-
+                        <Typography className={classes.title} variant="body1" noWrap onClick={(() => history.push('/broadcast/explorebroadcast'))}>Explore Broadcast</Typography>
+                        <Typography className={classes.title} variant="body1" noWrap onClick={(() => history.push('/broadcast/mybroadcast'))}>My Broadcast</Typography>
+                        <Typography className={classes.title} variant="body1" noWrap onClick={(() => history.push('/broadcast/myplaylists'))}> Playlists</Typography>
                     </div>
                 )
             }

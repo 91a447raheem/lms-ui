@@ -169,6 +169,8 @@ export default function () {
     const featureBroadcast = "Feature Broadcast";
     const upcomingBroadcast = "Upcoming Broadcast";
     const featurePlaylist = "Feature Playlists";
+    const Slideheight = "16";
+
 
 
     return (
@@ -237,6 +239,7 @@ export default function () {
                         data={dataDummy}
                         name={liveVedio}
                         size={5}
+                        carouselHeight={Slideheight}
                     >
                     </Videolist>
                 </div>
@@ -246,6 +249,7 @@ export default function () {
                         data={dataDummy}
                         name={featureBroadcast}
                         size={5}
+                        carouselHeight={Slideheight}
                     >
                     </Videolist>
                 </div>
@@ -255,6 +259,7 @@ export default function () {
                         data={dataDummy}
                         name={upcomingBroadcast}
                         size={5}
+                        carouselHeight={Slideheight}
                     >
                     </Videolist>
                 </div>
@@ -264,6 +269,7 @@ export default function () {
                         data={dataDummy}
                         name={featurePlaylist}
                         size={5}
+                        carouselHeight={Slideheight}
                     >
                     </Videolist>
                 </div>

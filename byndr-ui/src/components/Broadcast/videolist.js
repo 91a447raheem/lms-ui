@@ -5,7 +5,10 @@ import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext } from 'pure-re
 import 'pure-react-carousel/dist/react-carousel.es.css';
 import KeyboardArrowLeftIcon from '@material-ui/icons/KeyboardArrowLeft';
 import KeyboardArrowRightIcon from '@material-ui/icons/KeyboardArrowRight';
-import Datacard from '../Connect/datacard';
+import Datacard from './dataCard';
+import { useParams} from "react-router-dom";
+
+
 
 
 const useStyles = makeStyles((theme) => ({
@@ -104,9 +107,14 @@ const Videolist = props => {
     const VideoCateogry = props.name;
 
     const dataIncoming = props.data;
-    const classes = useStyles();
+    // const classes = useStyles();
 
     const arraySize = props.size;
+
+    const Slideheight = props.carouselHeight;
+
+    let params = useParams();
+
 
 
     const chunk = (array, size) => {
@@ -127,7 +135,7 @@ const Videolist = props => {
 
             <CarouselProvider
                 naturalSlideWidth={75}
-                naturalSlideHeight={23}
+                naturalSlideHeight={Slideheight}
                 totalSlides={dataArraylength}
                 infinite="true"
             >
@@ -156,6 +164,8 @@ const Videolist = props => {
                                                     data={data}
                                                     updatelikedCards={updatelikedCards}
                                                     likedCards={likedCards}
+                                                    videoid={params.id}
+
                                                 >
 
                                                 </Datacard>
