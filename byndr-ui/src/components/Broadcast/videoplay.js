@@ -47,31 +47,31 @@ import MUIRichTextEditor from 'mui-rte'
 import InvertColorsIcon from '@material-ui/icons/InvertColors'
 import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
 import VideoLibraryIcon from '@material-ui/icons/VideoLibrary';
-import { ShareBroadcast, CancelPopup } from "../common/popups";
+import { ShareBroadcast, CancelPopup, PlaylistPopup } from "../common/popups";
 
 import {
     useParams
 } from "react-router-dom";
 
 const useStyles = makeStyles({
-    root: {
-        height: 440,
-        flexGrow: 1,
-        maxWidth: "100%",
-        overflow:"auto"
-    },
-    singleBroadcastinrleft:{
-        width:"70%",
-        float:"left",
-        paddingRight:"0",
+    // root: {
+    //     height: 440,
+    //     flexGrow: 1,
+    //     maxWidth: "100%",
+    //     overflow: "auto"
+    // },
+    singleBroadcastinrleft: {
+        width: "70%",
+        float: "left",
+        paddingRight: "0",
         borderRight: "1px solid #EAEDFC",
         borderLeft: "1px solid #EAEDFC",
     },
-    singleBroadcastplayerblock:{
-        padding:"40px",
-        float:"left"
+    singleBroadcastplayerblock: {
+        padding: "40px",
+        float: "left"
     },
-    singleTitlesection_left:{
+    singleTitlesection_left: {
         fontSize: 21,
         textAlign: "left",
         font: "normal normal normal 21px/26px Poppins",
@@ -79,71 +79,71 @@ const useStyles = makeStyles({
         width: "65%",
         float: "left",
     },
-    singleTitlesection:{
-        margin:"25px 0",
-        width:"100%",
-        float:"left",
+    singleTitlesection: {
+        margin: "25px 0",
+        width: "100%",
+        float: "left",
     },
-    singleBroadcastdesc:{
+    singleBroadcastdesc: {
         borderTop: "1px solid #EAEDFC",
         borderLeft: "1px solid #EAEDFC",
-        padding:"40px",
-        float:"left"
+        padding: "40px",
+        float: "left"
     },
-    singleTitlesection_controls:{
+    singleTitlesection_controls: {
         float: "left",
         width: "35%"
     },
-    singleAuthorsection:{
-        width:"100%",
-        float:"left"
+    singleAuthorsection: {
+        width: "100%",
+        float: "left"
     },
-    singleAuthorsectioninr:{
-        width:"100%",
-        float:"left"
+    singleAuthorsectioninr: {
+        width: "100%",
+        float: "left"
     },
-    singleAuthorprofile:{
-        width:"auto",
-        float:"left",
-        marginTop:"-12px"
+    singleAuthorprofile: {
+        width: "auto",
+        float: "left",
+        marginTop: "-12px"
     },
-    singleAuthorprofileButton:{
-        paddingLeft:0
+    singleAuthorprofileButton: {
+        paddingLeft: 0
     },
-    authorText:{ 
-        '& span':{
+    authorText: {
+        '& span': {
             fontSize: 20,
             color: "#225DE4",
-            fontWeight:"500"
+            fontWeight: "500"
         }
     },
-    singleAuthorprofileconnect:{
-      '& .MuiChip-root':{
-        borderRadius: 4,
-      }
+    singleAuthorprofileconnect: {
+        '& .MuiChip-root': {
+            borderRadius: 4,
+        }
     },
-    singleBroaddesctitle:{
+    singleBroaddesctitle: {
         textAlign: "left",
         fontSize: 20,
         color: "#000000",
-        fontWeight:500,
-        marginBottom:15
+        fontWeight: 500,
+        marginBottom: 15
     },
-    singleBroaddescontent:{
-    font: "normal normal normal 18px/26px Poppins",
-    color: "#000000",
-    opacity: 0.8,
+    singleBroaddescontent: {
+        font: "normal normal normal 18px/26px Poppins",
+        color: "#000000",
+        opacity: 0.8,
     },
-    singleBroadcastinrright:{
-        width:"29.8%",
-        float:"left"
+    singleBroadcastinrright: {
+        width: "29.8%",
+        float: "left"
     },
-    singleBroadsidebarbuttons:{
+    singleBroadsidebarbuttons: {
         padding: 15,
         borderBottom: "1px solid #EAEDFC",
-        minHeight:37
+        minHeight: 37
     },
-    customButtonActive:{
+    customButtonActive: {
         background: "#F4F7FF 0% 0% no-repeat padding-box",
         borderRadius: 5,
         boxShadow: "none",
@@ -151,7 +151,7 @@ const useStyles = makeStyles({
         color: "#1956E3",
         float: "left",
     },
-    customButton:{
+    customButton: {
         background: "#F8F8F8 0% 0% no-repeat padding-box",
         borderRadius: 5,
         boxShadow: "none",
@@ -159,16 +159,38 @@ const useStyles = makeStyles({
         color: "#7B7C7E",
         float: "left",
     },
-    customMore:{
+    customMore: {
         margin: '0 1vw',
     },
-    customArraow:{
+    customArraow: {
 
     },
-    singleBroadchatTypin:{
-        position: "absolute",
-        bottom: "0"
+    singleBroadchat: {
+        width: '100%',
+        float: 'left',
+        height: 'calc(100% - 200px)',
+        height: 'calc(100vh - 358px)',
+        overflowY: 'scroll'
     },
+    singleBroadchatTypin: {
+        bottom: 25,
+        position: 'absolute',
+        padding: 10
+    },
+    singleChatdisplay: {
+        width: '100%',
+        float: 'left'
+    },
+    singlePlaylistdisplay: {
+        width: '100%',
+        float: 'left',
+        height: 'calc(100vh - 173px)',
+        overflowY: 'scroll'
+    },
+    singlePlaylist: {
+        width: '100%',
+        float: 'left'
+    }
 });
 
 const useTreeItemStyles = makeStyles((theme) => ({
@@ -200,16 +222,16 @@ const useTreeItemStyles = makeStyles((theme) => ({
         '$expanded > &': {
             fontWeight: theme.typography.fontWeightRegular,
         },
-        width:'auto'
+        width: 'auto'
     },
     group: {
         marginLeft: 0,
         '& $content': {
             paddingLeft: theme.spacing(2),
         },
-        background:"#F7F7F7"
+        background: "#F7F7F7"
     },
-    expanded: {background:"#F7F7F7"},
+    expanded: { background: "#F7F7F7" },
     selected: {},
     label: {
         fontWeight: 'inherit',
@@ -219,9 +241,9 @@ const useTreeItemStyles = makeStyles((theme) => ({
         display: 'flex',
         alignItems: 'center',
         padding: theme.spacing(0.5, 0),
-        width:"100%",
-        '& .MuiListItem-container' : {
-             width:"100%"
+        width: "100%",
+        '& .MuiListItem-container': {
+            width: "100%"
         }
     },
     labelIcon: {
@@ -231,26 +253,26 @@ const useTreeItemStyles = makeStyles((theme) => ({
         fontWeight: 'inherit',
         flexGrow: 1,
     },
-    userName:{
+    userName: {
         font: "normal normal 16px/27px Poppins",
         color: "#7B7C7E",
-        fontWeight:500
+        fontWeight: 500
     },
-    messageTime:{
+    messageTime: {
         font: "normal normal 14px/23px Poppins",
         color: "#1956E3",
         fontWeight: 500,
-        marginLeft:10,
-        marginTop:-5
+        marginLeft: 10,
+        marginTop: -5
     },
-    message:{
+    message: {
         font: "normal normal normal 17px/24px Poppins",
-        marginTop:10
+        marginTop: 10
     },
-    repline:{
+    repline: {
         font: "normal normal 16px/30px Poppins",
         color: "#1956E3",
-        fontWeight:500
+        fontWeight: 500
     }
 }));
 
@@ -304,7 +326,7 @@ function StyledTreeItem(props) {
                                                 <KeyboardArrowDownIcon fontSize="small" />
                                             }
                                         </IconButton>
-              </Typography>
+                                    </Typography>
                                 </React.Fragment>
                             }
                         />
@@ -424,7 +446,7 @@ const Videoplay = (props) => {
             horizontal: 'center',
         }}
     >
-        {currentPop == 'share' ? <ShareBroadcast /> : <CancelPopup />}
+        {currentPop == 'share' ? <ShareBroadcast /> : currentPop == 'playlist' ? <PlaylistPopup /> : <CancelPopup />}
     </Popover>
 
     const handleExpandClick = (e, currentTog) => {
@@ -433,14 +455,14 @@ const Videoplay = (props) => {
 
     return (
         <div>
-            <div style={{ backgroundColor: "white",float:"left" }}>
+            <div style={{ backgroundColor: "white", float: "left" }}>
 
                 <Header />
 
                 <div className={classes.singleBroadcast}>
                     <div className={classes.singleBroadcastinr}>
                         <div className={classes.singleBroadcastinrleft}>
-                           <div class={classes.singleBroadcastplayerblock}>
+                            <div class={classes.singleBroadcastplayerblock}>
                                 <div className={classes.singleBroadcastplayer}>
                                     <QierPlayer
                                         width={width}
@@ -487,7 +509,7 @@ const Videoplay = (props) => {
                                                     />)
                                             }
 
-                                        </IconButton><Typography component="span" style={{ margin: '0 0.3vw',marginTop: '0.3vh', color: "lightgrey" }}>20</Typography>
+                                        </IconButton><Typography component="span" style={{ margin: '0 0.3vw', marginTop: '0.3vh', color: "lightgrey" }}>20</Typography>
 
 
                                         <IconButton aria-label="share" size="small">
@@ -499,14 +521,17 @@ const Videoplay = (props) => {
                                             />
                                         </IconButton>
 
-                                        
 
-                                        <IconButton aria-label="add to playlist" size="small" onClick={() => { handleLike('playlist'); }} >
+
+                                        <IconButton aria-label="add to playlist" size="small" onClick={(e) => handleClick(e, 'playlist')} >
                                             {
-                                                (playlist ? <PlaylistAddOutlinedIcon style={{ color: "blue" }} fontSize="small"
+                                                <PlaylistAddOutlinedIcon
+                                                    style={{ color: "blue" }}
+                                                    fontSize="small"
+                                                    onMouseOver={(e) => e.target.style.color = 'blue'}
+                                                    onMouseOut={(e) => e.target.style.color = 'lightgrey'}
                                                 />
-                                                    : <PlaylistAddOutlinedIcon style={{ color: 'lightgrey' }} fontSize="small"
-                                                    />)
+
                                             }
 
                                         </IconButton>
@@ -548,12 +573,40 @@ const Videoplay = (props) => {
                                     Description
                                 </div>
                                 <div className={classes.singleBroaddescontent}>
-                                Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet
+                                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet
                                 </div>
                             </div>
                         </div>
                         <div className={classes.singleBroadcastinrright}>
                             <div className={classes.singleBroadsidebar}>
+                                <div className={classes.singleBroadsidebarbuttons}>
+                                    <Button>
+                                        <IconButton aria-label="add to favorites" size="small" style={{ margin: '0 1vw' }}>
+                                            {
+                                                <VideoLibraryIcon fontSize="small" />
+                                            }
+                                        </IconButton> View Playlist
+                                        </Button>
+                                    <Button>
+                                        8 Broadcasts
+                                     <IconButton aria-label="add to favorites" size="small" onClick={(e) => handleExpandClick(e, 'playlist')} style={{ margin: '0 1vw' }}>
+                                            {
+                                                <KeyboardArrowDownIcon fontSize="small" />
+                                            }
+                                        </IconButton>
+                                    </Button>
+                                </div>
+
+                                {/* Playlist block */}
+                                {toggle == 'playlist' ? <div className={classes.singlePlaylistdisplay}>
+                                    <div className={classes.singlePlaylist}>
+                                        {/* start */}
+                                        Playlist block goes here this need to do Screen no. 7
+                                        {/* end */}
+                                    </div>
+                                </div> : null}
+                                {/* Playlist end */}
+                                {/* Chat block */}
                                 <div className={classes.singleBroadsidebarbuttons}>
                                     <Button variant="contained" className={classes.customButtonActive}>Comments</Button>
                                     <Button variant="contained" className={classes.customButton}>Q & A</Button>
@@ -572,33 +625,7 @@ const Videoplay = (props) => {
                                         {anchorEl ? popupBlock : null}
                                     </div>
                                 </div>
-                                <div className={classes.singleBroadsidebarbuttons}>
-                                    <Button>
-                                        <IconButton aria-label="add to favorites" size="small" style={{ margin: '0 1vw' }}>
-                                            {
-                                                <VideoLibraryIcon fontSize="small" />
-                                            }
-                                        </IconButton> View Playlist
-                                        </Button>
-                                    <Button>
-                                        8 Broadcasts
-                                     <IconButton aria-label="add to favorites" size="small" onClick={(e) => handleExpandClick(e, 'playlist')} style={{ margin: '0 1vw' }}>
-                                            {
-                                                <KeyboardArrowDownIcon fontSize="small" />
-                                            }
-                                        </IconButton>
-                                    </Button>
-                                </div>
-                                {/* Playlist block */}
-                                {toggle == 'playlist' ? <div className={classes.singlePlaylistdisplay}>
-                                    <div className={classes.singlePlaylist}>
-                                        {/* start */}
-                                        Playlist block goes here this need to do Screen no. 7
-                                        {/* end */}
-                                    </div>
-                                </div> : null}
-                                {/* Playlist end */}
-                                {/* Chat block */}
+
                                 {toggle == 'chat' ? <div className={classes.singleChatdisplay}>
                                     <div className={classes.singleBroadchat}>
                                         {/* start */}
@@ -610,7 +637,7 @@ const Videoplay = (props) => {
                                             defaultEndIcon={<div style={{ width: 24 }} />}
                                         >
                                             <StyledTreeItem nodeId="1" labelText="All Mail" labelIcon={MailIcon} />
-                                            
+
                                             <StyledTreeItem nodeId="3" labelText="Categories" labelIcon={Label}>
                                                 <StyledTreeItem
                                                     nodeId="5"
