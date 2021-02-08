@@ -5,6 +5,8 @@ import Select from "react-select";
 import { fade, makeStyles } from '@material-ui/core/styles';
 import Videolist from './videolist';
 import { useHistory } from "react-router-dom";
+import { ImportantDevices } from '@material-ui/icons';
+import VideoCallOutlinedIcon from '@material-ui/icons/VideoCallOutlined';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -12,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
     selectwrapper: {
         position: 'relative',
         borderRadius: theme.shape.borderRadius,
-        backgroundColor: fade(theme.palette.common.white, 0.15),
+        backgroundColor: "#fff",
         '&:hover': {
             backgroundColor: fade(theme.palette.common.white, 0.25),
         },
@@ -20,13 +22,13 @@ const useStyles = makeStyles((theme) => ({
         marginLeft: 0,
         width: 'auto',
         [theme.breakpoints.up('sm')]: {
-            marginLeft: theme.spacing(1.5),
+            /* marginLeft: theme.spacing(1.5), */
             width: 'auto',
         },
     },
     NumOfItems: {
         padding: theme.spacing(0, 2),
-        height: '100%',
+        height: '73%',
         position: 'absolute',
         pointerEvents: 'none',
         display: 'flex',
@@ -39,7 +41,7 @@ const useStyles = makeStyles((theme) => ({
     },
     selectShow: {
         padding: theme.spacing(0, 2),
-        height: '100%',
+        height: '73%',
         position: 'absolute',
         pointerEvents: 'none',
         display: 'flex',
@@ -177,7 +179,7 @@ export default function () {
 
         <div >
             <Header />
-            <div className={classes.selectwrapper} >
+            <div className={classes.selectwrapper} style={{marginLeft:"0px !Important",backgrounColor:"#FFFFFF !important",zIndex:"-1",padding:"10px 0px" }}>
 
                 <div className={classes.NumOfItems}> 244 Items</div>
 
@@ -213,9 +215,9 @@ export default function () {
             </div>
 
             <div style={{padding: '0 0 5% 0'}}>
-                <div style={{ marginLeft: "6vw", marginTop: '1vh', width: '86%', backgroundColor: "gold", padding: "1em", borderRadius: '15px' }}>
+                <div style={{ marginLeft: "6vw", marginTop: '6vh', width: '86%', backgroundColor: "#FACC4F", padding: "2em", borderRadius: '15px' }}>
                     <Typography variant="h5">
-                        Hey Name,
+                        Hey Prakash,
                         </Typography>
                     <Typography variant="h5">
                         Let's Start a Broadcast!
@@ -223,7 +225,7 @@ export default function () {
                     <div style={{ display: "flex", flexFlow: "wrap", marginTop: '3vh' }}>
                         <div style={{ border: '1px solid black', borderRadius: '4px', padding: '0.25em', backgroundColor: 'white', cursor: 'pointer' }}
                             onClick={() => { console.log('hello'); history.push('/broadcast/startbroadcast') }}>
-                            New Broadcast
+                            <VideoCallOutlinedIcon color="inherit" fontSize="small" style={{ fontSize: "2rem", float: "left", marginTop: -3, marginRight: 10, marginBottom: 0, marginLeft: 10 }} /> New Broadcast
                         </div>
                         <div style={{ border: '1px solid black', borderRadius: '4px', padding: '0.25em', marginLeft: '0.5vw', cursor: 'pointer' }}
                             onClick={() => { console.log('hello'); history.push('/broadcast/uploadvideo') }}>

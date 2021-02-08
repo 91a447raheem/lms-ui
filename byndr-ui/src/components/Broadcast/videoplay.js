@@ -55,9 +55,119 @@ import {
 
 const useStyles = makeStyles({
     root: {
-        height: 264,
+        height: 440,
         flexGrow: 1,
-        maxWidth: 400,
+        maxWidth: "100%",
+        overflow:"auto"
+    },
+    singleBroadcastinrleft:{
+        width:"70%",
+        float:"left",
+        paddingRight:"0",
+        borderRight: "1px solid #EAEDFC",
+        borderLeft: "1px solid #EAEDFC",
+    },
+    singleBroadcastplayerblock:{
+        padding:"40px",
+        float:"left"
+    },
+    singleTitlesection_left:{
+        fontSize: 21,
+        textAlign: "left",
+        font: "normal normal normal 21px/26px Poppins",
+        fontWeight: '500',
+        width: "65%",
+        float: "left",
+    },
+    singleTitlesection:{
+        margin:"25px 0",
+        width:"100%",
+        float:"left",
+    },
+    singleBroadcastdesc:{
+        borderTop: "1px solid #EAEDFC",
+        borderLeft: "1px solid #EAEDFC",
+        padding:"40px",
+        float:"left"
+    },
+    singleTitlesection_controls:{
+        float: "left",
+        width: "35%"
+    },
+    singleAuthorsection:{
+        width:"100%",
+        float:"left"
+    },
+    singleAuthorsectioninr:{
+        width:"100%",
+        float:"left"
+    },
+    singleAuthorprofile:{
+        width:"auto",
+        float:"left",
+        marginTop:"-12px"
+    },
+    singleAuthorprofileButton:{
+        paddingLeft:0
+    },
+    authorText:{ 
+        '& span':{
+            fontSize: 20,
+            color: "#225DE4",
+            fontWeight:"500"
+        }
+    },
+    singleAuthorprofileconnect:{
+      '& .MuiChip-root':{
+        borderRadius: 4,
+      }
+    },
+    singleBroaddesctitle:{
+        textAlign: "left",
+        fontSize: 20,
+        color: "#000000",
+        fontWeight:500,
+        marginBottom:15
+    },
+    singleBroaddescontent:{
+    font: "normal normal normal 18px/26px Poppins",
+    color: "#000000",
+    opacity: 0.8,
+    },
+    singleBroadcastinrright:{
+        width:"29.8%",
+        float:"left"
+    },
+    singleBroadsidebarbuttons:{
+        padding: 15,
+        borderBottom: "1px solid #EAEDFC",
+        minHeight:37
+    },
+    customButtonActive:{
+        background: "#F4F7FF 0% 0% no-repeat padding-box",
+        borderRadius: 5,
+        boxShadow: "none",
+        marginRight: 10,
+        color: "#1956E3",
+        float: "left",
+    },
+    customButton:{
+        background: "#F8F8F8 0% 0% no-repeat padding-box",
+        borderRadius: 5,
+        boxShadow: "none",
+        marginRight: 10,
+        color: "#7B7C7E",
+        float: "left",
+    },
+    customMore:{
+        margin: '0 1vw',
+    },
+    customArraow:{
+
+    },
+    singleBroadchatTypin:{
+        position: "absolute",
+        bottom: "0"
     },
 });
 
@@ -65,11 +175,12 @@ const useTreeItemStyles = makeStyles((theme) => ({
 
     root: {
         color: theme.palette.text.secondary,
+        borderBottom: "1px solid #E5E5E5",
         '&:hover > $content': {
             backgroundColor: theme.palette.action.hover,
         },
         '&:focus > $content, &$selected > $content': {
-            backgroundColor: `var(--tree-view-bg-color, ${theme.palette.grey[400]})`,
+            backgroundColor: "#F7F7F7",
             color: 'var(--tree-view-color)',
         },
         '&:focus > $content $label, &:hover > $content $label, &$selected > $content $label': {
@@ -82,21 +193,23 @@ const useTreeItemStyles = makeStyles((theme) => ({
 
     content: {
         color: theme.palette.text.secondary,
-        borderTopRightRadius: theme.spacing(2),
-        borderBottomRightRadius: theme.spacing(2),
+        /*borderTopRightRadius: theme.spacing(2),
+        borderBottomRightRadius: theme.spacing(2),*/
         paddingRight: theme.spacing(1),
         fontWeight: theme.typography.fontWeightMedium,
         '$expanded > &': {
             fontWeight: theme.typography.fontWeightRegular,
         },
+        width:'auto'
     },
     group: {
         marginLeft: 0,
         '& $content': {
             paddingLeft: theme.spacing(2),
         },
+        background:"#F7F7F7"
     },
-    expanded: {},
+    expanded: {background:"#F7F7F7"},
     selected: {},
     label: {
         fontWeight: 'inherit',
@@ -106,6 +219,10 @@ const useTreeItemStyles = makeStyles((theme) => ({
         display: 'flex',
         alignItems: 'center',
         padding: theme.spacing(0.5, 0),
+        width:"100%",
+        '& .MuiListItem-container' : {
+             width:"100%"
+        }
     },
     labelIcon: {
         marginRight: theme.spacing(1),
@@ -114,7 +231,27 @@ const useTreeItemStyles = makeStyles((theme) => ({
         fontWeight: 'inherit',
         flexGrow: 1,
     },
-
+    userName:{
+        font: "normal normal 16px/27px Poppins",
+        color: "#7B7C7E",
+        fontWeight:500
+    },
+    messageTime:{
+        font: "normal normal 14px/23px Poppins",
+        color: "#1956E3",
+        fontWeight: 500,
+        marginLeft:10,
+        marginTop:-5
+    },
+    message:{
+        font: "normal normal normal 17px/24px Poppins",
+        marginTop:10
+    },
+    repline:{
+        font: "normal normal 16px/30px Poppins",
+        color: "#1956E3",
+        fontWeight:500
+    }
 }));
 
 
@@ -126,7 +263,7 @@ function StyledTreeItem(props) {
         <TreeItem
             label={
                 <div className={classes.labelRoot}>
-                    <ListItem alignItems="flex-start">
+                    <ListItem alignItems="flex-start" className={classes.listBlock}>
                         <ListItemAvatar>
                             <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
                         </ListItemAvatar>
@@ -134,13 +271,13 @@ function StyledTreeItem(props) {
                             primary={<Typography
                                 component="span"
                                 variant="body2"
-                                className={classes.inline}
+                                className={classes.userName}
                                 color="textPrimary"
                             >
                                 Vinay C <Typography
                                     component="span"
                                     variant="body2"
-                                    className={classes.inline}
+                                    className={classes.messageTime}
                                     color="textPrimary"
                                 >6d ago</Typography>
                             </Typography>}
@@ -149,7 +286,7 @@ function StyledTreeItem(props) {
                                     <Typography
                                         component="span"
                                         variant="body2"
-                                        className={classes.inline}
+                                        className={classes.message}
                                         color="textPrimary"
                                     >
                                         {"Hello, I have a query?"}
@@ -157,12 +294,16 @@ function StyledTreeItem(props) {
                                     </Typography>
 
                                     <Typography
-                                        component="span"
+                                        component="p"
                                         variant="body2"
-                                        className={classes.inline}
+                                        className={classes.repline}
                                         color="textPrimary"
                                     >
-                                        2 Replies
+                                        2 Replies <IconButton aria-label="add to favorites" size="small" className={classes.customArraow}>
+                                            {
+                                                <KeyboardArrowDownIcon fontSize="small" />
+                                            }
+                                        </IconButton>
               </Typography>
                                 </React.Fragment>
                             }
@@ -292,133 +433,138 @@ const Videoplay = (props) => {
 
     return (
         <div>
-            <div style={{ backgroundColor: "white" }}>
+            <div style={{ backgroundColor: "white",float:"left" }}>
 
                 <Header />
 
                 <div className={classes.singleBroadcast}>
                     <div className={classes.singleBroadcastinr}>
                         <div className={classes.singleBroadcastinrleft}>
-                            <div className={classes.singleBroadcastplayer}>
-                                <QierPlayer
-                                    width={width}
-                                    height={height}
-                                    language="en"
-                                    showVideoQuality={false}
-                                    themeColor="#abc123"
-                                    srcOrigin={videoOrigin}
-                                />
-                            </div>
-                            <div className={classes.singleTitlesection}>
-                                <div className={classes.singleTitlesection_left}>
-                                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr
+                           <div class={classes.singleBroadcastplayerblock}>
+                                <div className={classes.singleBroadcastplayer}>
+                                    <QierPlayer
+                                        width={width}
+                                        height={height}
+                                        language="en"
+                                        showVideoQuality={false}
+                                        themeColor="#abc123"
+                                        srcOrigin={videoOrigin}
+                                    />
                                 </div>
-                                <div className={classes.singleTitlesection_controls}>
-                                    <IconButton aria-label="add to favorites" size="small" onClick={(() => { handleLike('like'); })} style={{ margin: '0 1vw' }}>
-                                        {
-                                            (like ? <FavoriteIcon style={{ color: 'red' }} fontSize="small"
-                                            />
-                                                : <FavoriteBorderIcon style={{ color: 'lightgrey' }} fontSize="small"
-                                                />)
-                                        }
-
-                                    </IconButton>
-
-                                    <IconButton aria-label="start chat" size="small" onClick={() => { handleLike('chat'); }} style={{ margin: '0 1vw' }}>
-                                        {
-                                            (chat ? <ChatBubbleSharpIcon style={{ color: 'blue' }} fontSize="small"
-                                            />
-                                                : <ChatBubbleOutlineSharpIcon fontSize="small"
-                                                />)
-                                        }
-
-                                    </IconButton>
-
-                                    <Typography component="span" style={{ margin: '0 1vw', marginTop: '0.3vh', color: "lightgrey" }}>20</Typography>
-
-
-                                    <IconButton aria-label="share" size="small" style={{ margin: '0 1vw' }}>
-                                        <ShareIcon fontSize="small"
-                                            style={{ color: 'lightgrey' }}
-                                            onMouseOver={(e) => e.target.style.color = 'blue'}
-                                            onMouseOut={(e) => e.target.style.color = 'lightgrey'}
-                                            onClick={(e) => handleClick(e, 'more')}
-                                        />
-                                    </IconButton>
-
-                                    <IconButton aria-label="add to started" size="small" onClick={() => { handleLike('star'); }} style={{ margin: '0 1vw' }}>
-                                        {
-                                            (star ? <StarIcon style={{ color: "gold" }} fontSize="small"
-                                            />
-                                                : <StarBorderOutlinedIcon style={{ color: 'lightgrey' }} fontSize="small"
-                                                />)
-                                        }
-
-                                    </IconButton>
-
-                                    <IconButton aria-label="add to playlist" size="small" onClick={() => { handleLike('playlist'); }} style={{ margin: '0 1vw' }}>
-                                        {
-                                            (playlist ? <PlaylistAddOutlinedIcon style={{ color: "blue" }} fontSize="small"
-                                            />
-                                                : <PlaylistAddOutlinedIcon style={{ color: 'lightgrey' }} fontSize="small"
-                                                />)
-                                        }
-
-                                    </IconButton>
-
-                                    <IconButton aria-label="add to error" size="small" onClick={() => { handleLike('error'); }} style={{ margin: '0 1vw' }}>
-                                        {
-                                            (error ? <ErrorOutlineTwoToneIcon style={{ color: "red" }} fontSize="small"
-                                            />
-                                                : <ErrorOutlineTwoToneIcon style={{ color: 'lightgrey' }} fontSize="small"
-                                                />)
-                                        }
-
-                                    </IconButton>
-                                </div>
-                            </div>
-                            <div className={classes.singleAuthorsection}>
-                                <div className={classes.singleAuthorsectioninr}>
-                                    <div className={classes.singleAuthorprofile}>
-                                        <ListItem button>
-                                            <ListItemAvatar>
-                                                <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
-                                            </ListItemAvatar>
-                                            <ListItemText
-                                                primary="Satish N"
-                                                className={classes.authorText}
-                                            />
-                                        </ListItem>
+                                <div className={classes.singleTitlesection}>
+                                    <div className={classes.singleTitlesection_left}>
+                                        Lorem ipsum dolor sit amet, consetetur sadipscing elitr
                                     </div>
-                                    <div className={classes.singleAuthorprofileconnect}>
-                                        <Chip variant="outlined" color="primary" label="+ connect"
-                                        />
+                                    <div className={classes.singleTitlesection_controls}>
+                                        <IconButton aria-label="add to favorites" size="small" onClick={(() => { handleLike('like'); })} >
+                                            {
+                                                (like ? <FavoriteIcon style={{ color: 'red' }} fontSize="small"
+                                                />
+                                                    : <FavoriteBorderIcon style={{ color: 'lightgrey' }} fontSize="small"
+                                                    />)
+                                            }
+
+                                        </IconButton>
+
+                                        <IconButton aria-label="start chat" size="small" onClick={() => { handleLike('chat'); }} style={{ margin: '0 1vw' }}>
+                                            {
+                                                (chat ? <ChatBubbleSharpIcon style={{ color: 'blue' }} fontSize="small"
+                                                />
+                                                    : <ChatBubbleOutlineSharpIcon fontSize="small"
+                                                    />)
+                                            }
+
+                                        </IconButton>
+
+                                        <Typography component="span" style={{ marginTop: '0.3vh', color: "lightgrey" }}>22 Comments</Typography>
+
+
+                                        <IconButton aria-label="add to started" size="small" onClick={() => { handleLike('star'); }} >
+                                            {
+                                                (star ? <StarIcon style={{ color: "gold" }} fontSize="small"
+                                                />
+                                                    : <StarBorderOutlinedIcon style={{ color: 'lightgrey' }} fontSize="small"
+                                                    />)
+                                            }
+
+                                        </IconButton><Typography component="span" style={{ margin: '0 0.3vw',marginTop: '0.3vh', color: "lightgrey" }}>20</Typography>
+
+
+                                        <IconButton aria-label="share" size="small">
+                                            <ShareIcon fontSize="small"
+                                                style={{ color: 'lightgrey' }}
+                                                onMouseOver={(e) => e.target.style.color = 'blue'}
+                                                onMouseOut={(e) => e.target.style.color = 'lightgrey'}
+                                                onClick={(e) => handleClick(e, 'more')}
+                                            />
+                                        </IconButton>
+
+                                        
+
+                                        <IconButton aria-label="add to playlist" size="small" onClick={() => { handleLike('playlist'); }} >
+                                            {
+                                                (playlist ? <PlaylistAddOutlinedIcon style={{ color: "blue" }} fontSize="small"
+                                                />
+                                                    : <PlaylistAddOutlinedIcon style={{ color: 'lightgrey' }} fontSize="small"
+                                                    />)
+                                            }
+
+                                        </IconButton>
+
+                                        <IconButton aria-label="add to error" size="small" onClick={() => { handleLike('error'); }} >
+                                            {
+                                                (error ? <ErrorOutlineTwoToneIcon style={{ color: "red" }} fontSize="small"
+                                                />
+                                                    : <ErrorOutlineTwoToneIcon style={{ color: 'lightgrey' }} fontSize="small"
+                                                    />)
+                                            }
+
+                                        </IconButton>
                                     </div>
                                 </div>
+                                <div className={classes.singleAuthorsection}>
+                                    <div className={classes.singleAuthorsectioninr}>
+                                        <div className={classes.singleAuthorprofile}>
+                                            <ListItem button className={classes.singleAuthorprofileButton}>
+                                                <ListItemAvatar>
+                                                    <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
+                                                </ListItemAvatar>
+                                                <ListItemText
+                                                    primary="Satish N"
+                                                    className={classes.authorText}
+                                                />
+                                            </ListItem>
+                                        </div>
+                                        <div className={classes.singleAuthorprofileconnect}>
+                                            <Chip variant="outlined" color="primary" label="+ connect"
+                                            />
+                                        </div>
+                                    </div>
 
+                                </div>
                             </div>
                             <div className={classes.singleBroadcastdesc}>
                                 <div className={classes.singleBroaddesctitle}>
                                     Description
                                 </div>
-                                <div className={classes.singleBroaddesctitle}>
-                                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet
+                                <div className={classes.singleBroaddescontent}>
+                                Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet
                                 </div>
                             </div>
                         </div>
                         <div className={classes.singleBroadcastinrright}>
                             <div className={classes.singleBroadsidebar}>
                                 <div className={classes.singleBroadsidebarbuttons}>
-                                    <Button variant="contained">Comments</Button>
-                                    <Button variant="contained">Q & A</Button>
-                                    <Button variant="contained">Notes</Button>
+                                    <Button variant="contained" className={classes.customButtonActive}>Comments</Button>
+                                    <Button variant="contained" className={classes.customButton}>Q & A</Button>
+                                    <Button variant="contained" className={classes.customButton}>Notes</Button>
                                     <div className={classes.singleBroadsidebarNavs}>
-                                        <IconButton aria-label="add to favorites" size="small" onClick={(e) => handleClick(e, 'more')} style={{ margin: '0 1vw' }}>
+                                        <IconButton aria-label="add to favorites" size="small" onClick={(e) => handleClick(e, 'more')} className={classes.customMore}>
                                             {
                                                 <MoreVertIcon fontSize="small" />
                                             }
                                         </IconButton>
-                                        <IconButton aria-label="add to favorites" size="small" onClick={(e) => handleExpandClick(e, 'chat')} style={{ margin: '0 1vw' }}>
+                                        <IconButton aria-label="add to favorites" size="small" onClick={(e) => handleExpandClick(e, 'chat')} className={classes.customArraow}>
                                             {
                                                 <KeyboardArrowDownIcon fontSize="small" />
                                             }
@@ -459,12 +605,12 @@ const Videoplay = (props) => {
                                         <TreeView
                                             className={classes.root}
                                             defaultExpanded={['3']}
-                                            defaultCollapseIcon={<ArrowDropDownIcon />}
-                                            defaultExpandIcon={<ArrowRightIcon />}
+                                            /*defaultCollapseIcon={<ArrowDropDownIcon />}*/
+                                            /*defaultExpandIcon={<ArrowRightIcon />}*/
                                             defaultEndIcon={<div style={{ width: 24 }} />}
                                         >
                                             <StyledTreeItem nodeId="1" labelText="All Mail" labelIcon={MailIcon} />
-                                            <StyledTreeItem nodeId="2" labelText="Trash" labelIcon={DeleteIcon} />
+                                            
                                             <StyledTreeItem nodeId="3" labelText="Categories" labelIcon={Label}>
                                                 <StyledTreeItem
                                                     nodeId="5"
