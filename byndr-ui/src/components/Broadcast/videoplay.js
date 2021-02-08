@@ -24,12 +24,12 @@ import ListItemText from '@material-ui/core/ListItemText';
 import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import Chip from '@material-ui/core/Chip';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
-import Button from '@material-ui/core/Button';
+import { Grid, Button } from '@material-ui/core';
 import CloseIcon from '@material-ui/icons/Close';
 import Popover from '@material-ui/core/Popover';
 import TreeView from '@material-ui/lab/TreeView';
 import TreeItem from '@material-ui/lab/TreeItem';
-
+import VisibilityIcon from '@material-ui/icons/Visibility';
 import MailIcon from '@material-ui/icons/Mail';
 import DeleteIcon from '@material-ui/icons/Delete';
 import Label from '@material-ui/icons/Label';
@@ -48,7 +48,7 @@ import InvertColorsIcon from '@material-ui/icons/InvertColors'
 import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
 import VideoLibraryIcon from '@material-ui/icons/VideoLibrary';
 import { ShareBroadcast, CancelPopup, PlaylistPopup } from "../common/popups";
-
+import cardBGImg from "../../img/cardbg.png";
 import {
     useParams
 } from "react-router-dom";
@@ -185,11 +185,49 @@ const useStyles = makeStyles({
         width: '100%',
         float: 'left',
         height: 'calc(100vh - 173px)',
-        overflowY: 'scroll'
+        overflowY: 'scroll',
+        background: "#F7F7F7"
     },
     singlePlaylist: {
         width: '100%',
         float: 'left'
+    },
+    contentList:{
+        float: "left",
+        width: "92%",
+        padding: "40px",
+        background:"#F7F7F7"
+    },
+    viewpalylist:{
+        font: "normal normal 16px/30px Poppins",
+        color: "#7B7C7E",
+        fontWeight:500,
+        textTransform:"capitalize"
+    },
+    broadcasts:{
+        float:"right",
+        font: "normal normal 16px/30px Poppins",
+        color: "#1956E3",
+        fontWeight:500,
+        textTransform:"capitalize"
+    },
+    cardTtitle:{
+        font: "normal normal 16px/30px Poppins",
+    },
+    cardSubText:{
+        font: "normal normal 18px/30px Poppins",
+        color: "#1956E3",
+        fontWeight:500
+    },
+    cardView:{
+        font: "normal normal medium 16px/21px Poppins",
+        color: "#7F7F7F",
+        float:"right"
+    },
+    playlistImage:{
+        width:"100%",
+        height:"137px",
+        borderRadius:"5px 0px 0px 5px"
     }
 });
 
@@ -380,7 +418,17 @@ const dataDummy = [
 ]
 
 const Videoplay = (props) => {
-
+    const liveVedio = <Typography
+                    component="span"
+                    variant="body2"
+                    style={{fontSize:"20px",color:"#000"}}
+                >
+                    More Broadcasts by  <Typography
+                        component="span"
+                        variant="body2"
+                        style={{fontSize:"20px",color:"#1956E3"}}
+                    >Satish N</Typography>
+                </Typography>
     let [like, setLike] = React.useState(null);
     let [chat, setChat] = React.useState(null);
     let [star, setStar] = React.useState(null);
@@ -417,6 +465,8 @@ const Videoplay = (props) => {
     const width = '100%';
     const height = '50vh';
     const Slideheight = "23";
+    const sliderWidth = "100%";
+    const sliderMarginLeft = "0";
     const [anchorEl, setAnchorEl] = React.useState(null);
     const [currentPop, setCurrentPop] = React.useState(null)
     const [toggle, setToggle] = React.useState('chat')
@@ -576,18 +626,31 @@ const Videoplay = (props) => {
                                     Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet
                                 </div>
                             </div>
+                            <div className={classes.contentList}>
+                                <div id="liveVideo">
+                                    <Videolist
+                                        data={dataDummy}
+                                        name={liveVedio}
+                                        size={4}
+                                        carouselHeight={Slideheight}
+                                        sliderWidth={sliderWidth}
+                                        sliderMarginLeft={sliderMarginLeft}
+                                    >
+                                    </Videolist>
+                                </div>
+                            </div>
                         </div>
                         <div className={classes.singleBroadcastinrright}>
                             <div className={classes.singleBroadsidebar}>
                                 <div className={classes.singleBroadsidebarbuttons}>
-                                    <Button>
-                                        <IconButton aria-label="add to favorites" size="small" style={{ margin: '0 1vw' }}>
+                                    <Button className={classes.viewpalylist}>
+                                        <IconButton aria-label="add to favorites" size="small" style={{ margin: '0 0.5vw',color:"#1956E3" }}>
                                             {
                                                 <VideoLibraryIcon fontSize="small" />
                                             }
                                         </IconButton> View Playlist
                                         </Button>
-                                    <Button>
+                                    <Button className={classes.broadcasts}>
                                         8 Broadcasts
                                      <IconButton aria-label="add to favorites" size="small" onClick={(e) => handleExpandClick(e, 'playlist')} style={{ margin: '0 1vw' }}>
                                             {
@@ -601,7 +664,64 @@ const Videoplay = (props) => {
                                 {toggle == 'playlist' ? <div className={classes.singlePlaylistdisplay}>
                                     <div className={classes.singlePlaylist}>
                                         {/* start */}
-                                        Playlist block goes here this need to do Screen no. 7
+                                        
+                                        <ListItem style={{padding:10}} className={classes.lastChildCss}> 
+                                            <ListItemAvatar style={{width:"100px"}}>
+                                                <img
+                                                    alt="Travis Howard"
+                                                    src={cardBGImg}
+                                                    className={classes.playlistImage}
+                                                />
+                                            </ListItemAvatar>
+                                            <ListItemText>
+                                                <Grid item xs={12}>
+                                                    <Grid container justify="flex-start">
+                                                        <Grid item xs={12} style={{background:"#fff",padding:10,borderRadius:"0px 5px 5px 0px"}}>
+                                                            <Typography variant="body2" className={classes.cardTtitle} component="p">
+                                                                Research on Machine Learning and how it lifts humanity out of the 2020 pandemic
+                                                            </Typography>
+                                                            <Typography variant="body2" className={classes.cardSubText} component="p">
+                                                                Rakesh A <Typography variant="body2" className={classes.cardView} component="span">
+                                                                <IconButton aria-label="add to playlist" size="small" ><VisibilityIcon /> </IconButton> 2,098
+                                                                  </Typography>
+                                                            </Typography>
+                                                            
+                                                        </Grid>
+                                                        
+                                                    </Grid>
+                                                </Grid>
+                                            </ListItemText>
+                                        </ListItem>
+
+                                        <ListItem style={{padding:10}} className={classes.lastChildCss}> 
+                                            <ListItemAvatar style={{width:"100px"}}>
+                                                <img
+                                                    alt="Travis Howard"
+                                                    src={cardBGImg}
+                                                    className={classes.playlistImage}
+                                                />
+                                            </ListItemAvatar>
+                                            <ListItemText>
+                                                <Grid item xs={12}>
+                                                    <Grid container justify="flex-start">
+                                                        <Grid item xs={12} style={{background:"#fff",padding:10,borderRadius:"0px 5px 5px 0px"}}>
+                                                            <Typography variant="body2" className={classes.cardTtitle} component="p">
+                                                                Research on Machine Learning and how it lifts humanity out of the 2020 pandemic
+                                                            </Typography>
+                                                            <Typography variant="body2" className={classes.cardSubText} component="p">
+                                                                Rakesh A <Typography variant="body2" className={classes.cardView} component="span">
+                                                                <IconButton aria-label="add to playlist" size="small" ><VisibilityIcon /> </IconButton> 2,098
+                                                                  </Typography>
+                                                            </Typography>
+                                                            
+                                                        </Grid>
+                                                        
+                                                    </Grid>
+                                                </Grid>
+                                            </ListItemText>
+                                        </ListItem>
+
+
                                         {/* end */}
                                     </div>
                                 </div> : null}

@@ -11,6 +11,7 @@ import { useParams} from "react-router-dom";
 
 
 
+
 const useStyles = makeStyles((theme) => ({
     root: {
         maxWidth: 270,
@@ -113,6 +114,10 @@ const Videolist = props => {
 
     const Slideheight = props.carouselHeight;
 
+    const sliderWidth = props.sliderWidth ? props.sliderWidth : "90%";
+
+    const sliderMarginLeft = props.sliderMarginLeft ? props.sliderMarginLeft : "6vw";
+
     let params = useParams();
 
 
@@ -130,7 +135,7 @@ const Videolist = props => {
     let dataArraylength = groupArray.length;
 
     return (
-        <div style={{ marginLeft: '6vw', marginTop: '0vh', width: '90%' }}>
+        <div style={{ marginLeft: sliderMarginLeft, marginTop: '0vh', width: sliderWidth }} >
 
 
             <CarouselProvider
@@ -140,7 +145,7 @@ const Videolist = props => {
                 infinite="true"
             >
                 <Typography style={{ display: 'flex', justifyContent: 'space-between' }} component="div">
-                    <Typography fontSize="small" style={{ fontWeight: 600, width: "fit-content", color: 'black' }} component="p"> {VideoCateogry} </Typography>
+                    <Typography fontSize="small" style={{ fontWeight: 600, width: "fit-content", color: 'black', font: "normal normal normal 20px/30px Poppins",color: "#000000"}} component="p"> {VideoCateogry} </Typography>
 
                     <div>
                         <ButtonBack style={{ marginLeft: "0", padding: 0, border: "none", background: "none", outline: "none" }} ><KeyboardArrowLeftIcon style={{ color: "black" }}> </KeyboardArrowLeftIcon></ButtonBack>
