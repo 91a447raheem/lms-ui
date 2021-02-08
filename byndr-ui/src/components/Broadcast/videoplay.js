@@ -53,7 +53,7 @@ import {
     useParams
 } from "react-router-dom";
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) =>  ({
     // root: {
     //     height: 440,
     //     flexGrow: 1,
@@ -66,6 +66,12 @@ const useStyles = makeStyles({
         paddingRight: "0",
         borderRight: "1px solid #EAEDFC",
         borderLeft: "1px solid #EAEDFC",
+        [theme.breakpoints.down(1030)]: {
+            width: "65%",
+         },
+         [theme.breakpoints.down(900)]: {
+            width: "100%",
+         }
     },
     singleBroadcastplayerblock: {
         padding: "40px",
@@ -78,6 +84,12 @@ const useStyles = makeStyles({
         fontWeight: '500',
         width: "65%",
         float: "left",
+        [theme.breakpoints.down(1030)]: {
+            width: "100%",
+         },
+         [theme.breakpoints.down(900)]: {
+            width: "99%",
+         }
     },
     singleTitlesection: {
         margin: "25px 0",
@@ -92,7 +104,11 @@ const useStyles = makeStyles({
     },
     singleTitlesection_controls: {
         float: "left",
-        width: "35%"
+        width: "35%",
+        [theme.breakpoints.down(1030)]: {
+            width: "100%",
+            marginTop:20
+         }
     },
     singleAuthorsection: {
         width: "100%",
@@ -133,10 +149,19 @@ const useStyles = makeStyles({
         font: "normal normal normal 18px/26px Poppins",
         color: "#000000",
         opacity: 0.8,
+        [theme.breakpoints.down(1030)]: {
+            font: "normal normal normal 14px/26px Poppins",
+         }
     },
     singleBroadcastinrright: {
         width: "29.8%",
-        float: "left"
+        float: "left",
+        [theme.breakpoints.down(1030)]: {
+            width: "34.8%",
+         },
+         [theme.breakpoints.down(900)]: {
+            width: "99.8%",
+         }
     },
     singleBroadsidebarbuttons: {
         padding: 15,
@@ -150,6 +175,9 @@ const useStyles = makeStyles({
         marginRight: 10,
         color: "#1956E3",
         float: "left",
+        [theme.breakpoints.down(1030)]: {
+            fontSize: "11px",
+         }
     },
     customButton: {
         background: "#F8F8F8 0% 0% no-repeat padding-box",
@@ -158,9 +186,15 @@ const useStyles = makeStyles({
         marginRight: 10,
         color: "#7B7C7E",
         float: "left",
+        [theme.breakpoints.down(1030)]: {
+            fontSize: "11px",
+         }
     },
     customMore: {
         margin: '0 1vw',
+        [theme.breakpoints.down(1030)]: {
+            margin: "0px",
+         }
     },
     customArraow: {
 
@@ -170,12 +204,19 @@ const useStyles = makeStyles({
         float: 'left',
         height: 'calc(100% - 200px)',
         height: 'calc(100vh - 358px)',
-        overflowY: 'scroll'
+        overflowY: 'scroll',
+        [theme.breakpoints.down(900)]: {
+            height: 'auto',
+         }
     },
     singleBroadchatTypin: {
         bottom: 25,
         position: 'absolute',
-        padding: 10
+        padding: 10,
+        [theme.breakpoints.down(900)]: {
+            bottom: 0,
+            position: 'relative',
+         }
     },
     singleChatdisplay: {
         width: '100%',
@@ -196,28 +237,43 @@ const useStyles = makeStyles({
         float: "left",
         width: "92%",
         padding: "40px",
-        background:"#F7F7F7"
+        background:"#F7F7F7",
+        [theme.breakpoints.down(1030)]: {
+            width: "89%",
+         }
     },
     viewpalylist:{
         font: "normal normal 16px/30px Poppins",
         color: "#7B7C7E",
         fontWeight:500,
-        textTransform:"capitalize"
+        textTransform:"capitalize",
+        [theme.breakpoints.down(1030)]: {
+            padding: "0",
+         }
     },
     broadcasts:{
         float:"right",
         font: "normal normal 16px/30px Poppins",
         color: "#1956E3",
         fontWeight:500,
-        textTransform:"capitalize"
+        textTransform:"capitalize",
+        [theme.breakpoints.down(1030)]: {
+            padding: "0",
+         }
     },
     cardTtitle:{
         font: "normal normal 16px/30px Poppins",
+        [theme.breakpoints.down(1030)]: {
+            font: "normal normal 13px/30px Poppins",
+         }
     },
     cardSubText:{
         font: "normal normal 18px/30px Poppins",
         color: "#1956E3",
-        fontWeight:500
+        fontWeight:500,
+        [theme.breakpoints.down(1030)]: {
+            font: "normal normal 14px/30px Poppins",
+         }
     },
     cardView:{
         font: "normal normal medium 16px/21px Poppins",
@@ -229,7 +285,7 @@ const useStyles = makeStyles({
         height:"137px",
         borderRadius:"5px 0px 0px 5px"
     }
-});
+}));
 
 const useTreeItemStyles = makeStyles((theme) => ({
 
@@ -305,7 +361,10 @@ const useTreeItemStyles = makeStyles((theme) => ({
     },
     message: {
         font: "normal normal normal 17px/24px Poppins",
-        marginTop: 10
+        marginTop: 10,
+        [theme.breakpoints.down(1030)]: {
+            font: "normal normal 14px/30px Poppins",
+         }
     },
     repline: {
         font: "normal normal 16px/30px Poppins",
