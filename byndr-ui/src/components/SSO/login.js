@@ -16,6 +16,7 @@ import VisibilityOff from '@material-ui/icons/VisibilityOff';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import IconButton from '@material-ui/core/IconButton';
 import Checkbox from '@material-ui/core/Checkbox';
+import InfoIcon from '@material-ui/icons/Info';
 
 
 const styles = (theme) => ({
@@ -126,7 +127,7 @@ export default function Login() {
         else if (values.phoneNumber === "" && values.email === "") {
             isValidMobileNumber = false;
             setMessagePhone("please enter a valid mobile number");
-            setErrors({ ...errors, messageEmail: "Please enter valid email address." });
+            setErrors({ ...errors, messageEmail: "Account with this email does not exit! Please Check your Username, pjone number or email adress just in case " });
 
         }
 
@@ -230,7 +231,7 @@ export default function Login() {
                     </Typography>
                 </DialogContent> */}
 
-                <DialogContent style={{marginBottom:20}}>
+                <DialogContent style={{marginBottom:20,overflowY:"unset"}}>
                     <FormControl variant="outlined" style={{ width: '100%' }}>
                         <InputLabel margin="dense" htmlFor="component-outlined" style={{ fontSize: '16px',lineHeight:'1.5' }}>Email Address or Phone</InputLabel>
                         <OutlinedInput
@@ -250,7 +251,11 @@ export default function Login() {
                         />
 
                     </FormControl>
-                    <Typography style={{ color: 'red', fontSize: "x-small" }}>{errors.messageEmail}</Typography>
+                    <Typography style={{ color: '#9a3d3db0', fontSize:18, padding:"10px 50px 10px 10px",marginTop:13,background:"#e8aeaea3",borderRadius:4,textAlign:"left"}}><InfoIcon color="inherit" fontSize="small" style={{ fontSize: "1.6rem", float:"left",marginRight:10 }} />
+                       Account with this email does not exit!  <Typography component="p" style={{paddingLeft:35}}>
+                       Please Check your Username, pjone number or email adress just in case.
+                        </Typography>
+                        </Typography>
                 </DialogContent>
 
                 <DialogContent>
@@ -287,6 +292,11 @@ export default function Login() {
 
                         />
                     </FormControl>
+                    <Typography style={{ color: '#9a3d3db0', fontSize:18, padding:"10px 50px 10px 10px",marginTop:13,background:"#e8aeaea3",borderRadius:4,textAlign:"left"}}><InfoIcon color="inherit" fontSize="small" style={{ fontSize: "1.6rem", float:"left",marginRight:10 }} />
+                       Incorrect Password <Typography component="p" style={{paddingLeft:35}}>
+                       Check for caps lock. You never know!
+                        </Typography>
+                        </Typography>
                 </DialogContent>
 
                 <DialogCheckBox>
