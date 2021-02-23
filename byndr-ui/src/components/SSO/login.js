@@ -22,7 +22,7 @@ const styles = (theme) => ({
     title: {
         display: 'flex',
         justifyContent: 'center',
-        paddingTop: theme.spacing(5),
+        paddingTop: 60,
         paddingBottom: theme.spacing(5)
     },
     root: {
@@ -194,12 +194,12 @@ export default function Login() {
 
 
     return (
-        <div style={{ filter: `blur(5px)` }}>
+        <div style={{ filter: `blur(5px)`}}>
             <Dialog aria-labelledby="customized-dialog-title" open={open}>
                 <DialogTitle id="customized-dialog-title">
                     Log In
                 </DialogTitle>
-                <DialogContent >
+                {/* <DialogContent >
 
                     <FormControl variant="outlined" style={{ width: '23rem' }} >
                         <InputLabel margin="dense" htmlFor="component-outlined" style={{ fontSize: 'small' }}>Mobile Number</InputLabel>
@@ -222,21 +222,21 @@ export default function Login() {
                         />
                         <Typography style={{ color: 'red', fontSize: "x-small" }}>{messagePhone}</Typography>
                     </FormControl>
-                </DialogContent>
+                </DialogContent> */}
 
-                <DialogContent style={{ width: '23rem' }}>
+                {/* <DialogContent style={{ width: '23rem' }}>
                     <Typography variant="h6" style={{ color: "lightgray",height: "1.5rem" }} >
                         Or
                     </Typography>
-                </DialogContent>
+                </DialogContent> */}
 
-                <DialogContent>
-                    <FormControl variant="outlined" style={{ width: '23rem' }}>
-                        <InputLabel margin="dense" htmlFor="component-outlined" style={{ fontSize: 'small' }}>Email Address</InputLabel>
+                <DialogContent style={{marginBottom:20}}>
+                    <FormControl variant="outlined" style={{ width: '100%' }}>
+                        <InputLabel margin="dense" htmlFor="component-outlined" style={{ fontSize: '16px',lineHeight:'1.5' }}>Email Address or Phone</InputLabel>
                         <OutlinedInput
                             inputProps={{
                                 style: {
-                                    height: "1rem"
+                                    height: "1.8rem"
                                 }
                             }}
                             value={values.email}
@@ -254,12 +254,13 @@ export default function Login() {
                 </DialogContent>
 
                 <DialogContent>
-                    <FormControl variant="outlined" style={{ width: "23rem" }}>
-                        <InputLabel margin="dense" htmlFor="component-outlined" style={{ fontSize: 'small' }}>Password</InputLabel>
+                    <FormControl variant="outlined" style={{ width: "100%" }}>
+                        <InputLabel margin="dense" htmlFor="component-outlined" style={{ fontSize: '16px',lineHeight:'1.5' }}>Password</InputLabel>
                         <OutlinedInput
                             inputProps={{
                                 style: {
-                                    height: "1rem"
+                                    height: "1.8rem",
+                                    padding:""
                                 }
                             }}
                             value={values.password}
@@ -276,7 +277,7 @@ export default function Login() {
                                         onClick={handleClickShowPassword('showPassword')}
                                         onMouseDown={handleMouseDownPassword}
                                         edge="end"
-                                        size="small"
+                                        size="12px"
                                     >
                                         {values.showPassword ? <Visibility /> : <VisibilityOff />}
                                     </IconButton>
@@ -302,15 +303,15 @@ export default function Login() {
                         <Typography
                             variant="subtitle2"
                             gutterBottom={true}
-                            style={{ marginTop: '0.7rem' }}
+                            style={{ marginTop: '0.7rem',marginRight:10 }}
                             align="right"
-                        ><span>Remember me </span> <a style={{ marginLeft: '8rem' }} href="/forgotpassword">Forgot Password? </a></Typography>
+                        ><span>Remember me </span> <a style={{ marginLeft: '8rem', textDecoration:"none" }} href="/forgotpassword">Forgot Username/Password? </a></Typography>
                     </FormControl>
                 </DialogCheckBox>
 
 
                 <DialogActions>
-                    <Button style={{ width: '65%' }} variant="contained" size="large" color="primary" onClick={handleSubmit}>
+                    <Button style={{ width: '250px',paddingTop:16,paddingBottom:16,textTransform:'capitalize',fontSize:20,marginBottom:10}} variant="contained" size="large" color="primary" onClick={handleSubmit}>
                         Enter
           </Button>
                 </DialogActions>
