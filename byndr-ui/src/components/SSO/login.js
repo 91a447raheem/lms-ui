@@ -17,6 +17,7 @@ import InputAdornment from '@material-ui/core/InputAdornment';
 import IconButton from '@material-ui/core/IconButton';
 import Checkbox from '@material-ui/core/Checkbox';
 import InfoIcon from '@material-ui/icons/Info';
+import { useState } from 'react';
 
 const styles = (theme) => ({
     title: {
@@ -92,135 +93,109 @@ const mainClasses = makeStyles((theme) => ({
     },
     inputBox: {
         minHeight: 44
+    },
+    btnSubmit: {
+        backgroundColor: "#3768ed",
+        color: "#fff",
+        width: '250px',
+        paddingTop: 8,
+        paddingBottom: 8,
+        textTransform: 'capitalize',
+        fontSize: 20,
+        marginBottom: 10,
+        boxShadow: 'inherit',
+        '&:hover': {
+            backgroundColor: "#3768ed",
+            color: "#fff",
+            boxShadow: 'inherit',
+        }
+    },
+    passLabel: {
+        fontSize: '16px', lineHeight: '1.3', background: 'white', paddingRight: 10
+    },
+    errorBlock: {
+        color: '#9a3d3db0', fontSize: 14, padding: "8px 16px", marginTop: 13, background: "#e8aeaea3", borderRadius: 4, textAlign: "left"
+    },
+    infoIconblock: {
+        fontSize: 16, float: "left", marginTop: 2, marginRight: 8
     }
 }));
 
 
 export default function Login() {
 
-    const [open] = React.useState(true);
+    // const [open] = React.useState(true);
 
-    const [values, setValues] = React.useState({
-        phoneNumber: "",
-        password: "",
-        email: "",
-        showPassword: false,
-        checked: false,
-    });
+    const [username, setUsername] = useState('')
+    const [password, setPassword] = useState('')
+    const [showPassword, setShowPassword] = useState(false)
+    const [isPhone, setIsPhone] = useState(false)
+    const [usernameError, setUsernameError] = useState('')
+    const [passwordError, setPasswordError] = useState('')
+    const [attempCounter, setCounter] = useState(0)
 
-    const [errors, setErrors] = React.useState({
-        messageEmail: "",
-    });
+    const logicCheckforUname = (val) => {
+        let emailPattern = new RegExp(/^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i);
 
-    // const [messagePassword, setMessagePassword] = React.useState("");
+        let phoneNum = val.replace(/[^\d]/g, '');
 
-    const [messagePhone, setMessagePhone] = React.useState("");
-
-
-    let isValidMobileNumber = true;
-    let isValidEmail = true;
-
-
-    const handleChange = (prop) => (event) => {
-        setValues({ ...values, [prop]: event.target.value });
-    };
-
-    function validate() {
-
-        //validate phone
-        console.log(values.phoneNumber);
-        if (values.phoneNumber) {
-            let mobilenumber = values.phoneNumber.trim().split(/\s*-\s*/);
-            let numberarray = mobilenumber[0].concat(mobilenumber[1]);
-            numberarray.split();
-            console.log(numberarray);
-            console.log(numberarray.length);
-
-            if (numberarray.length !== 13 && values.email === "") {
-                isValidMobileNumber = false;
-                setMessagePhone("Mobile number must contain 10 digits only.");
-            }
-
-            else {
-                setMessagePhone("");
-
+        if (phoneNum.length > 6 && phoneNum.length < 11) {
+            setIsPhone(true)
+            setUsername(val)
+            setUsernameError('')
+        } else {
+            setIsPhone(false)
+            console.log("emailPattern.test(val)", emailPattern.test(val), val)
+            if (val.length > 3 && !emailPattern.test(val)) {
+                setUsernameError("Seems like you’ve entered an invalid email. Please try again.");
+            } else {
+                setUsername(val)
+                setUsernameError('')
             }
         }
-
-        else if (values.phoneNumber === "" && values.email === "") {
-            isValidMobileNumber = false;
-            setMessagePhone("please enter a valid mobile number");
-            setErrors({ ...errors, messageEmail: "Account with this email does not exit! Please Check your Username, pjone number or email adress just in case " });
-
-        }
-
-
-
-        // validate email
-
-        if (values.email) {
-            var pattern = new RegExp(/^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i);
-            if (!pattern.test(values.email)) {
-                isValidEmail = false;
-                setErrors({ ...errors, messageEmail: "Please enter valid email address." });
-
-            }
-            else if (pattern.test(values.email)) {
-                setErrors({ ...errors, messageEmail: "" });
-            }
-        }
-
-        // else if (values.email && values.phoneNumber === "") {
-        //     isValidEmail = false;
-        //     setErrors({ ...errors, messageEmail: "Please enter valid email address." });
-        // }
-
-        else if (values.email === "" && values.phoneNumber !== "") {
-            setErrors({ ...errors, messageEmail: "" });
-        }
-
-        else if (values.phoneNumber === "" && values.email !== "") {
-            setMessagePhone("");
-        }
-
-        // validate password
-        // if (values.password && values.confirmPassword) {
-        //     (values.password !== values.confirmPassword) ? setMessagePassword("password doesnot match") : setMessagePassword("");
-        // }
 
     }
 
+    const handleChange = (e, field) => {
 
-    function handleSubmit() {
-        validate();
-        if (isValidEmail || isValidMobileNumber) {
-            console.log("i am inside callback !!! hurray");
-
+        if (field == "username") {
+            logicCheckforUname(e.currentTarget.value)
+        } else {
+            setPassword(e.currentTarget.value)
         }
 
-        console.log("i am outside");
     }
 
+    const handleCheckbox = () => {
+        console.log("Handle Checkbox")
+    }
 
-    const handleClickShowPassword = (prop) => () => {
-        if (values.password && prop === 'showPassword')
-            setValues({ ...values, [prop]: !values.showPassword });
-        else if (values.confirmPassword && prop === 'showConfirmPassword')
-            setValues({ ...values, [prop]: !values.showConfirmPassword });
-        else
-            setValues({ ...values, [prop]: !values.checked });
-    };
+    const handleSubmit = () => {
+        console.log("API trigger Goes here", username, password, isPhone)
+
+        if (false) {
 
 
-    const handleMouseDownPassword = (event) => {
-        event.preventDefault();
-    };
+        } else {
+
+            setUsernameError("Seems you haven’t signed up yet. Please sign up first.")
+
+            if (attempCounter >= 2) {
+                setPasswordError("The password you’ve entered is incorrect. Would you like to reset your password ?")
+            } else {
+                setPasswordError("The password you’ve entered is incorrect. Please try again.")
+            }
+            setCounter(attempCounter + 1)
+        } // if API success set the tokens and other things here
+
+        // set this if the API failed with error msg
+    }
 
     const classes = mainClasses()
 
     return (
         <div style={{ filter: `blur(5px)` }}>
-            <Dialog aria-labelledby="customized-dialog-title" open={open} classes={{ paperScrollPaper: classes.customPaper }}>
+            <Dialog aria-labelledby="customized-dialog-title" open={true} classes={{ paperScrollPaper: classes.customPaper }}>
                 <DialogTitle id="customized-dialog-title">
                     Log In
                 </DialogTitle>
@@ -229,8 +204,7 @@ export default function Login() {
                     <FormControl variant="outlined" style={{ width: '100%' }}>
                         <InputLabel margin="dense" htmlFor="component-outlined" style={{ fontSize: '16px', lineHeight: '1.3', background: 'white', paddingRight: 10 }}>Email Address or Phone</InputLabel>
                         <OutlinedInput
-                            value={values.email}
-                            onChange={handleChange('email')}
+                            onChange={(e) => handleChange(e, "username")}
                             label="Email Address"
                             type="text"
                             id="outlined-margin-none"
@@ -240,21 +214,18 @@ export default function Login() {
                         />
 
                     </FormControl>
-                    {/* <Typography style={{ color: '#9a3d3db0', fontSize: 18, padding: "6px 50px 10px 6px", marginTop: 13, background: "#e8aeaea3", borderRadius: 4, textAlign: "left" }}><InfoIcon color="inherit" fontSize="small" style={{ fontSize: "1.6rem", float: "left", marginRight: 10 }} />
-                       Account with this email does not exit!  <Typography component="p" style={{ paddingLeft: 35 }}>
-                            Please Check your Username, pjone number or email adress just in case.
-                        </Typography>
-                    </Typography> */}
+                    {usernameError ? <Typography className={classes.errorBlock}><InfoIcon color="inherit" fontSize="small" className={classes.infoIconblock} />
+                        {usernameError}
+                    </Typography> : null}
                 </DialogContent>
 
                 <DialogContent style={{ overflowY: "unset" }}>
                     <FormControl variant="outlined" style={{ width: "100%" }}>
-                        <InputLabel margin="dense" htmlFor="component-outlined" style={{ fontSize: '16px', lineHeight: '1.3', background: 'white', paddingRight: 10 }}>Password</InputLabel>
+                        <InputLabel margin="dense" htmlFor="component-outlined" className={classes.passLabel}>Password</InputLabel>
                         <OutlinedInput
-                            value={values.password}
-                            onChange={handleChange('password')}
+                            onChange={(e) => handleChange(e, "password")}
                             label="Password"
-                            type={values.showPassword ? 'text' : 'password'}
+                            type={showPassword ? 'text' : 'password'}
                             id="outlined-adornment-password"
                             variant="outlined"
                             margin="dense"
@@ -262,34 +233,28 @@ export default function Login() {
                                 <InputAdornment position="end">
                                     <IconButton
                                         aria-label="toggle password visibility"
-                                        onClick={handleClickShowPassword('showPassword')}
-                                        onMouseDown={handleMouseDownPassword}
+                                        onClick={() => setShowPassword(!showPassword)}
                                         edge="end"
                                         size="12px"
                                     >
-                                        {values.showPassword ? <VisibilityOffOutlined /> : <VisibilityOutlined />}
+                                        {showPassword ? <VisibilityOffOutlined /> : <VisibilityOutlined />}
                                     </IconButton>
                                 </InputAdornment>
                             }
-                            labelWidth={70}
                             className={classes.inputBox}
                         />
                     </FormControl>
-                    {/* <Typography style={{ color: '#9a3d3db0', fontSize: 18, padding: "6px 50px 10px 6px", marginTop: 13, background: "#e8aeaea3", borderRadius: 4, textAlign: "left" }}><InfoIcon color="inherit" fontSize="small" style={{ fontSize: "1.6rem", float: "left", marginRight: 10 }} />
-                       Incorrect Password <Typography component="p" style={{ paddingLeft: 35 }}>
-                            Check for caps lock. You never know!
-                        </Typography>
-                    </Typography> */}
+                    {passwordError ? <Typography className={classes.errorBlock}><InfoIcon color="inherit" fontSize="small" className={classes.infoIconblock} />
+                        {passwordError}
+                    </Typography> : null}
                 </DialogContent>
 
                 <DialogCheckBox style={{ overflowY: "unset" }}>
                     <FormControl style={{ width: '2rem' }}>
                         <Checkbox
-                            // defaultChecked
-                            // color="primary"
                             color="default"
                             inputProps={{ 'aria-label': 'secondary checkbox' }}
-                            onClick={() => setValues({ ...values, checked: !values.checked })}
+                            onClick={handleCheckbox}
                         />
                     </FormControl>
                     <FormControl >
@@ -302,11 +267,10 @@ export default function Login() {
                     </FormControl>
                 </DialogCheckBox>
 
-
                 <DialogActions>
-                    <Button style={{ backgroundColor: "#3768ed", color: "#fff", width: '250px', paddingTop: 8, paddingBottom: 8, textTransform: 'capitalize', fontSize: 20, marginBottom: 10, boxShadow: 'inherit' }} variant="contained" size="large" onClick={handleSubmit}>
+                    <Button variant="contained" size="large" className={classes.btnSubmit} onClick={handleSubmit}>
                         Enter
-          </Button>
+                    </Button>
                 </DialogActions>
                 <DialogActions style={{ marginBottom: '2rem' }}>
                     <a href="/signup" className={classes.linkCls}>Sign Up</a>
