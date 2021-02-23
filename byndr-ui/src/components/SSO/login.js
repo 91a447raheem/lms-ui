@@ -231,13 +231,14 @@ export default function Login() {
                     </Typography>
                 </DialogContent> */}
 
-                <DialogContent style={{marginBottom:20,overflowY:"unset"}}>
+                <DialogContent style={{marginBottom:10,overflowY:"unset"}}>
                     <FormControl variant="outlined" style={{ width: '100%' }}>
-                        <InputLabel margin="dense" htmlFor="component-outlined" style={{ fontSize: '16px',lineHeight:'1.5' }}>Email Address or Phone</InputLabel>
+                        <InputLabel margin="dense" htmlFor="component-outlined" style={{ fontSize: '16px',lineHeight:'1.3' }}>Email Address or Phone</InputLabel>
                         <OutlinedInput
                             inputProps={{
                                 style: {
-                                    height: "1.8rem"
+                                    height: "1.4rem",
+                                    borderColor:"#2d3542"
                                 }
                             }}
                             value={values.email}
@@ -251,21 +252,21 @@ export default function Login() {
                         />
 
                     </FormControl>
-                    <Typography style={{ color: '#9a3d3db0', fontSize:18, padding:"10px 50px 10px 10px",marginTop:13,background:"#e8aeaea3",borderRadius:4,textAlign:"left"}}><InfoIcon color="inherit" fontSize="small" style={{ fontSize: "1.6rem", float:"left",marginRight:10 }} />
+                    <Typography style={{ color: '#9a3d3db0', fontSize:18, padding:"6px 50px 10px 6px",marginTop:13,background:"#e8aeaea3",borderRadius:4,textAlign:"left"}}><InfoIcon color="inherit" fontSize="small" style={{ fontSize: "1.6rem", float:"left",marginRight:10 }} />
                        Account with this email does not exit!  <Typography component="p" style={{paddingLeft:35}}>
                        Please Check your Username, pjone number or email adress just in case.
                         </Typography>
                         </Typography>
                 </DialogContent>
 
-                <DialogContent>
+                <DialogContent style={{overflowY:"unset"}}>
                     <FormControl variant="outlined" style={{ width: "100%" }}>
-                        <InputLabel margin="dense" htmlFor="component-outlined" style={{ fontSize: '16px',lineHeight:'1.5' }}>Password</InputLabel>
+                        <InputLabel margin="dense" htmlFor="component-outlined" style={{ fontSize: '16px',lineHeight:'1.3' }}>Password</InputLabel>
                         <OutlinedInput
                             inputProps={{
                                 style: {
-                                    height: "1.8rem",
-                                    padding:""
+                                    height: "1.4rem",
+                                    borderColor:"#2d3542"
                                 }
                             }}
                             value={values.password}
@@ -292,14 +293,14 @@ export default function Login() {
 
                         />
                     </FormControl>
-                    <Typography style={{ color: '#9a3d3db0', fontSize:18, padding:"10px 50px 10px 10px",marginTop:13,background:"#e8aeaea3",borderRadius:4,textAlign:"left"}}><InfoIcon color="inherit" fontSize="small" style={{ fontSize: "1.6rem", float:"left",marginRight:10 }} />
+                    <Typography style={{ color: '#9a3d3db0', fontSize:18, padding:"6px 50px 10px 6px",marginTop:13,background:"#e8aeaea3",borderRadius:4,textAlign:"left"}}><InfoIcon color="inherit" fontSize="small" style={{ fontSize: "1.6rem", float:"left",marginRight:10 }} />
                        Incorrect Password <Typography component="p" style={{paddingLeft:35}}>
                        Check for caps lock. You never know!
                         </Typography>
                         </Typography>
                 </DialogContent>
 
-                <DialogCheckBox>
+                <DialogCheckBox style={{overflowY:"unset"}}>
                     <FormControl style={{ width: '2rem' }}>
                         <Checkbox
                             // defaultChecked
@@ -321,7 +322,7 @@ export default function Login() {
 
 
                 <DialogActions>
-                    <Button style={{ width: '250px',paddingTop:16,paddingBottom:16,textTransform:'capitalize',fontSize:20,marginBottom:10}} variant="contained" size="large" color="primary" onClick={handleSubmit}>
+                    <Button style={{ backgroundColor:"#3768ed",color:"#fff", width: '250px',paddingTop:8,paddingBottom:8,textTransform:'capitalize',fontSize:20,marginBottom:10}} variant="contained" size="large" onClick={handleSubmit}>
                         Enter
           </Button>
                 </DialogActions>

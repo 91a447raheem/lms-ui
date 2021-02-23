@@ -122,24 +122,25 @@ export default function Forgotpassword() {
     return (
         <div style={{ filter: `blur(5px)` }}>
             <Dialog aria-labelledby="customized-dialog-title" open={open}>
-                <DialogTitle id="customized-dialog-title">
-                    Forgot Password?
+                <DialogTitle id="customized-dialog-title" style={{textAlign:"center"}}>
+                    Forgot Password? <br/> Take it easy
                 </DialogTitle>
 
-                <Typography style={{ color: "gray", display: 'flex', justifyContent: 'center' }} >
+                <Typography style={{ fontSize:18, color: "gray", display: 'flex', justifyContent: 'center' }} >
                     {`A link will be sent to your email address`}
                 </Typography>
-                <Typography style={{ color: "gray", display: 'flex', justifyContent: 'center' }} >
+                <Typography style={{ fontSize:18, color: "gray", display: 'flex', justifyContent: 'center' }} >
                     {`in order to complete new password setup.`}
                 </Typography>
 
-                <DialogContent>
-                    <FormControl variant="outlined" style={{ width: '23rem' }}>
-                        <InputLabel margin="dense" htmlFor="component-outlined" style={{ fontSize: 'small' }}>Email Address</InputLabel>
+                <DialogContent style={{marginTop:10, marginBottom:10, overflowY:"unset"}}>
+                    <FormControl variant="outlined" style={{ width: '400px' }}>
+                        <InputLabel margin="dense" htmlFor="component-outlined" style={{ fontSize: '16px',lineHeight:'1.3' }}>Email Address</InputLabel>
                         <OutlinedInput
                             inputProps={{
                                 style: {
-                                    height: "1rem"
+                                    height: "1.4rem",
+                                    borderColor:"#2d3542"
                                 }
                             }}
                             value={values.email}
@@ -157,12 +158,12 @@ export default function Forgotpassword() {
                 </DialogContent>
 
                 <DialogActions>
-                    <Button style={{ width: '65%' }} variant="contained" size="large" color="primary" onClick={handleSubmit}>
+                    <Button style={{ backgroundColor:"#3768ed", color:"#fff", width: '250px',paddingTop:8,paddingBottom:8,textTransform:'capitalize',fontSize:20,marginBottom:10}} variant="contained" size="large" onClick={handleSubmit}>
                         Submit
           </Button>
                 </DialogActions>
                 <DialogActions style={{ marginBottom: '2rem' }}>
-                    <a href="/login">back</a>
+                    <a href="/login">Back</a>
                 </DialogActions>
             </Dialog>
         </div>
