@@ -5,6 +5,8 @@ import { Card, Divider, Typography } from '@material-ui/core';
 import Header from '../common/header';
 import { useHistory } from "react-router-dom";
 import Datacard from './dataCard';
+import Sidebar from '../common/sidebar';
+
 
 
 
@@ -175,7 +177,12 @@ export default function Mybroadcast() {
 
     return (
         <div style={{ backgroundColor: "white", height: "100%" }}>
-            <Header />
+            <div style={{ marginLeft: '3vw' }}>
+
+                <Header />
+
+            </div>
+            <Sidebar></Sidebar>
             <div style={{ display: "flex", marginTop: "2vh" }}>
                 <div className={classes.selectwrapper} >
 
@@ -246,23 +253,23 @@ export default function Mybroadcast() {
 
 
             <div>
-                <div style={{ marginLeft: "6vw", marginTop: '2vh', width: '63vw', backgroundColor: "gold", padding: "1em", borderRadius: '15px', display: 'flex' , justifyContent: 'space-between'}}>
+                <div style={{ marginLeft: "6vw", marginTop: '2vh', width: '63vw', backgroundColor: "gold", padding: "1em", borderRadius: '15px', display: 'flex', justifyContent: 'space-between' }}>
 
-                    <Typography variant="h4" style={{fontSize: '2.215vw', alignItems: "center"}}>
+                    <Typography variant="h4" style={{ fontSize: '2.215vw', alignItems: "center" }}>
                         Let's Start a Broadcast!
                     </Typography>
-                    <div style={{ display: "flex", flexFlow: "nowrap", height: 'fit-content'}}>
+                    <div style={{ display: "flex", flexFlow: "nowrap", height: 'fit-content' }}>
                         <div style={{ border: '1px solid black', borderRadius: '4px', padding: '0.15em', backgroundColor: 'white', cursor: 'pointer', width: 'auto', textAlign: 'center' }}
                             onClick={() => { console.log('hello'); history.push('/broadcast/startbroadcast') }}
                         >
 
-                            <Typography style={{ marginTop: '.75vh', width: 'auto',textOverflow: "ellipsis", whiteSpace: 'nowrap', overflow: 'hidden' }}>New Broadcast</Typography>
+                            <Typography style={{ marginTop: '.75vh', width: 'auto', textOverflow: "ellipsis", whiteSpace: 'nowrap', overflow: 'hidden' }}>New Broadcast</Typography>
 
                         </div>
                         <div style={{ border: '1px solid black', borderRadius: '4px', padding: '0.25em', marginLeft: '0.5vw', cursor: 'pointer', width: 'auto', textAlign: 'center' }}
                             onClick={() => { console.log('hello'); history.push('/broadcast/uploadvideo') }}
                         >
-                            <Typography style={{ marginTop: '.55vh', width: 'auto' , textOverflow: "ellipsis", whiteSpace: 'nowrap', overflow: 'hidden'}}> Upload Video</Typography>
+                            <Typography style={{ marginTop: '.55vh', width: 'auto', textOverflow: "ellipsis", whiteSpace: 'nowrap', overflow: 'hidden' }}> Upload Video</Typography>
                         </div>
                     </div>
                 </div>

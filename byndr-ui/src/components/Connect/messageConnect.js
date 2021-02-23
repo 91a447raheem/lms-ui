@@ -2,7 +2,6 @@ import React from "react";
 import { Route, BrowserRouter as Router } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import SideBar from "../common/sidebar";
-
 import Messages from "../Connect/Messages/messages"
 import GrpChat from "../Connect/Messages/grpChat"
 import GrpChatInfo from "../Connect/Messages/grpChatInfo"
@@ -47,9 +46,9 @@ const useStyles = makeStyles((theme) => ({
     // position: 'fixed',
     background: '#fff',
     zIndex: 999,
-    [theme.breakpoints.between(700,1030)]: {
+    [theme.breakpoints.between(700, 1030)]: {
       maxWidth: '32%'
-   }
+    }
   },
   chatListblockinr: {
     marginTop: 10
@@ -59,9 +58,9 @@ const useStyles = makeStyles((theme) => ({
     width: 'calc(100% - 385px)',
     height: '100%',
     padding: '0 5px',
-    [theme.breakpoints.between(700,1030)]: {
+    [theme.breakpoints.between(700, 1030)]: {
       width: 'calc(100% - 34%)'
-   }
+    }
   },
   contentRendererinr: {
     paddingTop: 10,

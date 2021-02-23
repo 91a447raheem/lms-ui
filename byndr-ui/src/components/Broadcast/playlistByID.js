@@ -13,8 +13,9 @@ import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import IconButton from '@material-ui/core/IconButton';
 
-import { useParams} from "react-router-dom";
+import { useParams } from "react-router-dom";
 import Datacard from './dataCard';
+import SideBar from '../common/sidebar';
 
 const drawerWidth = 440;
 
@@ -106,7 +107,7 @@ const useStyles = makeStyles((theme) => ({
         },
     },
     createplaylist: {
-        marginLeft: "52vw",
+        marginLeft: "0vw",
         padding: theme.spacing(0, 0, 0, 0),
         // vertical padding + font size from searchIcon
         paddingLeft: `calc(1em + ${theme.spacing(7)}px)`,
@@ -114,7 +115,7 @@ const useStyles = makeStyles((theme) => ({
         width: '20ch',
         [theme.breakpoints.down('md')]: {
             width: '20ch',
-            marginLeft: "auto",
+            marginLeft: "0vw",
         },
     },
     Participants: {
@@ -247,14 +248,20 @@ const PlaylistByID = (props) => {
 
     return (
         <div style={{ backgroundColor: "white", height: "100%" }}>
-            <Header />
+            <div style={{ marginLeft: '3vw' }}>
+
+                <Header />
+
+            </div>
+
+            <SideBar />
             {/* <CssBaseline /> */}
 
             <main className={clsx(classes.content, {
                 [classes.contentShift]: open,
             })}>
                 <div style={{ display: "flex", marginTop: "2vh", justifyContent: "space-between" }}>
-                    <div className={classes.selectwrapper} style={{display: 'flex'}}>
+                    <div className={classes.selectwrapper} style={{ display: 'flex' }}>
 
                         <div className={classes.selectShow}>
                             {params.id}
@@ -271,7 +278,7 @@ const PlaylistByID = (props) => {
                         </div>
                     </div>
 
-                    <div className={classes.selectwrapper} style={{display: 'flex'}}>
+                    <div className={classes.selectwrapper} style={{ display: 'flex' }}>
 
                         <div className={clsx(classes.totalplaylist, {
                             [classes.hide]: open,
@@ -299,7 +306,7 @@ const PlaylistByID = (props) => {
                                 updatelikedCards={updatelikedCards}
                                 likedCards={likedCards}
                                 videoid={params.id}
-                                >
+                            >
                             </Datacard>
                         )}
                 </div>

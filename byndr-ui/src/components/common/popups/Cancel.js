@@ -3,7 +3,7 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import List from '@material-ui/core/List';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
-import VolumeMuteIcon from '@material-ui/icons/VolumeMute';
+// import VolumeMuteIcon from '@material-ui/icons/VolumeMute';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import PersonAddDisabledIcon from '@material-ui/icons/PersonAddDisabled';
 import PersonAddIcon from '@material-ui/icons/PersonAdd';

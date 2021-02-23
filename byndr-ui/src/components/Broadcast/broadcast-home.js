@@ -5,7 +5,7 @@ import Select from "react-select";
 import { fade, makeStyles } from '@material-ui/core/styles';
 import Videolist from './videolist';
 import { useHistory } from "react-router-dom";
-import { ImportantDevices } from '@material-ui/icons';
+// import { ImportantDevices } from '@material-ui/icons';
 import VideoCallOutlinedIcon from '@material-ui/icons/VideoCallOutlined';
 
 
@@ -234,7 +234,7 @@ export default function () {
                 </div>
             </div>
 
-            <div style={{marginTop: '2vh'}}>
+            <div style={{ marginTop: '2vh' }}>
 
                 <div id="liveVideo">
                     <Videolist

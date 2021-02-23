@@ -4,6 +4,8 @@ import { fade, makeStyles, useTheme } from '@material-ui/core/styles';
 import Header from '../common/header';
 import { Button, Divider, Typography } from '@material-ui/core';
 import AddIcon from '@material-ui/icons/Add';
+import Sidebar from '../common/sidebar';
+
 
 //drawer
 import clsx from 'clsx';
@@ -16,6 +18,7 @@ import PlaylistAlbum from './playlistAlbum';
 
 import TextField from '@material-ui/core/TextField';
 import ShopTwoOutlinedIcon from '@material-ui/icons/ShopTwoOutlined';
+import SideBar from '../common/sidebar';
 
 const drawerWidth = 440;
 
@@ -32,7 +35,7 @@ const useStyles = makeStyles((theme) => ({
         marginLeft: 0,
         width: 'auto',
         [theme.breakpoints.up('sm')]: {
-            marginLeft: theme.spacing(4.5),
+            marginLeft: theme.spacing(6.5),
             width: 'auto',
         },
     },
@@ -274,8 +277,14 @@ export default function Playlist() {
 
     return (
         <div style={{ height: "100vh" }}>
-            <Header />
+            <div style={{ marginLeft: '3vw' }}>
+
+                <Header />
+
+            </div>
             {/* <CssBaseline /> */}
+
+            <SideBar/>
 
             <main className={clsx(classes.content, {
                 [classes.contentShift]: open,

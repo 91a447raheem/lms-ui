@@ -2,22 +2,22 @@ import React from 'react';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import List from '@material-ui/core/List';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import VolumeMuteIcon from '@material-ui/icons/VolumeMute';
-import PinDropIcon from '@material-ui/icons/PinDrop';
-import AccountCircleOutlinedIcon from '@material-ui/icons/AccountCircleOutlined';
-import ExitToAppOutlinedIcon from '@material-ui/icons/ExitToAppOutlined';
-import PersonAddIcon from '@material-ui/icons/PersonAdd';
-import PersonAddDisabledIcon from '@material-ui/icons/PersonAddDisabled';
-import CameraAltIcon from '@material-ui/icons/CameraAlt';
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import ListItemIcon from '@material-ui/core/ListItemIcon';
+// import VolumeMuteIcon from '@material-ui/icons/VolumeMute';
+// import PinDropIcon from '@material-ui/icons/PinDrop';
+// import AccountCircleOutlinedIcon from '@material-ui/icons/AccountCircleOutlined';
+// import ExitToAppOutlinedIcon from '@material-ui/icons/ExitToAppOutlined';
+// import PersonAddIcon from '@material-ui/icons/PersonAdd';
+// import PersonAddDisabledIcon from '@material-ui/icons/PersonAddDisabled';
+// import CameraAltIcon from '@material-ui/icons/CameraAlt';
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import PlaylistAddOutlinedIcon from '@material-ui/icons/PlaylistAddOutlined';
 import IconButton from '@material-ui/core/IconButton';
 import Button from '@material-ui/core/Button';
-import {
-    faEdit,
-    faVolumeMute
-} from "@fortawesome/free-solid-svg-icons";
+// import {
+//     faEdit,
+//     faVolumeMute
+// } from "@fortawesome/free-solid-svg-icons";
 
 const PlaylistPopup = () => {
     return (<List component="nav">

@@ -16,6 +16,7 @@ import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import { Button } from '@material-ui/core';
 import IconButton from '@material-ui/core/IconButton';
 import Datacard from './dataCard';
+import SideBar from '../common/sidebar';
 
 
 
@@ -36,7 +37,7 @@ const useStyles = makeStyles((theme) => ({
         marginLeft: 0,
         width: 'auto',
         [theme.breakpoints.up('sm')]: {
-            marginLeft: theme.spacing(4.5),
+            marginLeft: theme.spacing(6.5),
             width: 'auto',
         },
     },
@@ -275,44 +276,49 @@ export default function Uplloadvideo() {
 
     return (
         <div style={{ backgroundColor: "white", height: "100%" }}>
-            <Header />
+            <div style={{ marginLeft: '3vw' }}>
+
+                <Header />
+
+            </div>
+            <SideBar />
             {/* <CssBaseline /> */}
 
             <main className={clsx(classes.content, {
                 [classes.contentShift]: open,
             })}>
-                <div style={{ display: "flex", justifyContent: "space-between",marginTop: "2vh" }}>
+                <div style={{ display: "flex", justifyContent: "space-between", marginTop: "2vh" }}>
 
                     <div className={classes.selectwrapper} >
 
                         <div style={{ display: "flex" }}>
 
-                                <div className={classes.selectSortby}>
-                                    Sort By
+                            <div className={classes.selectSortby}>
+                                Sort By
                                 </div>
 
-                                <div className={classes.Sortby}>
-                                    <Select
-                                        defaultValue={options[0]}
-                                        options={options}
-                                        styles={customStyles}
-                                        autosize={true}
-                                        theme={theme => ({
-                                            ...theme,
-                                            borderRadius: 0,
-                                            colors: {
-                                                ...theme.colors,
-                                                primary: 'lightgrey',
-                                                primary25: '#F8F8F8',
+                            <div className={classes.Sortby}>
+                                <Select
+                                    defaultValue={options[0]}
+                                    options={options}
+                                    styles={customStyles}
+                                    autosize={true}
+                                    theme={theme => ({
+                                        ...theme,
+                                        borderRadius: 0,
+                                        colors: {
+                                            ...theme.colors,
+                                            primary: 'lightgrey',
+                                            primary25: '#F8F8F8',
 
-                                            },
-                                        })}
-                                        components={{
-                                            IndicatorSeparator: () => null
-                                        }}
+                                        },
+                                    })}
+                                    components={{
+                                        IndicatorSeparator: () => null
+                                    }}
 
-                                    />
-                                </div>
+                                />
+                            </div>
                         </div>
                     </div>
 

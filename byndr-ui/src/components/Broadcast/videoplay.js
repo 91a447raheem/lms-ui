@@ -14,7 +14,7 @@ import ChatBubbleSharpIcon from '@material-ui/icons/ChatBubbleSharp';
 import StarBorderOutlinedIcon from '@material-ui/icons/StarBorderOutlined';
 import StarIcon from '@material-ui/icons/Star';
 import IconButton from '@material-ui/core/IconButton';
-import { Avatar, Divider, Typography } from '@material-ui/core';
+import { Avatar, Typography } from '@material-ui/core';
 import Videolist from './videolist';
 import QierPlayer from 'qier-player';
 import PlaylistAddOutlinedIcon from '@material-ui/icons/PlaylistAddOutlined';
@@ -25,20 +25,20 @@ import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import Chip from '@material-ui/core/Chip';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import { Grid, Button } from '@material-ui/core';
-import CloseIcon from '@material-ui/icons/Close';
+// import CloseIcon from '@material-ui/icons/Close';
 import Popover from '@material-ui/core/Popover';
 import TreeView from '@material-ui/lab/TreeView';
 import TreeItem from '@material-ui/lab/TreeItem';
 import VisibilityIcon from '@material-ui/icons/Visibility';
 import MailIcon from '@material-ui/icons/Mail';
-import DeleteIcon from '@material-ui/icons/Delete';
+// import DeleteIcon from '@material-ui/icons/Delete';
 import Label from '@material-ui/icons/Label';
 import SupervisorAccountIcon from '@material-ui/icons/SupervisorAccount';
 import InfoIcon from '@material-ui/icons/Info';
 import ForumIcon from '@material-ui/icons/Forum';
 import LocalOfferIcon from '@material-ui/icons/LocalOffer';
-import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
-import ArrowRightIcon from '@material-ui/icons/ArrowRight';
+// import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
+// import ArrowRightIcon from '@material-ui/icons/ArrowRight';
 import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
 import StarBorderIcon from '@material-ui/icons/StarBorder';
 import ReplyIcon from '@material-ui/icons/Reply';
@@ -52,8 +52,9 @@ import cardBGImg from "../../img/cardbg.png";
 import {
     useParams
 } from "react-router-dom";
+import SideBar from '../common/sidebar';
 
-const useStyles = makeStyles((theme) =>  ({
+const useStyles = makeStyles((theme) => ({
     // root: {
     //     height: 440,
     //     flexGrow: 1,
@@ -68,14 +69,16 @@ const useStyles = makeStyles((theme) =>  ({
         borderLeft: "1px solid #EAEDFC",
         [theme.breakpoints.down(1030)]: {
             width: "65%",
-         },
-         [theme.breakpoints.down(900)]: {
+        },
+        [theme.breakpoints.down(900)]: {
             width: "100%",
-         }
+        }
     },
     singleBroadcastplayerblock: {
         padding: "40px",
-        float: "left"
+        float: "left",
+        marginLeft: '4vw',
+        width: 'auto'
     },
     singleTitlesection_left: {
         fontSize: 21,
@@ -86,10 +89,10 @@ const useStyles = makeStyles((theme) =>  ({
         float: "left",
         [theme.breakpoints.down(1030)]: {
             width: "100%",
-         },
-         [theme.breakpoints.down(900)]: {
+        },
+        [theme.breakpoints.down(900)]: {
             width: "99%",
-         }
+        }
     },
     singleTitlesection: {
         margin: "25px 0",
@@ -100,15 +103,16 @@ const useStyles = makeStyles((theme) =>  ({
         borderTop: "1px solid #EAEDFC",
         borderLeft: "1px solid #EAEDFC",
         padding: "40px",
-        float: "left"
+        float: "left",
+        marginLeft: '4vw'
     },
     singleTitlesection_controls: {
         float: "left",
         width: "35%",
         [theme.breakpoints.down(1030)]: {
             width: "100%",
-            marginTop:20
-         }
+            marginTop: 20
+        }
     },
     singleAuthorsection: {
         width: "100%",
@@ -151,17 +155,18 @@ const useStyles = makeStyles((theme) =>  ({
         opacity: 0.8,
         [theme.breakpoints.down(1030)]: {
             font: "normal normal normal 14px/26px Poppins",
-         }
+        }
     },
     singleBroadcastinrright: {
         width: "29.8%",
         float: "left",
         [theme.breakpoints.down(1030)]: {
             width: "34.8%",
-         },
-         [theme.breakpoints.down(900)]: {
+            marginTop: '48%'
+        },
+        [theme.breakpoints.down(900)]: {
             width: "99.8%",
-         }
+        }
     },
     singleBroadsidebarbuttons: {
         padding: 15,
@@ -177,7 +182,7 @@ const useStyles = makeStyles((theme) =>  ({
         float: "left",
         [theme.breakpoints.down(1030)]: {
             fontSize: "11px",
-         }
+        }
     },
     customButton: {
         background: "#F8F8F8 0% 0% no-repeat padding-box",
@@ -188,13 +193,13 @@ const useStyles = makeStyles((theme) =>  ({
         float: "left",
         [theme.breakpoints.down(1030)]: {
             fontSize: "11px",
-         }
+        }
     },
     customMore: {
         margin: '0 1vw',
         [theme.breakpoints.down(1030)]: {
             margin: "0px",
-         }
+        }
     },
     customArraow: {
 
@@ -207,7 +212,7 @@ const useStyles = makeStyles((theme) =>  ({
         overflowY: 'scroll',
         [theme.breakpoints.down(900)]: {
             height: 'auto',
-         }
+        }
     },
     singleBroadchatTypin: {
         bottom: 25,
@@ -216,7 +221,7 @@ const useStyles = makeStyles((theme) =>  ({
         [theme.breakpoints.down(900)]: {
             bottom: 0,
             position: 'relative',
-         }
+        }
     },
     singleChatdisplay: {
         width: '100%',
@@ -233,57 +238,58 @@ const useStyles = makeStyles((theme) =>  ({
         width: '100%',
         float: 'left'
     },
-    contentList:{
+    contentList: {
         float: "left",
-        width: "92%",
+        width: "87%",
         padding: "40px",
-        background:"#F7F7F7",
+        background: "#F7F7F7",
+        marginLeft: '4vw',
         [theme.breakpoints.down(1030)]: {
-            width: "89%",
-         }
+            width: "82%",
+        }
     },
-    viewpalylist:{
+    viewpalylist: {
         font: "normal normal 16px/30px Poppins",
         color: "#7B7C7E",
-        fontWeight:500,
-        textTransform:"capitalize",
+        fontWeight: 500,
+        textTransform: "capitalize",
         [theme.breakpoints.down(1030)]: {
             padding: "0",
-         }
+        }
     },
-    broadcasts:{
-        float:"right",
+    broadcasts: {
+        float: "right",
         font: "normal normal 16px/30px Poppins",
         color: "#1956E3",
-        fontWeight:500,
-        textTransform:"capitalize",
+        fontWeight: 500,
+        textTransform: "capitalize",
         [theme.breakpoints.down(1030)]: {
             padding: "0",
-         }
+        }
     },
-    cardTtitle:{
+    cardTtitle: {
         font: "normal normal 16px/30px Poppins",
         [theme.breakpoints.down(1030)]: {
             font: "normal normal 13px/30px Poppins",
-         }
+        }
     },
-    cardSubText:{
+    cardSubText: {
         font: "normal normal 18px/30px Poppins",
         color: "#1956E3",
-        fontWeight:500,
+        fontWeight: 500,
         [theme.breakpoints.down(1030)]: {
             font: "normal normal 14px/30px Poppins",
-         }
+        }
     },
-    cardView:{
+    cardView: {
         font: "normal normal medium 16px/21px Poppins",
         color: "#7F7F7F",
-        float:"right"
+        float: "right"
     },
-    playlistImage:{
-        width:"100%",
-        height:"137px",
-        borderRadius:"5px 0px 0px 5px"
+    playlistImage: {
+        width: "100%",
+        height: "137px",
+        borderRadius: "5px 0px 0px 5px"
     }
 }));
 
@@ -364,7 +370,7 @@ const useTreeItemStyles = makeStyles((theme) => ({
         marginTop: 10,
         [theme.breakpoints.down(1030)]: {
             font: "normal normal 14px/30px Poppins",
-         }
+        }
     },
     repline: {
         font: "normal normal 16px/30px Poppins",
@@ -478,16 +484,17 @@ const dataDummy = [
 
 const Videoplay = (props) => {
     const liveVedio = <Typography
-                    component="span"
-                    variant="body2"
-                    style={{fontSize:"20px",color:"#000"}}
-                >
-                    More Broadcasts by  <Typography
-                        component="span"
-                        variant="body2"
-                        style={{fontSize:"20px",color:"#1956E3"}}
-                    >Satish N</Typography>
-                </Typography>
+        component="span"
+        variant="body2"
+        style={{ fontSize: "20px", color: "#000" }}
+    >
+        More Broadcasts by  <Typography
+            component="span"
+            variant="body2"
+            style={{ fontSize: "20px", color: "#1956E3" }}
+        >Satish N</Typography>
+    </Typography>
+
     let [like, setLike] = React.useState(null);
     let [chat, setChat] = React.useState(null);
     let [star, setStar] = React.useState(null);
@@ -521,11 +528,13 @@ const Videoplay = (props) => {
     }
 
     const videoOrigin = "http://www.w3schools.com/html/mov_bbb.mp4";
-    const width = '100%';
-    const height = '50vh';
+    const width = 940;//'100%';
+    const height = 420;//'50vh';
+
     const Slideheight = "23";
     const sliderWidth = "100%";
     const sliderMarginLeft = "0";
+
     const [anchorEl, setAnchorEl] = React.useState(null);
     const [currentPop, setCurrentPop] = React.useState(null)
     const [toggle, setToggle] = React.useState('chat')
@@ -566,7 +575,12 @@ const Videoplay = (props) => {
         <div>
             <div style={{ backgroundColor: "white", float: "left" }}>
 
-                <Header />
+                <div style={{ marginLeft: '3vw' }}>
+
+                    <Header />
+
+                </div>
+                <SideBar />
 
                 <div className={classes.singleBroadcast}>
                     <div className={classes.singleBroadcastinr}>
@@ -618,7 +632,9 @@ const Videoplay = (props) => {
                                                     />)
                                             }
 
-                                        </IconButton><Typography component="span" style={{ margin: '0 0.3vw', marginTop: '0.3vh', color: "lightgrey" }}>20</Typography>
+                                        </IconButton>
+
+                                        <Typography component="span" style={{ margin: '0 0.3vw', marginTop: '0.3vh', color: "lightgrey" }}>20</Typography>
 
 
                                         <IconButton aria-label="share" size="small">
@@ -626,7 +642,7 @@ const Videoplay = (props) => {
                                                 style={{ color: 'lightgrey' }}
                                                 onMouseOver={(e) => e.target.style.color = 'blue'}
                                                 onMouseOut={(e) => e.target.style.color = 'lightgrey'}
-                                                onClick={(e) => handleClick(e, 'more')}
+                                                onClick={(e) => handleClick(e, 'more')} // put 'share' 
                                             />
                                         </IconButton>
 
@@ -655,6 +671,7 @@ const Videoplay = (props) => {
 
                                         </IconButton>
                                     </div>
+
                                 </div>
                                 <div className={classes.singleAuthorsection}>
                                     <div className={classes.singleAuthorsectioninr}>
@@ -699,11 +716,12 @@ const Videoplay = (props) => {
                                 </div>
                             </div>
                         </div>
+
                         <div className={classes.singleBroadcastinrright}>
                             <div className={classes.singleBroadsidebar}>
                                 <div className={classes.singleBroadsidebarbuttons}>
                                     <Button className={classes.viewpalylist}>
-                                        <IconButton aria-label="add to favorites" size="small" style={{ margin: '0 0.5vw',color:"#1956E3" }}>
+                                        <IconButton aria-label="add to favorites" size="small" style={{ margin: '0 0.5vw', color: "#1956E3" }}>
                                             {
                                                 <VideoLibraryIcon fontSize="small" />
                                             }
@@ -723,9 +741,9 @@ const Videoplay = (props) => {
                                 {toggle == 'playlist' ? <div className={classes.singlePlaylistdisplay}>
                                     <div className={classes.singlePlaylist}>
                                         {/* start */}
-                                        
-                                        <ListItem style={{padding:10}} className={classes.lastChildCss}> 
-                                            <ListItemAvatar style={{width:"100px"}}>
+
+                                        <ListItem style={{ padding: 10 }} className={classes.lastChildCss}>
+                                            <ListItemAvatar style={{ width: "100px" }}>
                                                 <img
                                                     alt="Travis Howard"
                                                     src={cardBGImg}
@@ -735,25 +753,25 @@ const Videoplay = (props) => {
                                             <ListItemText>
                                                 <Grid item xs={12}>
                                                     <Grid container justify="flex-start">
-                                                        <Grid item xs={12} style={{background:"#fff",padding:10,borderRadius:"0px 5px 5px 0px"}}>
+                                                        <Grid item xs={12} style={{ background: "#fff", padding: 10, borderRadius: "0px 5px 5px 0px" }}>
                                                             <Typography variant="body2" className={classes.cardTtitle} component="p">
                                                                 Research on Machine Learning and how it lifts humanity out of the 2020 pandemic
                                                             </Typography>
                                                             <Typography variant="body2" className={classes.cardSubText} component="p">
                                                                 Rakesh A <Typography variant="body2" className={classes.cardView} component="span">
-                                                                <IconButton aria-label="add to playlist" size="small" ><VisibilityIcon /> </IconButton> 2,098
+                                                                    <IconButton aria-label="add to playlist" size="small" ><VisibilityIcon /> </IconButton> 2,098
                                                                   </Typography>
                                                             </Typography>
-                                                            
+
                                                         </Grid>
-                                                        
+
                                                     </Grid>
                                                 </Grid>
                                             </ListItemText>
                                         </ListItem>
 
-                                        <ListItem style={{padding:10}} className={classes.lastChildCss}> 
-                                            <ListItemAvatar style={{width:"100px"}}>
+                                        <ListItem style={{ padding: 10 }} className={classes.lastChildCss}>
+                                            <ListItemAvatar style={{ width: "100px" }}>
                                                 <img
                                                     alt="Travis Howard"
                                                     src={cardBGImg}
@@ -763,18 +781,18 @@ const Videoplay = (props) => {
                                             <ListItemText>
                                                 <Grid item xs={12}>
                                                     <Grid container justify="flex-start">
-                                                        <Grid item xs={12} style={{background:"#fff",padding:10,borderRadius:"0px 5px 5px 0px"}}>
+                                                        <Grid item xs={12} style={{ background: "#fff", padding: 10, borderRadius: "0px 5px 5px 0px" }}>
                                                             <Typography variant="body2" className={classes.cardTtitle} component="p">
                                                                 Research on Machine Learning and how it lifts humanity out of the 2020 pandemic
                                                             </Typography>
                                                             <Typography variant="body2" className={classes.cardSubText} component="p">
                                                                 Rakesh A <Typography variant="body2" className={classes.cardView} component="span">
-                                                                <IconButton aria-label="add to playlist" size="small" ><VisibilityIcon /> </IconButton> 2,098
+                                                                    <IconButton aria-label="add to playlist" size="small" ><VisibilityIcon /> </IconButton> 2,098
                                                                   </Typography>
                                                             </Typography>
-                                                            
+
                                                         </Grid>
-                                                        
+
                                                     </Grid>
                                                 </Grid>
                                             </ListItemText>
@@ -801,7 +819,6 @@ const Videoplay = (props) => {
                                                 <KeyboardArrowDownIcon fontSize="small" />
                                             }
                                         </IconButton>
-                                        {anchorEl ? popupBlock : null}
                                     </div>
                                 </div>
 
@@ -883,6 +900,8 @@ const Videoplay = (props) => {
                 </div>
 
             </div>
+            {anchorEl ? popupBlock : null}
+
         </div>
     );
 }

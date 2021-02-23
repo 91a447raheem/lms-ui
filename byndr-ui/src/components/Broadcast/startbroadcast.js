@@ -25,6 +25,7 @@ import { Button } from '@material-ui/core';
 import IconButton from '@material-ui/core/IconButton';
 import AddIcon from '@material-ui/icons/Add';
 import Datacard from './dataCard';
+import SideBar from '../common/sidebar';
 
 
 
@@ -43,7 +44,7 @@ const useStyles = makeStyles((theme) => ({
         marginLeft: 0,
         width: 'auto',
         [theme.breakpoints.up('sm')]: {
-            marginLeft: theme.spacing(1.5),
+            marginLeft: theme.spacing(6.5),
             width: 'auto',
         },
     },
@@ -298,7 +299,13 @@ export default function Startbroadcast() {
 
     return (
         <div style={{ backgroundColor: "white", height: "100%" }}>
-            <Header />
+            
+            <div style={{ marginLeft: '3vw' }}>
+
+                <Header />
+
+            </div>
+            <SideBar />
             {/* <CssBaseline /> */}
 
             <main className={clsx(classes.content, {
