@@ -136,13 +136,17 @@ export default function Passwordreset() {
                     Password Reset
                 </DialogTitle>
 
-                <DialogContent>
-                    <FormControl variant="outlined" style={{ width: "20rem" }}>
-                        <InputLabel margin="dense" htmlFor="component-outlined" style={{ fontSize: 'small' }}>Create Password</InputLabel>
+                <Typography style={{ width:"400px", padding:"0px 50px", textAlign:"center", margin:"0px auto", fontSize:18, color: "gray", display: 'flex', justifyContent: 'center' }} >
+                    {`Use both lower and upper case characters, 1 number, 1 special character and at least 8 character in your password`}
+                </Typography>
+
+                <DialogContent style={{marginTop:10, marginBottom:10, overflowY:"unset"}}>
+                    <FormControl variant="outlined" style={{ width: "100%" }}>
+                        <InputLabel margin="dense" htmlFor="component-outlined" sstyle={{ fontSize: '16px',lineHeight:'1.3' }}>Create Password</InputLabel>
                         <OutlinedInput
                             inputProps={{
                                 style: {
-                                    height: "1rem"
+                                    height: "1.5rem"
                                 }
                             }}
                             value={values.password}
@@ -171,13 +175,13 @@ export default function Passwordreset() {
                     </FormControl>
                 </DialogContent>
 
-                <DialogContent>
-                    <FormControl variant="outlined" style={{ width: "20rem" }}>
-                        <InputLabel margin="dense" htmlFor="component-outlined" style={{ fontSize: 'small' }}>Confirm Password</InputLabel>
+                <DialogContent style={{marginBottom:20, overflowY:"unset"}}>
+                    <FormControl variant="outlined" style={{ width: "100%" }}>
+                        <InputLabel margin="dense" htmlFor="component-outlined" style={{ fontSize: '16px',lineHeight:'1.3' }}>Confirm Password</InputLabel>
                         <OutlinedInput
                             inputProps={{
                                 style: {
-                                    height: "1rem"
+                                    height: "1.5rem"
                                 }
                             }}
                             value={values.confirmPassword}
@@ -209,13 +213,13 @@ export default function Passwordreset() {
 
 
                 <DialogActions>
-                    <Button style={{ width: '75%' }} variant="contained" size="large" color="primary" onClick={handleSubmit}>
+                    <Button style={{marginBottom: '2rem', backgroundColor:"#3768ed", color:"#fff", width: '270px',paddingTop:8,paddingBottom:8,textTransform:'capitalize',fontSize:20}} variant="contained" size="large"  onClick={handleSubmit}>
                         Set New Password
           </Button>
                 </DialogActions>
-                <DialogActions style={{ marginBottom: '2rem' }}>
+                {/* <DialogActions style={{ marginBottom: '2rem' }}>
                     <a href="/login">back</a>
-                </DialogActions>
+                </DialogActions> */}
             </Dialog>
         </div>
     );
