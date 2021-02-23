@@ -10,7 +10,7 @@ import OutlinedInput from '@material-ui/core/OutlinedInput'
 import InputLabel from '@material-ui/core/InputLabel';
 import FormControl from '@material-ui/core/FormControl';
 import { useHistory } from "react-router-dom";
-
+import InfoIcon from '@material-ui/icons/Info';
 
 
 const styles = (theme) => ({
@@ -154,7 +154,9 @@ export default function Forgotpassword() {
                         />
 
                     </FormControl>
-                    <Typography style={{ color: 'red', fontSize: "small" }}>{errors.messageEmail}</Typography>
+                    <Typography style={{ color: '#9a3d3db0', fontSize:18, padding:"6px 50px 10px 6px",marginTop:13,background:"#e8aeaea3",borderRadius:4,textAlign:"left"}}><InfoIcon color="inherit" fontSize="small" style={{ fontSize: "1.6rem", float:"left",marginRight:10, height:"30px"}} />
+                    Please enter valid email address.
+                        </Typography>
                 </DialogContent>
 
                 <DialogActions>
