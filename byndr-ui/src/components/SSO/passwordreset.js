@@ -207,7 +207,8 @@ export default function Passwordreset() {
                             labelWidth={70}
                         />
                     </FormControl>
-                    <Typography style={{ color: 'red', fontSize: "small" }}>{messagePassword}</Typography>
+                    <Typography style={{ color: '#9a3d3db0', fontSize:18, padding:"10px 20px 10px 20px",marginTop:13,background:"#e8aeaea3",borderRadius:4,textAlign:"left"}}>password and confirm password field cannot be left empty
+                        </Typography>
                 </DialogContent>
 
 
