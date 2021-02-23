@@ -1,5 +1,5 @@
 import React from 'react';
-import { withStyles } from '@material-ui/core/styles';
+import { withStyles, makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
 import MuiDialogTitle from '@material-ui/core/DialogTitle';
@@ -11,13 +11,12 @@ import InputLabel from '@material-ui/core/InputLabel';
 import FormControl from '@material-ui/core/FormControl';
 import TextMaskCustom from './textmaskcustom';
 // import FormHelperText from '@material-ui/core/FormHelperText';
-import Visibility from '@material-ui/icons/Visibility';
-import VisibilityOff from '@material-ui/icons/VisibilityOff';
+import VisibilityOutlined from '@material-ui/icons/VisibilityOutlined';
+import VisibilityOffOutlined from '@material-ui/icons/VisibilityOffOutlined';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import IconButton from '@material-ui/core/IconButton';
 import Checkbox from '@material-ui/core/Checkbox';
 import InfoIcon from '@material-ui/icons/Info';
-
 
 const styles = (theme) => ({
     title: {
@@ -35,7 +34,7 @@ const styles = (theme) => ({
         right: theme.spacing(1),
         top: theme.spacing(1),
         color: theme.palette.grey[10],
-    },
+    }
 });
 
 const DialogTitle = withStyles(styles)((props) => {
@@ -72,6 +71,30 @@ const DialogActions = withStyles((theme) => ({
         // padding: theme.spacing(0.5),
     },
 }))(MuiDialogActions);
+
+
+const mainClasses = makeStyles((theme) => ({
+    customPaper: {
+        borderRadius: 16,
+        maxWidth: 580
+    },
+    linkCls: {
+        color: "#757575"
+    },
+    linkforget: {
+        color: 'rgb(55, 104, 237)'
+    },
+    '.MuiOutlinedInput-notchedOutline': {
+        borderColor: 'rgb(138 138 138 / 23 %)'
+    },
+    '.MuiIconButton-root': {
+        color: 'rgb(138 138 138 / 23 %) !important'
+    },
+    inputBox: {
+        minHeight: 44
+    }
+}));
+
 
 export default function Login() {
 
@@ -131,7 +154,7 @@ export default function Login() {
 
         }
 
-       
+
 
         // validate email
 
@@ -152,11 +175,11 @@ export default function Login() {
         //     setErrors({ ...errors, messageEmail: "Please enter valid email address." });
         // }
 
-        else if (values.email === "" && values.phoneNumber !== ""){
+        else if (values.email === "" && values.phoneNumber !== "") {
             setErrors({ ...errors, messageEmail: "" });
         }
 
-        else if(values.phoneNumber === "" && values.email !== ""){
+        else if (values.phoneNumber === "" && values.email !== "") {
             setMessagePhone("");
         }
 
@@ -171,11 +194,11 @@ export default function Login() {
     function handleSubmit() {
         validate();
         if (isValidEmail || isValidMobileNumber) {
-            console.log( "i am inside callback !!! hurray");
+            console.log("i am inside callback !!! hurray");
 
         }
 
-        console.log( "i am outside");
+        console.log("i am outside");
     }
 
 
@@ -193,82 +216,41 @@ export default function Login() {
         event.preventDefault();
     };
 
+    const classes = mainClasses()
 
     return (
-        <div style={{ filter: `blur(5px)`}}>
-            <Dialog aria-labelledby="customized-dialog-title" open={open}>
+        <div style={{ filter: `blur(5px)` }}>
+            <Dialog aria-labelledby="customized-dialog-title" open={open} classes={{ paperScrollPaper: classes.customPaper }}>
                 <DialogTitle id="customized-dialog-title">
                     Log In
                 </DialogTitle>
-                {/* <DialogContent >
 
-                    <FormControl variant="outlined" style={{ width: '23rem' }} >
-                        <InputLabel margin="dense" htmlFor="component-outlined" style={{ fontSize: 'small' }}>Mobile Number</InputLabel>
-                        <OutlinedInput
-                            inputProps={{
-                                style: {
-                                    height: "1rem",
-                                    direction: 'ltr'
-                                }
-                            }}
-                            value={values.phoneNumber}
-                            onChange={handleChange('phoneNumber')}
-                            label="Mobile Number"
-                            name="textmask"
-                            id="formatted-text-mask-input"
-                            inputComponent={TextMaskCustom}
-                            size="small"
-                            autoFocus
-                            margin="dense"
-                        />
-                        <Typography style={{ color: 'red', fontSize: "x-small" }}>{messagePhone}</Typography>
-                    </FormControl>
-                </DialogContent> */}
-
-                {/* <DialogContent style={{ width: '23rem' }}>
-                    <Typography variant="h6" style={{ color: "lightgray",height: "1.5rem" }} >
-                        Or
-                    </Typography>
-                </DialogContent> */}
-
-                <DialogContent style={{marginBottom:10,overflowY:"unset"}}>
+                <DialogContent style={{ marginBottom: 10, overflowY: "unset" }}>
                     <FormControl variant="outlined" style={{ width: '100%' }}>
-                        <InputLabel margin="dense" htmlFor="component-outlined" style={{ fontSize: '16px',lineHeight:'1.3' }}>Email Address or Phone</InputLabel>
+                        <InputLabel margin="dense" htmlFor="component-outlined" style={{ fontSize: '16px', lineHeight: '1.3', background: 'white', paddingRight: 10 }}>Email Address or Phone</InputLabel>
                         <OutlinedInput
-                            inputProps={{
-                                style: {
-                                    height: "1.4rem",
-                                    borderColor:"#2d3542"
-                                }
-                            }}
                             value={values.email}
                             onChange={handleChange('email')}
                             label="Email Address"
-                            type="email"
+                            type="text"
                             id="outlined-margin-none"
                             variant="outlined"
                             margin="dense"
-
+                            className={classes.inputBox}
                         />
 
                     </FormControl>
-                    <Typography style={{ color: '#9a3d3db0', fontSize:18, padding:"6px 50px 10px 6px",marginTop:13,background:"#e8aeaea3",borderRadius:4,textAlign:"left"}}><InfoIcon color="inherit" fontSize="small" style={{ fontSize: "1.6rem", float:"left",marginRight:10 }} />
-                       Account with this email does not exit!  <Typography component="p" style={{paddingLeft:35}}>
-                       Please Check your Username, pjone number or email adress just in case.
+                    {/* <Typography style={{ color: '#9a3d3db0', fontSize: 18, padding: "6px 50px 10px 6px", marginTop: 13, background: "#e8aeaea3", borderRadius: 4, textAlign: "left" }}><InfoIcon color="inherit" fontSize="small" style={{ fontSize: "1.6rem", float: "left", marginRight: 10 }} />
+                       Account with this email does not exit!  <Typography component="p" style={{ paddingLeft: 35 }}>
+                            Please Check your Username, pjone number or email adress just in case.
                         </Typography>
-                        </Typography>
+                    </Typography> */}
                 </DialogContent>
 
-                <DialogContent style={{overflowY:"unset"}}>
+                <DialogContent style={{ overflowY: "unset" }}>
                     <FormControl variant="outlined" style={{ width: "100%" }}>
-                        <InputLabel margin="dense" htmlFor="component-outlined" style={{ fontSize: '16px',lineHeight:'1.3' }}>Password</InputLabel>
+                        <InputLabel margin="dense" htmlFor="component-outlined" style={{ fontSize: '16px', lineHeight: '1.3', background: 'white', paddingRight: 10 }}>Password</InputLabel>
                         <OutlinedInput
-                            inputProps={{
-                                style: {
-                                    height: "1.4rem",
-                                    borderColor:"#2d3542"
-                                }
-                            }}
                             value={values.password}
                             onChange={handleChange('password')}
                             label="Password"
@@ -285,22 +267,22 @@ export default function Login() {
                                         edge="end"
                                         size="12px"
                                     >
-                                        {values.showPassword ? <Visibility /> : <VisibilityOff />}
+                                        {values.showPassword ? <VisibilityOffOutlined /> : <VisibilityOutlined />}
                                     </IconButton>
                                 </InputAdornment>
                             }
                             labelWidth={70}
-
+                            className={classes.inputBox}
                         />
                     </FormControl>
-                    <Typography style={{ color: '#9a3d3db0', fontSize:18, padding:"6px 50px 10px 6px",marginTop:13,background:"#e8aeaea3",borderRadius:4,textAlign:"left"}}><InfoIcon color="inherit" fontSize="small" style={{ fontSize: "1.6rem", float:"left",marginRight:10 }} />
-                       Incorrect Password <Typography component="p" style={{paddingLeft:35}}>
-                       Check for caps lock. You never know!
+                    {/* <Typography style={{ color: '#9a3d3db0', fontSize: 18, padding: "6px 50px 10px 6px", marginTop: 13, background: "#e8aeaea3", borderRadius: 4, textAlign: "left" }}><InfoIcon color="inherit" fontSize="small" style={{ fontSize: "1.6rem", float: "left", marginRight: 10 }} />
+                       Incorrect Password <Typography component="p" style={{ paddingLeft: 35 }}>
+                            Check for caps lock. You never know!
                         </Typography>
-                        </Typography>
+                    </Typography> */}
                 </DialogContent>
 
-                <DialogCheckBox style={{overflowY:"unset"}}>
+                <DialogCheckBox style={{ overflowY: "unset" }}>
                     <FormControl style={{ width: '2rem' }}>
                         <Checkbox
                             // defaultChecked
@@ -314,20 +296,20 @@ export default function Login() {
                         <Typography
                             variant="subtitle2"
                             gutterBottom={true}
-                            style={{ marginTop: '0.7rem',marginRight:10 }}
+                            style={{ marginTop: '0.7rem', marginRight: 10 }}
                             align="right"
-                        ><span>Remember me </span> <a style={{ marginLeft: '8rem', textDecoration:"none" }} href="/forgotpassword">Forgot Username/Password? </a></Typography>
+                        ><span>Remember me </span> <a style={{ marginLeft: '8rem', textDecoration: "none" }} className={classes.linkforget} href="/forgotpassword">Forgot Username/Password? </a></Typography>
                     </FormControl>
                 </DialogCheckBox>
 
 
                 <DialogActions>
-                    <Button style={{ backgroundColor:"#3768ed",color:"#fff", width: '250px',paddingTop:8,paddingBottom:8,textTransform:'capitalize',fontSize:20,marginBottom:10}} variant="contained" size="large" onClick={handleSubmit}>
+                    <Button style={{ backgroundColor: "#3768ed", color: "#fff", width: '250px', paddingTop: 8, paddingBottom: 8, textTransform: 'capitalize', fontSize: 20, marginBottom: 10, boxShadow: 'inherit' }} variant="contained" size="large" onClick={handleSubmit}>
                         Enter
           </Button>
                 </DialogActions>
                 <DialogActions style={{ marginBottom: '2rem' }}>
-                    <a href="/signup">Sign Up</a>
+                    <a href="/signup" className={classes.linkCls}>Sign Up</a>
                 </DialogActions>
             </Dialog>
         </div>
