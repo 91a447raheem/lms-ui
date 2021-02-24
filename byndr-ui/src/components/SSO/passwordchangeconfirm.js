@@ -7,13 +7,14 @@ import Typography from '@material-ui/core/Typography';
 import { useHistory } from "react-router-dom";
 import MuiDialogContent from '@material-ui/core/DialogContent';
 import MuiDialogTitle from '@material-ui/core/DialogTitle';
+import ByndrLogo from "../../img/byndLogo.png";
 
 
 const styles = (theme) => ({
     title: {
         display: 'flex',
         justifyContent: 'center',
-        paddingTop: 60,
+        paddingTop: 20,
         paddingBottom: 10
     },
     root: {
@@ -93,6 +94,11 @@ const mainClasses = makeStyles((theme) => ({
             boxShadow: 'inherit',
         }
     },
+    logo:{
+        width :300, 
+        margin:"0px auto",
+        paddingTop:"50px !important"
+    },
     linkCls: {
         color: "#757575"
     },
@@ -113,6 +119,13 @@ export default function Passwordchangeconfirm() {
     return (
         <div style={{ filter: `blur(5px)` }}>
             <Dialog aria-labelledby="customized-dialog-title" open={open} classes={{ paperScrollPaper: classes.customPaper }}>
+
+               <DialogContent className={classes.logo}>
+                     <img
+                        alt="Travis Howard"
+                        src={ByndrLogo}
+                        style={{width:"100%"}}/>
+                </DialogContent>
 
                 <DialogTitle id="customized-dialog-title">
                    You've got mail!
