@@ -1,12 +1,41 @@
 import React from 'react';
-import { withStyles } from '@material-ui/core/styles';
+import { withStyles, makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
 import MuiDialogActions from '@material-ui/core/DialogActions';
 import Typography from '@material-ui/core/Typography';
 import { useHistory } from "react-router-dom";
 import MuiDialogContent from '@material-ui/core/DialogContent';
+import MuiDialogTitle from '@material-ui/core/DialogTitle';
 
+
+const styles = (theme) => ({
+    title: {
+        display: 'flex',
+        justifyContent: 'center',
+        paddingTop: 60,
+        paddingBottom: 10
+    },
+    root: {
+        margin: 0,
+        padding: theme.spacing(2),
+    },
+    closeButton: {
+        position: 'absolute',
+        right: theme.spacing(1),
+        top: theme.spacing(1),
+        color: theme.palette.grey[10],
+    }
+});
+
+const DialogTitle = withStyles(styles)((props) => {
+    const { children, classes, onClose, ...other } = props;
+    return (
+        <MuiDialogTitle disableTypography className={classes.title} {...other}>
+            <Typography variant="h4">{children}</Typography>
+        </MuiDialogTitle>
+    );
+});
 
 const DialogContent = withStyles((theme) => ({
     root: {
@@ -25,6 +54,49 @@ const DialogActions = withStyles((theme) => ({
     },
 }))(MuiDialogActions);
 
+
+const mainClasses = makeStyles((theme) => ({
+    customPaper: {
+        borderRadius: 16,
+        maxWidth: 580
+    },
+    btnSubmit: {
+        width:200,
+        backgroundColor: "#3768ed",
+        color: "#fff",
+        paddingTop: 8,
+        paddingBottom: 8,
+        textTransform: 'capitalize',
+        fontSize: 20,
+        marginBottom: 10,
+        boxShadow: 'inherit',
+        '&:hover': {
+            backgroundColor: "#3768ed",
+            color: "#fff",
+            boxShadow: 'inherit',
+        }
+    },
+    btnClose:{
+        width:200,
+        backgroundColor: "#fff",
+        color: "#4c4848",
+        paddingTop: 8,
+        paddingBottom: 8,
+        textTransform: 'capitalize',
+        fontSize: 20,
+        marginBottom: 10,
+        border:"1px solid #4c4848",
+        boxShadow: 'inherit',
+        '&:hover': {
+            backgroundColor: "#fff",
+            color: "#4c4848",
+            boxShadow: 'inherit',
+        }
+    },
+    linkCls: {
+        color: "#757575"
+    },
+ }));
 export default function Passwordchangeconfirm() {
 
     const history = useHistory();
@@ -36,24 +108,42 @@ export default function Passwordchangeconfirm() {
         history.push("/login");
     }
 
-
+    const classes = mainClasses()
 
     return (
         <div style={{ filter: `blur(5px)` }}>
-            <Dialog aria-labelledby="customized-dialog-title" open={open}>
+            <Dialog aria-labelledby="customized-dialog-title" open={open} classes={{ paperScrollPaper: classes.customPaper }}>
+
+                <DialogTitle id="customized-dialog-title">
+                   You've got mail!
+                </DialogTitle>
+
+
+                <DialogContent>
+
+                    <Typography style={{ fontSize:18, color: "gray", display: 'flex', justifyContent: 'center' }} >
+                          We've e-mailed you a link to change<br/> your password at
+                    </Typography>
+                    <Typography  style={{ fontSize:22, color: "#3868ed", display: 'flex', justifyContent: 'center' }} >
+                        {`123456@example.com.`}
+                    </Typography>
+                </DialogContent>
 
                 <DialogContent>
 
                     <Typography style={{ color: "gray", display: 'flex', justifyContent: 'center' }} >
-                        {`Check your email for confirmation link`}
+                        {`If You haven't received any mail yet,`}
                     </Typography>
                 </DialogContent>
 
 
                 <DialogActions>
-                    <Button style={{ width: '45%' }} variant="contained" size="large" color="primary" onClick={handleSubmit}>
-                        Okay
-          </Button>
+                    <Button variant="contained" size="large" color="primary" onClick={handleSubmit} className={classes.btnSubmit}>
+                        Resend
+                   </Button>
+                   <Button className={classes.btnClose} variant="contained" size="large" color="primary" onClick={handleSubmit}>
+                        Close
+                   </Button>
                 </DialogActions>
 
             </Dialog>

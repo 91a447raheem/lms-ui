@@ -1,5 +1,5 @@
 import React from 'react';
-import { withStyles } from '@material-ui/core/styles';
+import { withStyles, makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
 import MuiDialogTitle from '@material-ui/core/DialogTitle';
@@ -60,6 +60,53 @@ const DialogActions = withStyles((theme) => ({
 
     },
 }))(MuiDialogActions);
+
+
+const mainClasses = makeStyles((theme) => ({ 
+    customPaper: {
+        borderRadius: 16,
+        maxWidth: 580
+    },
+    btnSubmit: {
+        backgroundColor: "#3768ed",
+        color: "#fff",
+        width: '250px',
+        paddingTop: 8,
+        paddingBottom: 8,
+        textTransform: 'capitalize',
+        fontSize: 20,
+        marginBottom: 10,
+        boxShadow: 'inherit',
+        marginBottom:40,
+        '&:hover': {
+            backgroundColor: "#3768ed",
+            color: "#fff",
+            boxShadow: 'inherit',
+        }
+    },
+    linkCls: {
+        color: "#757575"
+    },
+    linkforget: {
+        color: 'rgb(55, 104, 237)'
+    },
+    '.MuiOutlinedInput-notchedOutline': {
+        borderColor: 'rgb(138 138 138 / 23 %)'
+    },
+    '.MuiIconButton-root': {
+        color: 'rgb(138 138 138 / 23 %) !important'
+    },
+    passLabel: {
+        fontSize: '16px', lineHeight: '1.3', background: 'white', paddingRight: 10
+    },
+    errorBlock: {
+        color: '#9a3d3db0', fontSize: 14, padding: "8px 16px", marginTop: 13, background: "#e8aeaea3", borderRadius: 4, textAlign: "left"
+    },
+    infoIconblock: {
+        fontSize: 16, float: "left", marginTop: 2, marginRight: 8
+    }
+}));
+
 
 export default function Passwordreset() {
     const history = useHistory();
@@ -128,7 +175,7 @@ export default function Passwordreset() {
         event.preventDefault();
     };
 
-
+    const classes = mainClasses()
     return (
         <div style={{ filter: `blur(5px)` }}>
             <Dialog aria-labelledby="customized-dialog-title" open={open}>
@@ -170,7 +217,7 @@ export default function Passwordreset() {
                                 </InputAdornment>
                             }
                             labelWidth={70}
-
+                            className={classes.inputBox}
                         />
                     </FormControl>
                 </DialogContent>
@@ -205,16 +252,17 @@ export default function Passwordreset() {
                                 </InputAdornment>
                             }
                             labelWidth={70}
+                            className={classes.inputBox}
                         />
                     </FormControl>
-                    <Typography style={{ color: '#9a3d3db0', fontSize:18, padding:"10px 20px 10px 20px",marginTop:13,background:"#e8aeaea3",borderRadius:4,textAlign:"left"}}>password and confirm password field cannot be left empty
+                    <Typography className={classes.errorBlock}>password and confirm password field cannot be left empty
                         </Typography>
                 </DialogContent>
 
 
 
                 <DialogActions>
-                    <Button style={{marginBottom: '2rem', backgroundColor:"#3768ed", color:"#fff", width: '270px',paddingTop:8,paddingBottom:8,textTransform:'capitalize',fontSize:20}} variant="contained" size="large"  onClick={handleSubmit}>
+                    <Button className={classes.btnSubmit} variant="contained" size="large"  onClick={handleSubmit}>
                         Set New Password
           </Button>
                 </DialogActions>
