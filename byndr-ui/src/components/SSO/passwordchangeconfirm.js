@@ -59,102 +59,109 @@ const DialogActions = withStyles((theme) => ({
 const mainClasses = makeStyles((theme) => ({
     customPaper: {
         borderRadius: 16,
-        maxWidth: 580
+        maxWidth: 500,
+        width: '100%'
     },
     btnSubmit: {
-        width:200,
+        width: 200,
         backgroundColor: "#3768ed",
         color: "#fff",
-        paddingTop: 8,
-        paddingBottom: 8,
         textTransform: 'capitalize',
-        fontSize: 20,
+        fontSize: 18,
         marginBottom: 10,
         boxShadow: 'inherit',
+        padding: '6px 20px',
         '&:hover': {
             backgroundColor: "#3768ed",
             color: "#fff",
             boxShadow: 'inherit',
         }
     },
-    btnClose:{
-        width:200,
+    btnClose: {
+        width: 200,
         backgroundColor: "#fff",
         color: "#4c4848",
-        paddingTop: 8,
-        paddingBottom: 8,
         textTransform: 'capitalize',
-        fontSize: 20,
+        fontSize: 18,
         marginBottom: 10,
-        border:"1px solid #4c4848",
+        border: "1px solid #4c4848",
         boxShadow: 'inherit',
+        padding: '5px 20px',
         '&:hover': {
             backgroundColor: "#fff",
             color: "#4c4848",
             boxShadow: 'inherit',
         }
     },
-    logo:{
-        width :300, 
-        margin:"0px auto",
-        paddingTop:"50px !important"
+    logo: {
+        maxWidth: 240,
+        margin: "0px auto",
+        paddingTop: "50px !important"
     },
     linkCls: {
         color: "#757575"
     },
- }));
+    actionBtns: {
+        marginTop: 20
+    },
+    gotMailtxt: {
+        fontSize: 18,
+        textAlign: 'center'
+    }
+}));
 export default function Passwordchangeconfirm() {
 
     const history = useHistory();
 
-    const [open] = React.useState(true);
-
-    function handleSubmit() {
-        console.log("i am inside callback !!! hurray");
+    const handleSubmit = () => {
+        alert("handle Submit")
         history.push("/login");
     }
+
+    const handleClose = () => {
+        alert("handle Close")
+        history.push("/login");
+    }
+
 
     const classes = mainClasses()
 
     return (
         <div style={{ filter: `blur(5px)` }}>
-            <Dialog aria-labelledby="customized-dialog-title" open={open} classes={{ paperScrollPaper: classes.customPaper }}>
+            <Dialog aria-labelledby="customized-dialog-title" open={true} classes={{ paperScrollPaper: classes.customPaper }}>
 
-               <DialogContent className={classes.logo}>
-                     <img
+                <DialogContent className={classes.logo}>
+                    <img
                         alt="Travis Howard"
                         src={ByndrLogo}
-                        style={{width:"100%"}}/>
+                        style={{ width: "100%" }} />
                 </DialogContent>
 
-                <DialogTitle id="customized-dialog-title">
-                   You've got mail!
+                <DialogTitle id="customized-dialog-title" className={classes.gotMailtxt}>
+                    You've got mail!
                 </DialogTitle>
 
 
                 <DialogContent>
-
-                    <Typography style={{ fontSize:18, color: "gray", display: 'flex', justifyContent: 'center' }} >
-                          We've e-mailed you a link to change<br/> your password at
+                    <Typography style={{ fontSize: 18, color: "gray", display: 'flex', justifyContent: 'center', marginBottom: 8 }} >
+                        We've e-mailed you a link to change<br /> your password at
                     </Typography>
-                    <Typography  style={{ fontSize:22, color: "#3868ed", display: 'flex', justifyContent: 'center' }} >
-                        {`123456@example.com.`}
+                    <Typography style={{ fontSize: 22, color: "#3868ed", display: 'flex', justifyContent: 'center' }} >
+                        {`123456@example.com`}
                     </Typography>
                 </DialogContent>
 
                 <DialogContent>
-
                     <Typography style={{ color: "gray", display: 'flex', justifyContent: 'center' }} >
                         {`If You haven't received any mail yet,`}
                     </Typography>
                 </DialogContent>
 
-
-                <DialogActions>
+                <DialogActions className={classes.actionBtns}>
                     <Button variant="contained" size="large" color="primary" onClick={handleSubmit} className={classes.btnSubmit}>
                         Resend
                    </Button>
-                   <Button className={classes.btnClose} variant="contained" size="large" color="primary" onClick={handleSubmit}>
+                    <Button className={classes.btnClose} variant="contained" size="large" color="primary" onClick={handleClose}>
                         Close
                    </Button>
                 </DialogActions>
