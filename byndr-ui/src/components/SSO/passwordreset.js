@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { withStyles, makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
@@ -9,12 +9,12 @@ import Typography from '@material-ui/core/Typography';
 import OutlinedInput from '@material-ui/core/OutlinedInput'
 import InputLabel from '@material-ui/core/InputLabel';
 import FormControl from '@material-ui/core/FormControl';
-import Visibility from '@material-ui/icons/Visibility';
-import VisibilityOff from '@material-ui/icons/VisibilityOff';
+import VisibilityOutlined from '@material-ui/icons/VisibilityOutlined';
+import VisibilityOffOutlined from '@material-ui/icons/VisibilityOffOutlined';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import IconButton from '@material-ui/core/IconButton';
 import { useHistory } from "react-router-dom";
-
+import InfoIcon from '@material-ui/icons/Info';
 
 const styles = (theme) => ({
     title: {
@@ -62,10 +62,13 @@ const DialogActions = withStyles((theme) => ({
 }))(MuiDialogActions);
 
 
-const mainClasses = makeStyles((theme) => ({ 
+const mainClasses = makeStyles((theme) => ({
     customPaper: {
         borderRadius: 16,
-        maxWidth: 580
+        maxWidth: 540,
+        width: '100%',
+        paddingTop: 30,
+        paddingBottom: 30
     },
     btnSubmit: {
         backgroundColor: "#3768ed",
@@ -74,15 +77,18 @@ const mainClasses = makeStyles((theme) => ({
         paddingTop: 8,
         paddingBottom: 8,
         textTransform: 'capitalize',
-        fontSize: 20,
+        fontSize: 18,
         marginBottom: 10,
         boxShadow: 'inherit',
-        marginBottom:40,
+        marginBottom: 40,
         '&:hover': {
             backgroundColor: "#3768ed",
             color: "#fff",
             boxShadow: 'inherit',
         }
+    },
+    inputBox: {
+        minHeight: 44
     },
     linkCls: {
         color: "#757575"
@@ -110,96 +116,72 @@ const mainClasses = makeStyles((theme) => ({
 
 export default function Passwordreset() {
     const history = useHistory();
-    const [open] = React.useState(true);
-
-    const [values, setValues] = React.useState({
-        password: "",
-        confirmPassword: "",
-        showPassword: false,
-        showConfirmPassword: false,
-    });
-
-
-
-    const [messagePassword, setMessagePassword] = React.useState("");
-
-    let isValid = true;
-
-
-    const handleChange = (prop) => (event) => {
-        setValues({ ...values, [prop]: event.target.value });
-    };
-
-    function validate() {
-
-        // validate password
-        if (values.password && values.confirmPassword) {
-            if (values.password !== values.confirmPassword){
-                setMessagePassword("password doesnot match");
-                isValid = false;
-            }
-            else{
-                setMessagePassword("");
-            }
-        }
-
-        else if (!values.password || !values.confirmPassword) {
-            isValid = false;
-            setMessagePassword("password and confirm password field cannot be left empty");
-        }
-    }
-
-
-    function handleSubmit() {
-        validate();
-        if (isValid) {
-            console.log(isValid, "i am inside callback !!! hurray");
-             history.push("/confirmpasswordchange");
-        }
-
-        console.log(isValid, "i am inside");
-    }
-
-
-    const handleClickShowPassword = (prop) => () => {
-        if (values.password && prop === 'showPassword')
-            setValues({ ...values, [prop]: !values.showPassword });
-        else if (values.confirmPassword && prop === 'showConfirmPassword')
-            setValues({ ...values, [prop]: !values.showConfirmPassword });
-        else
-            setValues({ ...values, [prop]: !values.checked });
-    };
-
-
-    const handleMouseDownPassword = (event) => {
-        event.preventDefault();
-    };
 
     const classes = mainClasses()
+
+    const [password, setPassword] = useState('')
+    const [confirmPassword, setConfirmPassword] = useState('')
+    const [showPass, setShowPass] = useState(false)
+    const [showConfirmpass, setShowConfirmpass] = useState(false)
+
+    const [passError, setPassError] = useState('')
+    const [confirmpassError, setConfirmpassError] = useState('')
+
+    const unmatchedCheck = (val) => {
+        if (password === val) {
+            setConfirmpassError('')
+        } else {
+            setConfirmpassError('Looks like the passwords are not matching. Please try again.')
+        }
+    }
+
+    const passwordPolicyCheck = (val) => {
+
+        let passMatch = val.match(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[#$@!%&*?])[A-Za-z\d#$@!%&*?]{8,30}$/)
+
+        if (!passMatch && (val.length > 3)) {
+            setPassError("Password must be a combination of lower case and upper case alphabets, must include at least one number and one special character, and must be at least eight characters long.")
+        } else {
+            setPassError('')
+        }
+
+    }
+
+    const handleChange = (e, field) => {
+
+        if (field == "password") {
+            passwordPolicyCheck(e.target.value)
+            setPassword(e.target.value)
+        } else {
+            unmatchedCheck(e.target.value)
+            setConfirmPassword(e.target.value)
+        }
+    }
+
+    const handleSubmit = () => {
+
+        console.log("All fields", password, confirmPassword)
+        // history.push('/login')
+    }
+
     return (
         <div style={{ filter: `blur(5px)` }}>
-            <Dialog aria-labelledby="customized-dialog-title" open={open}>
+            <Dialog aria-labelledby="customized-dialog-title" open={true} classes={{ paperScrollPaper: classes.customPaper }}>
                 <DialogTitle id="customized-dialog-title">
                     Password Reset
                 </DialogTitle>
 
-                <Typography style={{ width:"400px", padding:"0px 50px", textAlign:"center", margin:"0px auto", fontSize:18, color: "gray", display: 'flex', justifyContent: 'center' }} >
+                <Typography style={{ width: "400px", padding: "0px 50px", textAlign: "center", margin: "0px auto", fontSize: 18, color: "gray", display: 'flex', justifyContent: 'center' }} >
                     {`Use both lower and upper case characters, 1 number, 1 special character and at least 8 character in your password`}
                 </Typography>
 
-                <DialogContent style={{marginTop:10, marginBottom:10, overflowY:"unset"}}>
+                <DialogContent style={{ marginTop: 30, marginBottom: 20, overflowY: "unset" }}>
                     <FormControl variant="outlined" style={{ width: "100%" }}>
-                        <InputLabel margin="dense" htmlFor="component-outlined" sstyle={{ fontSize: '16px',lineHeight:'1.3' }}>Create Password</InputLabel>
+                        <InputLabel margin="dense" htmlFor="component-outlined" style={{ fontSize: '16px', lineHeight: '1.3', background: 'white', paddingRight: 10 }}>Create Password</InputLabel>
                         <OutlinedInput
-                            inputProps={{
-                                style: {
-                                    height: "1.5rem"
-                                }
-                            }}
-                            value={values.password}
-                            onChange={handleChange('password')}
+                            onChange={(e) => handleChange(e, 'password')}
                             label="Create Password"
-                            type={values.showPassword ? 'text' : 'password'}
+                            type={showPass ? 'text' : 'password'}
                             id="outlined-adornment-password"
                             variant="outlined"
                             margin="dense"
@@ -207,33 +189,28 @@ export default function Passwordreset() {
                                 <InputAdornment position="end">
                                     <IconButton
                                         aria-label="toggle password visibility"
-                                        onClick={handleClickShowPassword('showPassword')}
-                                        onMouseDown={handleMouseDownPassword}
+                                        onClick={() => setShowPass(!showPass)}
                                         edge="end"
                                         size="small"
                                     >
-                                        {values.showPassword ? <Visibility /> : <VisibilityOff />}
+                                        {showPass ? <VisibilityOutlined /> : <VisibilityOffOutlined />}
                                     </IconButton>
                                 </InputAdornment>
                             }
-                            labelWidth={70}
                             className={classes.inputBox}
                         />
                     </FormControl>
+                    {
+                        passError ? <Typography className={classes.errorBlock}><InfoIcon color="inherit" fontSize="small" className={classes.infoIconblock} /> {passError}</Typography> : null
+                    }
                 </DialogContent>
 
-                <DialogContent style={{marginBottom:20, overflowY:"unset"}}>
+                <DialogContent style={{ marginBottom: 20, overflowY: "unset" }}>
                     <FormControl variant="outlined" style={{ width: "100%" }}>
-                        <InputLabel margin="dense" htmlFor="component-outlined" style={{ fontSize: '16px',lineHeight:'1.3' }}>Confirm Password</InputLabel>
+                        <InputLabel margin="dense" htmlFor="component-outlined" style={{ fontSize: '16px', lineHeight: '1.3', background: 'white', paddingRight: 10 }}>Confirm Password</InputLabel>
                         <OutlinedInput
-                            inputProps={{
-                                style: {
-                                    height: "1.5rem"
-                                }
-                            }}
-                            value={values.confirmPassword}
-                            onChange={handleChange('confirmPassword')}
-                            type={values.showConfirmPassword ? 'text' : 'password'}
+                            onChange={(e) => handleChange(e, 'confirmpassword')}
+                            type={showConfirmpass ? 'text' : 'password'}
                             label="Confirm Password"
                             id="outlined-adornment-confirm-password"
                             variant="outlined"
@@ -242,33 +219,27 @@ export default function Passwordreset() {
                                 <InputAdornment position="end">
                                     <IconButton
                                         aria-label="toggle password visibility"
-                                        onClick={handleClickShowPassword('showConfirmPassword')}
-                                        onMouseDown={handleMouseDownPassword}
+                                        onClick={() => setShowConfirmpass(!showConfirmpass)}
                                         edge="end"
                                         size="small"
                                     >
-                                        {values.showConfirmPassword ? <Visibility /> : <VisibilityOff />}
+                                        {showConfirmpass ? <VisibilityOutlined /> : <VisibilityOffOutlined />}
                                     </IconButton>
                                 </InputAdornment>
                             }
-                            labelWidth={70}
                             className={classes.inputBox}
                         />
                     </FormControl>
-                    <Typography className={classes.errorBlock}>password and confirm password field cannot be left empty
-                        </Typography>
+                    {
+                        confirmpassError ? <Typography className={classes.errorBlock}><InfoIcon color="inherit" fontSize="small" className={classes.infoIconblock} /> {confirmpassError}</Typography> : null
+                    }
                 </DialogContent>
 
-
-
                 <DialogActions>
-                    <Button className={classes.btnSubmit} variant="contained" size="large"  onClick={handleSubmit}>
+                    <Button className={classes.btnSubmit} variant="contained" size="large" onClick={handleSubmit}>
                         Set New Password
-          </Button>
+                    </Button>
                 </DialogActions>
-                {/* <DialogActions style={{ marginBottom: '2rem' }}>
-                    <a href="/login">back</a>
-                </DialogActions> */}
             </Dialog>
         </div>
     );
