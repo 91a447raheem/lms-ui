@@ -161,6 +161,7 @@ export default function Login() {
         if (field == "username") {
             logicCheckforUname(e.currentTarget.value)
         } else {
+            setPasswordError('')
             setPassword(e.currentTarget.value)
         }
 
@@ -237,7 +238,7 @@ export default function Login() {
                                         edge="end"
                                         size="12px"
                                     >
-                                        {showPassword ? <VisibilityOffOutlined /> : <VisibilityOutlined />}
+                                        {showPassword ? <VisibilityOutlined /> : <VisibilityOffOutlined />}
                                     </IconButton>
                                 </InputAdornment>
                             }
